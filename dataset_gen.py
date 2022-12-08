@@ -13,10 +13,10 @@ def sine_wave(frequency=440.0, samplerate=88200, t=5000):
     return sinusoid
 
 
-VISUALISE_NORMAL = True
-VISUALISE_ABNORMAL = True
+VISUALISE_NORMAL = False
+VISUALISE_ABNORMAL = False
 
-for frequency in range(440, 4401, 440):
+for frequency in range(440, 8801, 440):
     samplerate = 44100
 
     # Normal wave
@@ -42,8 +42,8 @@ for frequency in range(440, 4401, 440):
         plt.colorbar()
         plt.show()
 
-        os.makedirs("./dataset/normal", exist_ok=True)
-        np.save(f"./dataset/normal/{frequency}", np.array([len(y), y]))
+    os.makedirs("./dataset/normal", exist_ok=True)
+    np.save(f"./dataset/normal/{frequency}", np.array([len(y), y]))
 
     # Abnormal wave
     t = np.linspace(0, 5, int(1000 * 5))
@@ -69,5 +69,5 @@ for frequency in range(440, 4401, 440):
         plt.colorbar()
         plt.show()
 
-        os.makedirs("./dataset/abnormal", exist_ok=True)
-        np.save(f"./dataset/abnormal/{frequency}", np.array([len(y2), y2]))
+    os.makedirs("./dataset/abnormal", exist_ok=True)
+    np.save(f"./dataset/abnormal/{frequency}", np.array([len(y2), y2]))
