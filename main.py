@@ -21,6 +21,15 @@ def dct(dct_filter_num, filter_len):
 
 
 VISUALISE = False
+class_labels = {
+    "normal": 1,
+    "abnormal": -1
+}
+
+inverse_class_labels = {
+    1: "normal",
+    -1: "abnormal"
+}
 
 # Compute dataset
 normal = []
@@ -57,7 +66,7 @@ for data in normal:
 
     mfcc = np.dot(dct_filters, logmelframes)
     X.append((mfcc.mean(), mfcc.std()))
-    Y.append(1)
+    Y.append(class_labels["normal"])
     # mfccAllChannels[i] = mfcc
 
     if VISUALISE:
@@ -73,7 +82,7 @@ for data in abnormal:
 
     mfcc = np.dot(dct_filters, logmelframes)
     X.append((mfcc.mean(), mfcc.std()))
-    Y.append(-1)
+    Y.append(class_labels["abnormal"])
     # mfccAllChannels[i] = mfcc
 
     if VISUALISE:
@@ -87,8 +96,8 @@ for i in X:
 
 # Split into train and test dataset
 randIndices = []
-for i in range(0, int(len(X) / 2)):
-    # any random numbers from 0 to 1000
+random.seed(256)  # use the same seed everytime so we always get the same results
+for i in range(0, int(7 * (len(X) / 10))):  # 70% of the data is used as training data
     randIndices.append(random.randint(0, len(X) - 1))
 
 X_train = []
@@ -103,8 +112,8 @@ Y_test = []
 
 for i in range(0, len(X)):
     if i not in randIndices:
-        X_train.append(X[i])
-        Y_train.append(Y[i])
+        X_test.append(X[i])
+        Y_test.append(Y[i])
 
 # Define model
 config = {
@@ -129,4 +138,16 @@ Y_pv = tf.convert_to_tensor(Y_train[0:svm.config["PVinit"]], dtype=tf.float64)
 # Compute the initial model parameters. Use the inital datapoints as initial prototype vectors
 svm.compute(X_init, Y_init, X_pv, Y_pv)
 
-print()
+# Do a normal step
+svm.normal(tf.convert_to_tensor(X_train), tf.convert_to_tensor(Y_train))
+
+# Do predictions for all test data
+right_number = 0
+for i in range(0, len(X_test)):
+    prediction = svm.predict(tf.convert_to_tensor(X_test[i], dtype=tf.float64))
+    print(f"Right label: {inverse_class_labels[Y_test[i]]}. Predicted label: {inverse_class_labels[prediction]}")
+    if Y_test[i] == prediction:
+        right_number += 1
+
+accuracy = (right_number / len(X_test)) * 100
+print(f"Accuracy for current test set: {accuracy}%")
