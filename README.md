@@ -4,7 +4,7 @@ This is my python implementation of the SR-LSSVM found in the PhD thesis of dr. 
 [[1]](https://kuleuven.limo.libis.be/discovery/fulldisplay?docid=lirias2850184&context=SearchWebhook&vid=32KUL_KUL:Lirias&search_scope=lirias_profile&tab=LIRIAS&adaptor=SearchWebhook&lang=nl)
 to be used in my master thesis.
 
-The current implementation includes the following steps found in chapter 5.4 of dr. Vuegens' thesis:
+The current implementation includes the following steps found in chapter 5.4 of dr. Vuegen's thesis:
 
 * Compute step:
 
