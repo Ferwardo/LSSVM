@@ -1,3 +1,5 @@
+import json
+
 import tensorflow as tf
 
 
@@ -29,6 +31,62 @@ class LSSVM:
             }
         self.config = config
 
+    # I/O functions for the federated learning
+    def get_parameters(self, to_file=False):
+        model = {
+            "beta": {
+                "shape": self.Beta.shape,
+                "value": self.Beta.numpy().tolist()
+            },
+            "omega": {
+                "shape": self.Omega.shape,
+                "value": self.Omega.numpy().tolist()
+            },
+            "omega_inv": {
+                "shape": self.Omega_inv.shape,
+                "value": self.Omega_inv.numpy().tolist()
+            },
+            "p_inv": {
+                "shape": self.P_inv.shape,
+                "value": self.P_inv.numpy().tolist()
+            },
+            "x_pv": {
+                "shape": self.X_pv.shape,
+                "value": self.X_pv.numpy().tolist()
+            },
+            "y_pv": {
+                "shape": self.Y_pv.shape,
+                "value": self.Y_pv.numpy().tolist()
+            },
+            "zeta": {
+                "shape": self.zeta.shape,
+                "value": self.zeta.numpy().tolist()
+            }
+        }
+
+        jsonString = json.dumps(model)
+        if to_file:
+            with open("fl_params.json", "w") as outfile:
+                outfile.write(jsonString)
+
+        return jsonString
+
+    def get_federated_learning_params(self, as_json=False, to_file=False):
+        if not as_json:
+            return self.Beta
+
+        jsonString = json.dumps({"beta": {
+            "shape": self.Beta.numpy().shape,
+            "value": self.Beta.numpy().tolist()
+        }}, indent=2)
+
+        if to_file:
+            with open("fl_params.json", "w") as outfile:
+                outfile.write(jsonString)
+
+        return jsonString
+
+    # Computation steps for the model itself
     def compute(self, X_init, Y_init, X_pv=None, Y_pv=None, C=None):
         """
         Compute the model parameters from scratch
@@ -104,12 +162,17 @@ class LSSVM:
 
             # Compute the cost.
             self.zeta += tf.math.multiply(epsilon, epsilon) / Delta
-            if n < len(self.costs): #Add zeta to the model costs.
+            if n < len(self.costs):  # Add zeta to the model costs.
                 self.costs[n] += self.zeta
             else:
                 self.costs.append(self.zeta)
 
     def predict(self, x):
+        """
+        Predicts the label of the given observation
+        :param x: A single vector with an observation to be classified.
+        :return: The predicted class label
+        """
         sigma = self.__gen_kernel_matrix(tf.reshape(tf.tile(x, [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
                                          self.X_pv, sigma=self.config["sigma"])
         sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
