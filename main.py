@@ -90,9 +90,9 @@ for data in abnormal:
         # plt.colorbar()
         plt.show()
 
-for i in X:
-    y_index = X.index(i)
-    print(f"{Y[y_index]}: {i}")
+# for i in X:
+#     y_index = X.index(i)
+#     print(f"{Y[y_index]}: {i}")
 
 # Split into train and test dataset
 randIndices = []
@@ -151,3 +151,5 @@ for i in range(0, len(X_test)):
 
 accuracy = (right_number / len(X_test)) * 100
 print(f"Accuracy for current test set: {accuracy}%")
+
+print(svm.get_federated_learning_params(as_json=True, to_file=True))
