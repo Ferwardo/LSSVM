@@ -10,7 +10,7 @@ class LSSVM:
         self.Beta = Beta
         self.Omega = Omega
         if self.Omega is not None:
-            self.Omega_inv = tf.linalg.inv(Omega)
+            self.Omega_inv = tf.linalg.pinv(Omega)
         self.P_inv = P_inv
         self.P_inv_prev = P_inv
         self.X_pv = X_pv
@@ -109,7 +109,7 @@ class LSSVM:
 
         # Compute Omega_mm and its inverse
         self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"])
-        self.Omega_inv = tf.linalg.inv(self.Omega)
+        self.Omega_inv = tf.linalg.pinv(self.Omega)
 
         # Compute Omega_tm for the rest of the calculations
         Omega_tm = self.__gen_kernel_matrix(X_init, X_pv, self.config["sigma"])
@@ -118,7 +118,7 @@ class LSSVM:
         if C is None:
             C = self.config["C"]
 
-        self.P_inv = tf.linalg.inv(
+        self.P_inv = tf.linalg.pinv(
             tf.matmul(Omega_tm, Omega_tm, transpose_a=True) + tf.scalar_mul(C, self.Omega))
 
         # Compute Beta with P_inv . Omega_tm' . Y_init

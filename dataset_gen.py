@@ -13,8 +13,8 @@ def sine_wave(frequency=440.0, samplerate=88200, t=5000):
     return sinusoid
 
 
-VISUALISE_NORMAL = False
-VISUALISE_ABNORMAL = False
+VISUALISE_NORMAL = True
+VISUALISE_ABNORMAL = True
 
 #176001
 for frequency in range(440, 8801, 440):
