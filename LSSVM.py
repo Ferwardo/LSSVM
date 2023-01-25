@@ -107,6 +107,7 @@ class LSSVM:
             assert Y_pv is not None, "Either pass the inital Y_pv in the constructor or this function"
             self.Y_pv = Y_pv
 
+        # with tf.device("/gpu:0"):
         # Compute Omega_mm and its inverse
         self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"])
         self.Omega_inv = tf.linalg.pinv(self.Omega)
@@ -135,7 +136,7 @@ class LSSVM:
         :param X: The observations to train on
         :param Y: The corresponding class labels of X
         """
-
+        # with tf.device("/gpu:0"):
         for n in range(self.config["Ninit"], X.shape[0]):
             self.P_inv_prev = self.P_inv
 
