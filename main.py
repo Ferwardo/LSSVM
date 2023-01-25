@@ -48,7 +48,6 @@ def dct(dct_filter_num, filter_len):
     return basis
 
 
-init_gpu(devices="1", v=1)
 MIMII = True
 VISUALISE = False
 class_labels = {
@@ -59,21 +58,6 @@ inverse_class_labels = {
     1: "normal",
     -1: "abnormal"
 }
-
-# Model configuration parameters
-config = {
-    "K": 2,
-    "Ninit": 16,
-    "PVinit": 32,
-    "M": 1500,
-    "C": 10,
-    "sigma": 20,
-    "threshold_type": 'fxd',
-    "threshold_minimum": 0.05,
-}
-
-X_pv_temp = []
-Y_pv_temp = []
 
 if not MIMII:
     # Compute dataset
@@ -162,38 +146,30 @@ if not MIMII:
 else:
     # Compute dataset
     normal = []
-    for file in os.listdir("./dataset/id_00/normal"):
+    for file in os.listdir("../MIMII/dataset/fan/id_00/normal"):
         if file != "mfcc":
-            normal.append(np.load("./dataset/id_00/normal/" + file, allow_pickle=True))
+            normal.append(np.load("../MIMII/dataset/fan/id_00/normal/" + file, allow_pickle=True))
 
     abnormal = []
-    for file in os.listdir("./dataset/id_00/abnormal"):
+    for file in os.listdir("../MIMII/dataset/fan/id_00/abnormal"):
         if file != "mfcc":
-            abnormal.append(np.load("./dataset/id_00/abnormal/" + file, allow_pickle=True))
+            abnormal.append(np.load("../MIMII/dataset/fan/id_00/abnormal/" + file, allow_pickle=True))
 
+    normal = normal[0:len(abnormal)]  # This is so we get as much normal as abnormal samples.
+    # Otherwise the classes are imbalanced
     # Dataset and labels
-    X_normal = []
-    Y_normal = []
-    X_abnormal = []
-    Y_abnormal = []
-    Z_normal = []
-    Z_abnormal = []
+    X = []
+    Y = []
     samplerate = 44100
 
-    counter = 0
     for mfcc in normal:
-        counter += 1
-
+        MeanAndSTD = []
         for channel in range(0, mfcc.shape[0]):
-            means = []
-            stds = []
-            for filter in range(0, mfcc.shape[1]):
-                means.append(mfcc[channel, filter].mean())
-                stds.append(mfcc[channel, filter].std())
-
-            X_normal.append(tuple(means + stds))
-            Y_normal.append(class_labels["normal"])
-            Z_normal.append(counter)
+            MeanAndSTD.append(mfcc[channel].mean())
+            MeanAndSTD.append(mfcc[channel].std())
+        X.append(tuple(MeanAndSTD))
+        Y.append(class_labels["normal"])
+        # mfccAllChannels[i] = mfcc
 
         if VISUALISE:
             for i in range(0, mfcc.shape[0]):
@@ -202,18 +178,13 @@ else:
                 plt.show()
 
     for mfcc in abnormal:
-        counter += 1
-
+        MeanAndSTD = []
         for channel in range(0, mfcc.shape[0]):
-            means = []
-            stds = []
-            for filter in range(0, mfcc.shape[1]):
-                means.append(mfcc[channel, filter].mean())
-                stds.append(mfcc[channel, filter].std())
-
-            X_abnormal.append(tuple(means + stds))
-            Y_abnormal.append(class_labels["abnormal"])
-            Z_abnormal.append(counter)
+            MeanAndSTD.append(mfcc[channel].mean())
+            MeanAndSTD.append(mfcc[channel].std())
+        X.append(tuple(MeanAndSTD))
+        Y.append(class_labels["abnormal"])
+        # mfccAllChannels[i] = mfcc
 
         if VISUALISE:
             for i in range(0, mfcc.shape[0]):
@@ -223,53 +194,24 @@ else:
 
     # Split into train and test dataset
     randIndices = []
-    random.seed(256)  # use the same seed everytime, so we always get the same results
+    random.seed(256)  # use the same seed everytime so we always get the same results
+    for i in range(0, int(7 * (len(X) / 10))):  # 70% of the data is used as training data
+        randIndices.append(random.randint(0, len(X) - 1))
 
     X_train = []
     Y_train = []
+
+    for i in randIndices:
+        X_train.append(X[i])
+        Y_train.append(Y[i])
+
     X_test = []
     Y_test = []
 
-    # For the normal training set
-    for i in range(0, int(7 * (len(set(Z_normal)) / 10))):  # 70% of the data is used as training data
-        randIndices.append(random.randint(0, len(set(Z_normal)) - 1))
-
-    for i in randIndices:
-        indices = [idx for idx, value in enumerate(Z_normal) if value == Z_normal[i]]
-        for j in indices:
-            X_train.append(X_normal[j])
-            Y_train.append(Y_normal[j])
-
-    for i in range(0, len(set(Z_normal))):
+    for i in range(0, len(X)):
         if i not in randIndices:
-            indices = [idx for idx, value in enumerate(Z_normal) if value == Z_normal[i]]
-            for j in indices:
-                X_test.append(X_normal[j])
-                Y_test.append(Y_normal[j])
-
-    X_pv_temp = X_pv_temp + X_train[0:int(config["PVinit"] / 2)]
-    Y_pv_temp = Y_pv_temp + Y_train[0:int(config["PVinit"] / 2)]
-
-    len_x_train_normal = len(X_train)
-    # For the abnormal training set
-    for i in range(0, int(7 * (len(set(Z_abnormal)) / 10))):  # 70% of the data is used as training data
-        randIndices.append(random.randint(0, len(set(Z_abnormal)) - 1))
-
-    for i in randIndices:
-        indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
-        for j in indices:
-            X_train.append(X_abnormal[j])
-            Y_train.append(Y_abnormal[j])
-
-    for i in range(0, len(set(Z_normal))):
-        if i not in randIndices:
-            indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
-            for j in indices:
-                X_test.append(X_abnormal[j])
-                Y_test.append(Y_abnormal[j])
-
-    X_pv_temp = X_pv_temp + X_train[len_x_train_normal:len_x_train_normal + int(config["PVinit"] / 2)]
-    Y_pv_temp = Y_pv_temp + Y_train[len_x_train_normal:len_x_train_normal + int(config["PVinit"] / 2)]
+            X_test.append(X[i])
+            Y_test.append(Y[i])
 
 percentage = (Y_train.count(-1) / (Y_train.count(1) + Y_train.count(-1))) * 100
 print(f"Amount of normal training samples: {Y_train.count(1)}")
@@ -277,14 +219,24 @@ print(f"Amount of abnormal training samples: {Y_train.count(-1)}")
 print(f"Percentage of abnormal samples: {percentage}")
 
 # Define model
+config = {
+    "K": 2,
+    "Ninit": 16,
+    "PVinit": 32,
+    "M": 1500,
+    "C": 10,
+    "sigma": 20,
+    "threshold_type": 'fxd',
+    "threshold_minimum": 0.05,
+}
 svm = LSSVM(config=config)
 
 # Get the inital datapoints and prototypes
 X_init = tf.convert_to_tensor(X_train[0:svm.config["Ninit"]])
 Y_init = tf.convert_to_tensor(Y_train[0:svm.config["Ninit"]], dtype=tf.float64)
 
-X_pv = tf.convert_to_tensor(X_pv_temp)
-Y_pv = tf.convert_to_tensor(Y_pv_temp, dtype=tf.float64)
+X_pv = tf.convert_to_tensor(X_train[0:svm.config["PVinit"]])
+Y_pv = tf.convert_to_tensor(Y_train[0:svm.config["PVinit"]], dtype=tf.float64)
 
 # Compute the initial model parameters. Use the inital datapoints as configured in "Ninit"
 # and the initial prototype vectors as configured by "PVinit" the same datapoints can be used for both
