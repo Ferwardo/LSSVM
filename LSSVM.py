@@ -145,10 +145,9 @@ class LSSVM:
             x = tf.reshape(tf.tile(X[n, :], [self.X_pv.shape[0]]), (self.X_pv.shape[0], X.shape[1]))
             sigma = self.__gen_kernel_matrix(x, self.X_pv, sigma=self.config["sigma"])
 
-            # The valus of sigma are repeated the same amount as there are prototype vector, take only the first one and
-            # make a 1D Tensor (read vector) out of it.
+            # The values of sigma are repeated the same amount as there are prototype vector, take only the first one
+            # and make a 1D Tensor (read vector) out of it.
             sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
-            sigma_cache[x.ref()] = sigma
 
             epsilon = Y.numpy()[n] - tf.linalg.matmul(sigma, self.Beta, transpose_a=True)  # y_t-sigma^T(x_t).Beta
             Delta = 1 + tf.matmul(sigma, tf.matmul(self.P_inv,
@@ -178,6 +177,7 @@ class LSSVM:
         sigma = self.__gen_kernel_matrix(tf.reshape(tf.tile(x, [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
                                          self.X_pv, sigma=self.config["sigma"])
         sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
+
         temp = tf.linalg.matmul(self.Beta, sigma, transpose_a=True)
 
         return tf.math.sign(tf.linalg.matmul(self.Beta, sigma, transpose_a=True)).numpy()[0][0]
@@ -191,7 +191,6 @@ class LSSVM:
         :param sigma: The kernel bandwidth
         :return: The N times N_t kernel matrix.
         """
-        sigma_cache = {}
 
         size_x = X.shape
         size_x_t = X_t.shape
@@ -199,17 +198,28 @@ class LSSVM:
 
         assert size_x[1] == size_x_t[1], "The matrices do not have the right size."
 
-        X_t = X_t + 1
+        # X_t = X_t + 1
 
         for n in range(0, size_x[0]):
             for nt in range(0, size_x_t[0]):
-                # temp = X - X_t[nt, :]
-                # temp2 = tf.norm(temp, axis=1) ** 2
                 # Original version.
                 # Compute the kernel value with the following formula: kerval=||X(n,:)-X_t(nt,:)||²
                 kerval = tf.norm(X[n, :] - X_t[nt, :]) ** 2
 
                 # Compute the current row for Omega
                 Omega[n, nt].assign(tf.exp(-kerval / sigma))
+
+        # # New, hopefully more efficient version
+        # # Calculates the Gaussian kernel
+        # X = tf.expand_dims(X, 2)
+        # X_tens = tf.tile(X, [1, 1, size_x_t[0]])
+        # 
+        # X_t = tf.expand_dims(X_t, 2)
+        # X_t = tf.reshape(X_t, (1, size_x_t[1], size_x_t[0]))
+        # X_t_tens = tf.tile(X_t, [size_x[0], 1, 1])
+        #
+        # Kerval = tf.cast(tf.norm(X_tens - X_t_tens, axis=1) ** 2, tf.float64)
+        #
+        # Omega.assign(tf.exp(-Kerval / sigma))
 
         return Omega
