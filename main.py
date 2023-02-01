@@ -201,7 +201,13 @@ else:
                 # plt.colorbar()
                 plt.show()
 
+    abnormal_rate = 2
+    index = -1
     for mfcc in abnormal:
+        index += 1
+        if index % abnormal_rate != 0:
+            continue
+
         counter += 1
 
         for channel in range(0, mfcc.shape[0]):
@@ -252,10 +258,12 @@ else:
 
     len_x_train_normal = len(X_train)
     # For the abnormal training set
+    randIndices = []
     for i in range(0, int(7 * (len(set(Z_abnormal)) / 10))):  # 70% of the data is used as training data
         randIndices.append(random.randint(0, len(set(Z_abnormal)) - 1))
 
     for i in randIndices:
+        # if i <= len(set(Z_abnormal)):
         indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
         for j in indices:
             X_train.append(X_abnormal[j])
@@ -263,6 +271,8 @@ else:
 
     for i in range(0, len(set(Z_normal))):
         if i not in randIndices:
+            # and i <= len(set(Z_abnormal)):
+
             indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
             for j in indices:
                 X_test.append(X_abnormal[j])
@@ -275,6 +285,8 @@ percentage = (Y_train.count(-1) / (Y_train.count(1) + Y_train.count(-1))) * 100
 print(f"Amount of normal training samples: {Y_train.count(1)}")
 print(f"Amount of abnormal training samples: {Y_train.count(-1)}")
 print(f"Percentage of abnormal samples: {percentage}")
+
+config["sigma"] = 2 * np.array(X_train).std()  # calculate the right kernel bandwidth.
 
 # Define model
 svm = LSSVM(config=config)
