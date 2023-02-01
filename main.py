@@ -256,7 +256,8 @@ else:
     X_pv_temp = X_pv_temp + X_train[0:int(config["PVinit"] / 2)]
     Y_pv_temp = Y_pv_temp + Y_train[0:int(config["PVinit"] / 2)]
 
-    len_x_train_normal = len(X_train)
+    # len_x_train_normal = len(X_train)
+
     # For the abnormal training set
     randIndices = []
     for i in range(0, int(7 * (len(set(Z_abnormal)) / 10))):  # 70% of the data is used as training data
@@ -266,6 +267,8 @@ else:
         # if i <= len(set(Z_abnormal)):
         indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
         for j in indices:
+            # X_train = [X_abnormal[j]] + X_train
+            # Y_train = [Y_abnormal[j]] + Y_train
             X_train.append(X_abnormal[j])
             Y_train.append(Y_abnormal[j])
 
@@ -278,8 +281,9 @@ else:
                 X_test.append(X_abnormal[j])
                 Y_test.append(Y_abnormal[j])
 
-    X_pv_temp = X_pv_temp + X_train[len_x_train_normal:len_x_train_normal + int(config["PVinit"] / 2)]
-    Y_pv_temp = Y_pv_temp + Y_train[len_x_train_normal:len_x_train_normal + int(config["PVinit"] / 2)]
+    first_abnormal_index = Y_train.index(-1)
+    X_pv_temp = X_pv_temp + X_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] / 2))]
+    Y_pv_temp = Y_pv_temp + Y_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] / 2))]
 
 percentage = (Y_train.count(-1) / (Y_train.count(1) + Y_train.count(-1))) * 100
 print(f"Amount of normal training samples: {Y_train.count(1)}")
