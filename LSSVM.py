@@ -1,5 +1,6 @@
 import json
 
+import numpy
 import tensorflow as tf
 
 
@@ -107,12 +108,13 @@ class LSSVM:
             assert Y_pv is not None, "Either pass the inital Y_pv in the constructor or this function"
             self.Y_pv = Y_pv
 
+        # with tf.device("/gpu:0"):
         # Compute Omega_mm and its inverse
-        self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"])
+        self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"], type="rbf")
         self.Omega_inv = tf.linalg.pinv(self.Omega)
 
         # Compute Omega_tm for the rest of the calculations
-        Omega_tm = self.__gen_kernel_matrix(X_init, X_pv, self.config["sigma"])
+        Omega_tm = self.__gen_kernel_matrix(X_init, X_pv, self.config["sigma"], type="rbf")
 
         # Compute P_inv with ((Omega_tm'*Omega_tm)+C*Omega_mm)^-1
         if C is None:
@@ -135,17 +137,17 @@ class LSSVM:
         :param X: The observations to train on
         :param Y: The corresponding class labels of X
         """
-
+        # with tf.device("/gpu:0"):
         for n in range(self.config["Ninit"], X.shape[0]):
             self.P_inv_prev = self.P_inv
 
-            # Get the current row and make a matrix out of it so it can do the calculation of the kernel later
-            # for all the prototype vectors
+            # Get the current row and make a matrix out of it, so it can do the calculation of the kernel later
+            # for all the prototype vectors. Caching sigma does not help for computation.
             x = tf.reshape(tf.tile(X[n, :], [self.X_pv.shape[0]]), (self.X_pv.shape[0], X.shape[1]))
-            sigma = self.__gen_kernel_matrix(x, self.X_pv, sigma=self.config["sigma"])
+            sigma = self.__gen_kernel_matrix(x, self.X_pv, sigma=self.config["sigma"], type="rbf")
 
-            # The valus of sigma are repeated the same amount as there are prototype vector, take only the first one and
-            # make a 1D Tensor (read vector) out of it.
+            # The values of sigma are repeated the same amount as there are prototype vector, take only the first one
+            # and make a 1D Tensor (read vector) out of it.
             sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
 
             epsilon = Y.numpy()[n] - tf.linalg.matmul(sigma, self.Beta, transpose_a=True)  # y_t-sigma^T(x_t).Beta
@@ -173,20 +175,23 @@ class LSSVM:
         :param x: A single vector with an observation to be classified.
         :return: The predicted class label
         """
-        sigma = self.__gen_kernel_matrix(tf.reshape(tf.tile(x, [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
-                                         self.X_pv, sigma=self.config["sigma"])
+        sigma = self.__gen_kernel_matrix(
+            tf.reshape(tf.tile(x, [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
+            self.X_pv, sigma=self.config["sigma"])
         sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
+
         temp = tf.linalg.matmul(self.Beta, sigma, transpose_a=True)
 
         return tf.math.sign(tf.linalg.matmul(self.Beta, sigma, transpose_a=True)).numpy()[0][0]
 
     # Private helper functions
-    def __gen_kernel_matrix(self, X, X_t, sigma):
+    def __gen_kernel_matrix(self, X, X_t, sigma, type="rbf"):  # the tf.function only made it worse
         """
         Computes the RBF kernel matrix between X and Xt given kernel bandwidth sigma
         :param X: An N times D data matrix
         :param X_t: An N_t times D data matrix
-        :param sigma: The kernel bandwidth
+        :param sigma: The kernel bandwidth,
+        :param type: The type of kernel used, standard the rbf kernel. Also, available is the linear (lin)
         :return: The N times N_t kernel matrix.
         """
 
@@ -196,12 +201,45 @@ class LSSVM:
 
         assert size_x[1] == size_x_t[1], "The matrices do not have the right size."
 
-        for n in range(0, size_x[0]):
-            for nt in range(0, size_x_t[0]):
-                # Compute the kernel value with the following formula: kerval=||X(n,:)-X_t(nt,:)||²
-                kerval = tf.norm(X[n, :] - X_t[nt, :]) ** 2
+        # X_t = X_t + 1
 
-                # Compute the current row for Omega
-                Omega[n, nt].assign(tf.exp(-kerval / sigma))
+        # if type.lower() == "rbf":
+        #     for n in range(0, size_x[0]):
+        #         for nt in range(0, size_x_t[0]):
+        #             # Original version.
+        #             # Compute the kernel value with the following formula: kerval=||X(n,:)-X_t(nt,:)||²
+        #             kerval = tf.norm(X[n, :] - X_t[nt, :]) ** 2
+        #
+        #             # Compute the current row for Omega
+        #             Omega[n, nt].assign(tf.exp(-kerval / sigma))
+
+        # # New, hopefully more efficient version --> currently does not work, need to look at it
+        # # Calculates the RBF kernel
+        #
+        # if type.lower() == "rbf":
+        #     X = tf.expand_dims(X, 2)
+        #     X_tens = tf.tile(X, [1, 1, size_x_t[0]])
+        #
+        #     X_t = tf.expand_dims(X_t, 2)
+        #     X_t = tf.reshape(X_t, (1, size_x_t[1], size_x_t[0]))
+        #     X_t_tens = tf.tile(X_t, [size_x[0], 1, 1])
+        #
+        #     Kerval = tf.cast(tf.norm(X_tens - X_t_tens, axis=1) ** 2, tf.float64)
+        #
+        #     Omega.assign(tf.exp(-Kerval / sigma))
+
+        # Newest version
+        # Calculates the RBF kernel using exp(-||X(n,:)-X_t(nt,:)||^2/sigma) for each value in Omega.
+        if type.lower() == "rbf":
+            for nt in range(0, size_x_t[0]):
+                # temp = tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]]))
+                Kerval = tf.norm(X - tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]])), axis=1) ** 2
+
+                # temp = tf.exp(-Kerval / sigma)
+                Omega[:, nt].assign(tf.exp(-Kerval / sigma))
+
+        elif type.lower() == "lin":
+            for n in range(0, size_x[0]):
+                Omega[n, :].assign(tf.matmul(tf.reshape(X[n, :], (1, size_x[1])), X_t, transpose_b=True))
 
         return Omega
