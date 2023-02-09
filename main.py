@@ -63,8 +63,8 @@ inverse_class_labels = {
 # Model configuration parameters
 config = {
     "K": 2,
-    "Ninit": 16,
-    "PVinit": 32,
+    "Ninit": 4,
+    "PVinit": 16,
     "M": 1500,
     "C": 10,
     "sigma": 20,
@@ -201,11 +201,11 @@ else:
                 # plt.colorbar()
                 plt.show()
 
-    abnormal_rate = 2
+    abnormal_rate = 1
     index = -1
     for mfcc in abnormal:
         index += 1
-        if index % abnormal_rate != 0:
+        if index % abnormal_rate != 0 and abnormal_rate != 1:
             continue
 
         counter += 1
@@ -253,8 +253,8 @@ else:
                 X_test.append(X_normal[j])
                 Y_test.append(Y_normal[j])
 
-    X_pv_temp = X_pv_temp + X_train[0:int(config["PVinit"] / 2)]
-    Y_pv_temp = Y_pv_temp + Y_train[0:int(config["PVinit"] / 2)]
+    X_pv_temp = X_pv_temp + X_train[0:int(config["PVinit"] * 4)]  # get each channel for the first PVinit / 2 samples
+    Y_pv_temp = Y_pv_temp + Y_train[0:int(config["PVinit"] * 4)]
 
     # len_x_train_normal = len(X_train)
 
@@ -282,8 +282,8 @@ else:
                 Y_test.append(Y_abnormal[j])
 
     first_abnormal_index = Y_train.index(-1)
-    X_pv_temp = X_pv_temp + X_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] / 2))]
-    Y_pv_temp = Y_pv_temp + Y_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] / 2))]
+    X_pv_temp = X_pv_temp + X_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] * 4))]
+    Y_pv_temp = Y_pv_temp + Y_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] * 4))]
 
 percentage = (Y_train.count(-1) / (Y_train.count(1) + Y_train.count(-1))) * 100
 print(f"Amount of normal training samples: {Y_train.count(1)}")
@@ -296,8 +296,9 @@ config["sigma"] = 2 * np.array(X_train).std()  # calculate the right kernel band
 svm = LSSVM(config=config)
 
 # Get the inital datapoints and prototypes
-X_init = tf.convert_to_tensor(X_train[0:svm.config["Ninit"]])
-Y_init = tf.convert_to_tensor(Y_train[0:svm.config["Ninit"]], dtype=tf.float64)
+X_init = tf.convert_to_tensor(X_train[0:svm.config["Ninit"] * 4] + X_train[-svm.config["Ninit"] * 4:])
+Y_init = tf.convert_to_tensor(Y_train[0:svm.config["Ninit"] * 4] + Y_train[-svm.config["Ninit"] * 4:],
+                              dtype=tf.float64)
 
 X_pv = tf.convert_to_tensor(X_pv_temp)
 Y_pv = tf.convert_to_tensor(Y_pv_temp, dtype=tf.float64)
@@ -310,20 +311,37 @@ svm.compute(X_init, Y_init, X_pv, Y_pv)
 svm.normal(tf.convert_to_tensor(X_train), tf.convert_to_tensor(Y_train))
 
 # Do predictions for all test data
-print(f"Testing the svm with {svm.config['PVinit']} prototype vectors")
+print(f"Testing the svm with {svm.config['PVinit']} prototype vectors for each channel.")
 print("================================================")
 
+# variables for metrics calculated later
 right_number = 0
+true_positives = 0
+false_positives = 0
+false_negatives = 0
+
 for i in range(0, len(X_test)):
     prediction = svm.predict(tf.convert_to_tensor(X_test[i], dtype=tf.float64))
     print(f"Right label: {inverse_class_labels[Y_test[i]]}. Predicted label: {inverse_class_labels[prediction]}")
     if Y_test[i] == prediction:
         right_number += 1
+        if Y_test[i] == 1:
+            true_positives += 1
+    elif prediction == 1:
+        false_positives += 1
+    elif prediction == -1:
+        false_negatives += 1
 
 accuracy = (right_number / len(X_test)) * 100
+precision = true_positives / (true_positives + false_positives)
+recall = true_positives / (true_positives + false_negatives)
+f1_score = 2 * (precision * recall) / (precision + recall)
 
 print("================================================")
-print(f"Accuracy for current test set: {accuracy}%\n")
+print(f"Accuracy for current test set: {str(round(accuracy, 2))}%")
+print(f"Precision for current test set: {str(round(precision, 4))}")
+print(f"Recall for current test set: {str(round(recall, 4))}")
+print(f"F1 score for current test set: {str(round(f1_score, 4))}")
 
 # print("Get the parameters for the federated learning")
 svm.get_federated_learning_params(as_json=True, to_file=True)
