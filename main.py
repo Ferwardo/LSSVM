@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from FE_funcs.feat_extract import FE
 from LSSVM import LSSVM
+from sklearn.metrics import f1_score, roc_auc_score
 
 
 def init_gpu(devices="", v=2):
@@ -319,9 +320,11 @@ right_number = 0
 true_positives = 0
 false_positives = 0
 false_negatives = 0
+Y_pred = []
 
 for i in range(0, len(X_test)):
     prediction = svm.predict(tf.convert_to_tensor(X_test[i], dtype=tf.float64))
+    Y_pred.append(prediction)
     print(f"Right label: {inverse_class_labels[Y_test[i]]}. Predicted label: {inverse_class_labels[prediction]}")
     if Y_test[i] == prediction:
         right_number += 1
@@ -335,13 +338,16 @@ for i in range(0, len(X_test)):
 accuracy = (right_number / len(X_test)) * 100
 precision = true_positives / (true_positives + false_positives)
 recall = true_positives / (true_positives + false_negatives)
-f1_score = 2 * (precision * recall) / (precision + recall)
+# f1_score = 2 * (precision * recall) / (precision + recall)
+f1_score = f1_score(Y_test, Y_pred)
+auc = roc_auc_score(Y_test, Y_pred)
 
 print("================================================")
 print(f"Accuracy for current test set: {str(round(accuracy, 2))}%")
 print(f"Precision for current test set: {str(round(precision, 4))}")
 print(f"Recall for current test set: {str(round(recall, 4))}")
 print(f"F1 score for current test set: {str(round(f1_score, 4))}")
+print(f"AUC for current test set: {str(round(auc, 4))}")
 
 # print("Get the parameters for the federated learning")
 svm.get_federated_learning_params(as_json=True, to_file=True)
