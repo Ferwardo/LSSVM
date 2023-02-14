@@ -50,7 +50,6 @@ def dct(dct_filter_num, filter_len):
 
 
 init_gpu(devices="1", v=1)
-MIMII = True
 VISUALISE = False
 class_labels = {
     "normal": 1,
@@ -76,215 +75,140 @@ config = {
 X_pv_temp = []
 Y_pv_temp = []
 
-if not MIMII:
-    # Compute dataset
-    normal = []
-    for file in os.listdir("./dataset/normal"):
-        normal.append(np.load("./dataset/normal/" + file, allow_pickle=True))
+# Compute dataset
+normal = []
+for file in os.listdir("./dataset/id_00/normal"):
+    if file != "mfcc":
+        normal.append(np.load("./dataset/id_00/normal/" + file, allow_pickle=True))
 
-    abnormal = []
-    for file in os.listdir("./dataset/abnormal"):
-        abnormal.append(np.load("./dataset/abnormal/" + file, allow_pickle=True))
+abnormal = []
+for file in os.listdir("./dataset/id_00/abnormal"):
+    if file != "mfcc":
+        abnormal.append(np.load("./dataset/id_00/abnormal/" + file, allow_pickle=True))
 
-    # Dataset and labels
-    X = []
-    Y = []
-    samplerate = 44100
+# Dataset and labels
+X_normal = []
+Y_normal = []
+X_abnormal = []
+Y_abnormal = []
+Z_normal = []
+Z_abnormal = []
+samplerate = 44100
 
-    # Define feature extraction parameters
-    featconf = {}
-    featconf['dcRemoval'] = 'hpf'
-    featconf['samFreq'] = samplerate
-    featconf['lowFreq'] = 0
-    featconf['highFreq'] = featconf['samFreq'] / 2
-    featconf['stepSize_ms'] = 10
-    featconf['frameSize_ms'] = 32
-    featconf['melSize'] = 64
+counter = 0
+for mfcc in normal:
+    counter += 1
 
-    featextract = FE(featconf)
+    for channel in range(0, mfcc.shape[0]):
+        means = []
+        stds = []
+        for filter in range(0, mfcc.shape[1]):
+            means.append(mfcc[channel, filter].mean())
+            stds.append(mfcc[channel, filter].std())
 
-    normal_temp = []
-    for data in normal:
-        # for i in range(0, len(data[1])):
-        logmelframes = featextract.fe_transform(data[1])
+        X_normal.append(tuple(means + stds))
+        Y_normal.append(class_labels["normal"])
+        Z_normal.append(counter)
 
-        dct_filters = dct(20, int(np.floor(((data[0] - (featconf['frameSize'] - 1) - 1) / featconf['stepSize']) + 1)))
-
-        mfcc = np.dot(dct_filters, logmelframes)
-        X.append((mfcc.mean(), mfcc.std()))
-        Y.append(class_labels["normal"])
-        # mfccAllChannels[i] = mfcc
-
-        if VISUALISE:
-            plt.imshow(mfcc, interpolation="nearest", origin="lower", aspect="auto")
+    if VISUALISE:
+        for i in range(0, mfcc.shape[0]):
+            plt.imshow(mfcc[i], interpolation="nearest", origin="lower", aspect="auto")
             # plt.colorbar()
             plt.show()
 
-    for data in abnormal:
-        # for i in range(0, len(data[1])):
-        logmelframes = featextract.fe_transform(data[1])
+abnormal_rate = 1
+index = -1
+for mfcc in abnormal:
+    index += 1
+    if index % abnormal_rate != 0 and abnormal_rate != 1:
+        continue
 
-        dct_filters = dct(20, int(np.floor(((data[0] - (featconf['frameSize'] - 1) - 1) / featconf['stepSize']) + 1)))
+    counter += 1
 
-        mfcc = np.dot(dct_filters, logmelframes)
-        X.append((mfcc.mean(), mfcc.std()))
-        Y.append(class_labels["abnormal"])
-        # mfccAllChannels[i] = mfcc
+    for channel in range(0, mfcc.shape[0]):
+        means = []
+        stds = []
+        for filter in range(0, mfcc.shape[1]):
+            means.append(mfcc[channel, filter].mean())
+            stds.append(mfcc[channel, filter].std())
 
-        if VISUALISE:
-            plt.imshow(mfcc, interpolation="nearest", origin="lower", aspect="auto")
+        X_abnormal.append(tuple(means + stds))
+        Y_abnormal.append(class_labels["abnormal"])
+        Z_abnormal.append(counter)
+
+    if VISUALISE:
+        for i in range(0, mfcc.shape[0]):
+            plt.imshow(mfcc[i], interpolation="nearest", origin="lower", aspect="auto")
             # plt.colorbar()
             plt.show()
 
-    # for i in X:
-    #     y_index = X.index(i)
-    #     print(f"{Y[y_index]}: {i}")
+# Split into train and test dataset
+randIndices = []
+random.seed(256)  # use the same seed everytime, so we always get the same results
 
-    # Split into train and test dataset
-    randIndices = []
-    random.seed(256)  # use the same seed everytime so we always get the same results
-    for i in range(0, int(7 * (len(X) / 10))):  # 70% of the data is used as training data
-        randIndices.append(random.randint(0, len(X) - 1))
+X_train = []
+Y_train = []
+X_test = []
+Y_test = []
 
-    X_train = []
-    Y_train = []
+# For the normal training set
+for i in range(0, int(7 * (len(set(Z_normal)) / 10))):  # 70% of the data is used as training data
+    randIndices.append(random.randint(0, len(set(Z_normal)) - 1))
 
-    for i in randIndices:
-        X_train.append(X[i])
-        Y_train.append(Y[i])
+indices = []
+for i in randIndices:
+    if i in indices:
+        continue
+    indices = [idx for idx, value in enumerate(Z_normal) if value == Z_normal[i]]
+    for j in indices:
+        X_train.append(X_normal[j])
+        Y_train.append(Y_normal[j])
 
-    X_test = []
-    Y_test = []
-
-    for i in range(0, len(X)):
-        if i not in randIndices:
-            X_test.append(X[i])
-            Y_test.append(Y[i])
-else:
-    # Compute dataset
-    normal = []
-    for file in os.listdir("./dataset/id_00/normal"):
-        if file != "mfcc":
-            normal.append(np.load("./dataset/id_00/normal/" + file, allow_pickle=True))
-
-    abnormal = []
-    for file in os.listdir("./dataset/id_00/abnormal"):
-        if file != "mfcc":
-            abnormal.append(np.load("./dataset/id_00/abnormal/" + file, allow_pickle=True))
-
-    # Dataset and labels
-    X_normal = []
-    Y_normal = []
-    X_abnormal = []
-    Y_abnormal = []
-    Z_normal = []
-    Z_abnormal = []
-    samplerate = 44100
-
-    counter = 0
-    for mfcc in normal:
-        counter += 1
-
-        for channel in range(0, mfcc.shape[0]):
-            means = []
-            stds = []
-            for filter in range(0, mfcc.shape[1]):
-                means.append(mfcc[channel, filter].mean())
-                stds.append(mfcc[channel, filter].std())
-
-            X_normal.append(tuple(means + stds))
-            Y_normal.append(class_labels["normal"])
-            Z_normal.append(counter)
-
-        if VISUALISE:
-            for i in range(0, mfcc.shape[0]):
-                plt.imshow(mfcc[i], interpolation="nearest", origin="lower", aspect="auto")
-                # plt.colorbar()
-                plt.show()
-
-    abnormal_rate = 1
-    index = -1
-    for mfcc in abnormal:
-        index += 1
-        if index % abnormal_rate != 0 and abnormal_rate != 1:
-            continue
-
-        counter += 1
-
-        for channel in range(0, mfcc.shape[0]):
-            means = []
-            stds = []
-            for filter in range(0, mfcc.shape[1]):
-                means.append(mfcc[channel, filter].mean())
-                stds.append(mfcc[channel, filter].std())
-
-            X_abnormal.append(tuple(means + stds))
-            Y_abnormal.append(class_labels["abnormal"])
-            Z_abnormal.append(counter)
-
-        if VISUALISE:
-            for i in range(0, mfcc.shape[0]):
-                plt.imshow(mfcc[i], interpolation="nearest", origin="lower", aspect="auto")
-                # plt.colorbar()
-                plt.show()
-
-    # Split into train and test dataset
-    randIndices = []
-    random.seed(256)  # use the same seed everytime, so we always get the same results
-
-    X_train = []
-    Y_train = []
-    X_test = []
-    Y_test = []
-
-    # For the normal training set
-    for i in range(0, int(7 * (len(set(Z_normal)) / 10))):  # 70% of the data is used as training data
-        randIndices.append(random.randint(0, len(set(Z_normal)) - 1))
-
-    for i in randIndices:
+indices = []
+for i in range(0, len(set(Z_normal))):
+    if i in indices:
+        continue
+    if i not in randIndices:
         indices = [idx for idx, value in enumerate(Z_normal) if value == Z_normal[i]]
         for j in indices:
-            X_train.append(X_normal[j])
-            Y_train.append(Y_normal[j])
+            X_test.append(X_normal[j])
+            Y_test.append(Y_normal[j])
 
-    for i in range(0, len(set(Z_normal))):
-        if i not in randIndices:
-            indices = [idx for idx, value in enumerate(Z_normal) if value == Z_normal[i]]
-            for j in indices:
-                X_test.append(X_normal[j])
-                Y_test.append(Y_normal[j])
+# len_x_train_normal = len(X_train)
 
-    X_pv_temp = X_pv_temp + X_train[0:int(config["PVinit"] * 4)]  # get each channel for the first PVinit / 2 samples
-    Y_pv_temp = Y_pv_temp + Y_train[0:int(config["PVinit"] * 4)]
+# For the abnormal training set
+randIndices = []
+for i in range(0, int(7 * (len(set(Z_abnormal)) / 10))):  # 70% of the data is used as training data
+    randIndices.append(random.randint(0, len(set(Z_abnormal)) - 1))
 
-    # len_x_train_normal = len(X_train)
+indices = []
+for i in randIndices:
+    if i in indices:
+        continue
+    # if i <= len(set(Z_abnormal)):
+    indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
+    for j in indices:
+        # X_train = [X_abnormal[j]] + X_train
+        # Y_train = [Y_abnormal[j]] + Y_train
+        X_train.append(X_abnormal[j])
+        Y_train.append(Y_abnormal[j])
 
-    # For the abnormal training set
-    randIndices = []
-    for i in range(0, int(7 * (len(set(Z_abnormal)) / 10))):  # 70% of the data is used as training data
-        randIndices.append(random.randint(0, len(set(Z_abnormal)) - 1))
+indices = []
+for i in range(0, len(set(Z_abnormal))):
+    if i in indices:
+        continue
 
-    for i in randIndices:
-        # if i <= len(set(Z_abnormal)):
+    if i not in randIndices:
+        # and i <= len(set(Z_abnormal)):
+
         indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
         for j in indices:
-            # X_train = [X_abnormal[j]] + X_train
-            # Y_train = [Y_abnormal[j]] + Y_train
-            X_train.append(X_abnormal[j])
-            Y_train.append(Y_abnormal[j])
+            X_test.append(X_abnormal[j])
+            Y_test.append(Y_abnormal[j])
 
-    for i in range(0, len(set(Z_normal))):
-        if i not in randIndices:
-            # and i <= len(set(Z_abnormal)):
-
-            indices = [idx for idx, value in enumerate(Z_abnormal) if value == Z_abnormal[i]]
-            for j in indices:
-                X_test.append(X_abnormal[j])
-                Y_test.append(Y_abnormal[j])
-
-    first_abnormal_index = Y_train.index(-1)
-    X_pv_temp = X_pv_temp + X_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] * 4))]
-    Y_pv_temp = Y_pv_temp + Y_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] * 4))]
+first_abnormal_index = Y_train.index(-1)
+X_pv_temp = X_pv_temp + X_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] * 4))]
+Y_pv_temp = Y_pv_temp + Y_train[first_abnormal_index:(first_abnormal_index + int(config["PVinit"] * 4))]
 
 percentage = (Y_train.count(-1) / (Y_train.count(1) + Y_train.count(-1))) * 100
 print(f"Amount of normal training samples: {Y_train.count(1)}")
