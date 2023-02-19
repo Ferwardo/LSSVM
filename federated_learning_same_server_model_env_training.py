@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from FE_funcs.feat_extract import FE
 from LSSVM import LSSVM
+from sklearn.metrics import f1_score, roc_auc_score
 
 
 # from sklearn.metrics import f1_score, roc_auc_score
@@ -265,11 +266,67 @@ for device_type in device_types:
 
 # Compute the initial model parameters. Use the inital datapoints as configured in "Ninit"
 # and the initial prototype vectors as configured by "PVinit" the same datapoints can be used for both
+X_init = tf.convert_to_tensor(X_init)
+Y_init = tf.convert_to_tensor(Y_init, dtype=tf.float64)
+
 server_model.compute(X_init, Y_init, X_pv, Y_pv)
 
-# Do a normal step for each device type
+results = {}
+
+# Do a normal step for each device type with the server model
 for device_type in device_types:
     server_model.normal(tf.convert_to_tensor(X_train_all[device_type]), tf.convert_to_tensor(Y_train_all[device_type]))
 
+# Evaluate for each device type with the server model
+for device_type in device_types:
+    # variables for metrics calculated later
+    right_number = 0
+    true_positives = 0
+    false_positives = 0
+    false_negatives = 0
+    Y_pred = []
+    Y_pred_fx = []
+
+    for i in range(0, len(X_test_all[device_type])):
+        prediction, score = server_model.predict(tf.convert_to_tensor(X_test_all[device_type][i], dtype=tf.float64))
+        Y_pred.append(prediction)
+        Y_pred_fx.append(score)
+        # print(
+        # f"Right label: {inverse_class_labels[Y_test_all[device_type][i]]}. Predicted label: {inverse_class_labels[prediction]}")
+        if Y_test_all[device_type][i] == prediction:
+            right_number += 1
+            if Y_test_all[device_type][i] == 1:
+                true_positives += 1
+        elif prediction == 1:
+            false_positives += 1
+        elif prediction == -1:
+            false_negatives += 1
+
+    Y_pred_fx = tf.convert_to_tensor(Y_pred_fx)
+    Y_score = 1 / (1 + tf.math.exp(Y_pred_fx))
+    Y_score = tf.squeeze(Y_score)
+
+    results["server"][device_type]["accuracy"] = (right_number / len(X_test_all[device_type])) * 100
+    results["server"][device_type]["precision"] = true_positives / (true_positives + false_positives)
+    results["server"][device_type]["recall"] = true_positives / (true_positives + false_negatives)
+    # f1_score = 2 * (precision * recall) / (precision + recall)
+    results["server"][device_type]["f1_score"] = f1_score(Y_test_all[device_type], Y_pred)
+    results["server"][device_type]["auc"] = roc_auc_score(Y_test_all[device_type], Y_score)
+
+Beta_server = server_model.get_parameters(to_file=False)
+Beta_envs = {}
+
 # Dataset generation and training on each of the three environments
+for i in ["2", "4", "6"]:
+    X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(i)
+
+    env_model = LSSVM(Beta=Beta_server, config=config)
+
+    # Do a normal step for each device type with the server model
+    for device_type in device_types:
+        server_model.normal(tf.convert_to_tensor(X_train_all[device_type]),
+                            tf.convert_to_tensor(Y_train_all[device_type]))
+
+    Beta_envs[i] = env_model.Beta
+
 print("")

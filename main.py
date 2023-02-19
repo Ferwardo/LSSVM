@@ -236,8 +236,6 @@ svm.compute(X_init, Y_init, X_pv, Y_pv)
 svm.normal(tf.convert_to_tensor(X_train), tf.convert_to_tensor(Y_train))
 
 # Do predictions for all test data
-print(f"Testing the svm with {svm.config['PVinit']} prototype vectors for each channel.")
-print("================================================")
 
 # variables for metrics calculated later
 right_number = 0
@@ -245,11 +243,13 @@ true_positives = 0
 false_positives = 0
 false_negatives = 0
 Y_pred = []
+Y_pred_fx = []
 
 for i in range(0, len(X_test)):
-    prediction = svm.predict(tf.convert_to_tensor(X_test[i], dtype=tf.float64))
+    prediction, score = svm.predict(tf.convert_to_tensor(X_test[i], dtype=tf.float64))
     Y_pred.append(prediction)
-    print(f"Right label: {inverse_class_labels[Y_test[i]]}. Predicted label: {inverse_class_labels[prediction]}")
+    Y_pred_fx.append(score)
+    # print(f"Right label: {inverse_class_labels[Y_test[i]]}. Predicted label: {inverse_class_labels[prediction]}")
     if Y_test[i] == prediction:
         right_number += 1
         if Y_test[i] == 1:
@@ -259,13 +259,18 @@ for i in range(0, len(X_test)):
     elif prediction == -1:
         false_negatives += 1
 
+Y_pred_fx = tf.convert_to_tensor(Y_pred_fx)
+Y_score = 1 / (1 + tf.math.exp(Y_pred_fx))
+Y_score = tf.squeeze(Y_score).numpy().tolist()
+
 accuracy = (right_number / len(X_test)) * 100
 precision = true_positives / (true_positives + false_positives)
 recall = true_positives / (true_positives + false_negatives)
 # f1_score = 2 * (precision * recall) / (precision + recall)
 f1_score = f1_score(Y_test, Y_pred)
-auc = roc_auc_score(Y_test, Y_pred)
+auc = roc_auc_score(Y_test, Y_score)
 
+print(f"Testing the svm with {svm.config['PVinit']} prototype vectors for each channel.")
 print("================================================")
 print(f"Accuracy for current test set: {str(round(accuracy, 2))}%")
 print(f"Precision for current test set: {str(round(precision, 4))}")

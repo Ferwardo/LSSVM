@@ -172,7 +172,7 @@ class LSSVM:
         """
         Predicts the label of the given observation
         :param x: A single vector with an observation to be classified.
-        :return: The predicted class label
+        :return: The predicted class label and the whole score
         """
         sigma = self.__gen_kernel_matrix(
             tf.reshape(tf.tile(x, [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
@@ -181,7 +181,7 @@ class LSSVM:
 
         temp = tf.linalg.matmul(self.Beta, sigma, transpose_a=True)
 
-        return tf.math.sign(tf.linalg.matmul(self.Beta, sigma, transpose_a=True)).numpy()[0][0]
+        return tf.math.sign(temp).numpy()[0][0], temp
 
     # Private helper functions
     def __gen_kernel_matrix(self, X, X_t, sigma, type="rbf"):  # the tf.function only made it worse
