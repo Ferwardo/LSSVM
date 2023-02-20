@@ -7,6 +7,7 @@ import tensorflow as tf
 from FE_funcs.feat_extract import FE
 from LSSVM import LSSVM
 from sklearn.metrics import f1_score, roc_auc_score
+from scipy.optimize import curve_fit
 
 
 def init_gpu(devices="", v=2):
@@ -17,8 +18,8 @@ def init_gpu(devices="", v=2):
         gpus = tf.config.list_physical_devices('GPU')
         if gpus:
             try:
-                # tf.config.experimental.set_visible_devices(physical_devices[devices], 'GPU')
-                # gpus = tf.config.experimental.list_physical_devices('GPU')
+                tf.config.set_visible_devices(gpus, 'GPU')
+                gpus = tf.config.list_physical_devices('GPU')
                 for gpu in gpus:
                     tf.config.experimental.set_memory_growth(gpu, True)
             except RuntimeError as e:
@@ -26,7 +27,7 @@ def init_gpu(devices="", v=2):
         from tensorflow.python.framework.ops import disable_eager_execution
         # disable_eager_execution()
     else:  # tf1
-        # os.environ["CUDA_VISIBLE_DEVICES"] = devices
+        os.environ["CUDA_VISIBLE_DEVICES"] = devices
         import tensorflow.keras.backend as K
         import tensorflow as tf
         config = tf.compat.v1.ConfigProto()
@@ -49,7 +50,12 @@ def dct(dct_filter_num, filter_len):
     return basis
 
 
-init_gpu(devices="1", v=1)
+def sigmoid(x, k, b):
+    y = 1 / (1 + np.exp(-k * x)) + b
+    return (y)
+
+
+init_gpu(devices="1", v=2)
 VISUALISE = False
 class_labels = {
     "normal": 1,
@@ -259,16 +265,12 @@ for i in range(0, len(X_test)):
     elif prediction == -1:
         false_negatives += 1
 
-Y_pred_fx = tf.convert_to_tensor(Y_pred_fx)
-Y_score = 1 / (1 + tf.math.exp(Y_pred_fx))
-Y_score = tf.squeeze(Y_score).numpy().tolist()
-
 accuracy = (right_number / len(X_test)) * 100
 precision = true_positives / (true_positives + false_positives)
 recall = true_positives / (true_positives + false_negatives)
 # f1_score = 2 * (precision * recall) / (precision + recall)
 f1_score = f1_score(Y_test, Y_pred)
-auc = roc_auc_score(Y_test, Y_score)
+auc = roc_auc_score(Y_test, Y_pred_fx)
 
 print(f"Testing the svm with {svm.config['PVinit']} prototype vectors for each channel.")
 print("================================================")

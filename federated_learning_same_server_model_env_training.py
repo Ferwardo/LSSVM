@@ -20,8 +20,8 @@ def init_gpu(devices="", v=2):
         gpus = tf.config.list_physical_devices('GPU')
         if gpus:
             try:
-                # tf.config.experimental.set_visible_devices(physical_devices[devices], 'GPU')
-                # gpus = tf.config.experimental.list_physical_devices('GPU')
+                tf.config.set_visible_devices(gpus, 'GPU')
+                gpus = tf.config.list_physical_devices('GPU')
                 for gpu in gpus:
                     tf.config.experimental.set_memory_growth(gpu, True)
             except RuntimeError as e:
@@ -29,7 +29,7 @@ def init_gpu(devices="", v=2):
         from tensorflow.python.framework.ops import disable_eager_execution
         # disable_eager_execution()
     else:  # tf1
-        # os.environ["CUDA_VISIBLE_DEVICES"] = devices
+        os.environ["CUDA_VISIBLE_DEVICES"] = devices
         import tensorflow.keras.backend as K
         import tensorflow as tf
         config = tf.compat.v1.ConfigProto()
@@ -50,6 +50,11 @@ def dct(dct_filter_num, filter_len):
         basis[i, :] = np.cos(i * samples) * np.sqrt(2.0 / filter_len)
 
     return basis
+
+
+def sigmoid(x, k, b):
+    y = 1 / (1 + np.exp(-k * x)) + b
+    return (y)
 
 
 def get_data_set(device_number="0"):
@@ -206,7 +211,7 @@ def get_data_set(device_number="0"):
     return (X_train_all, Y_train_all, X_test_all, Y_test_all)
 
 
-init_gpu(devices="1", v=1)
+init_gpu(devices="1", v=2)
 VISUALISE = False
 class_labels = {
     "normal": 1,
@@ -271,11 +276,17 @@ Y_init = tf.convert_to_tensor(Y_init, dtype=tf.float64)
 
 server_model.compute(X_init, Y_init, X_pv, Y_pv)
 
-results = {}
+results = {"before": {}, "after": {}}
 
 # Do a normal step for each device type with the server model
 for device_type in device_types:
     server_model.normal(tf.convert_to_tensor(X_train_all[device_type]), tf.convert_to_tensor(Y_train_all[device_type]))
+
+accuracy = 0
+precision = 0
+recall = 0
+f1_scores = 0
+auc = 0
 
 # Evaluate for each device type with the server model
 for device_type in device_types:
@@ -302,18 +313,36 @@ for device_type in device_types:
         elif prediction == -1:
             false_negatives += 1
 
-    Y_pred_fx = tf.convert_to_tensor(Y_pred_fx)
-    Y_score = 1 / (1 + tf.math.exp(Y_pred_fx))
-    Y_score = tf.squeeze(Y_score)
+    results["before"].update({
+        device_type: {
+            "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+            "precision": true_positives / (true_positives + false_positives),
+            "recall": true_positives / (true_positives + false_negatives),
+            "f1_score": f1_score(Y_test_all[device_type], Y_pred),
+            "auc": roc_auc_score(Y_test_all[device_type], Y_pred_fx)
+        }
+    })
+    accuracy += results["before"][device_type]["accuracy"]
+    precision += results["before"][device_type]["precision"]
+    recall += results["before"][device_type]["recall"]
+    f1_scores += results["before"][device_type]["f1_score"]
+    auc += results["before"][device_type]["auc"]
 
-    results["server"][device_type]["accuracy"] = (right_number / len(X_test_all[device_type])) * 100
-    results["server"][device_type]["precision"] = true_positives / (true_positives + false_positives)
-    results["server"][device_type]["recall"] = true_positives / (true_positives + false_negatives)
-    # f1_score = 2 * (precision * recall) / (precision + recall)
-    results["server"][device_type]["f1_score"] = f1_score(Y_test_all[device_type], Y_pred)
-    results["server"][device_type]["auc"] = roc_auc_score(Y_test_all[device_type], Y_score)
+accuracy /= len(device_types)
+precision /= len(device_types)
+recall /= len(device_types)
+f1_scores /= len(device_types)
+auc /= len(device_types)
 
-Beta_server = server_model.get_parameters(to_file=False)
+print("Metrics before sending the parameters to the environments")
+print("================================================")
+print(f"Accuracy for server test set: {str(round(accuracy, 2))}%")
+print(f"Precision for server test set: {str(round(precision, 4))}")
+print(f"Recall for server test set: {str(round(recall, 4))}")
+print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
+print(f"AUC for server test set: {str(round(auc, 4))}")
+
+Beta_server = server_model.get_federated_learning_params(as_json=False, to_file=False)
 Beta_envs = {}
 
 # Dataset generation and training on each of the three environments
@@ -328,5 +357,74 @@ for i in ["2", "4", "6"]:
                             tf.convert_to_tensor(Y_train_all[device_type]))
 
     Beta_envs[i] = env_model.Beta
+
+# Aggregate the model parameters. Just take the average of each parameter
+Beta_server_temp = Beta_server
+for device_type in device_types:
+    Beta_server_temp += Beta_envs[device_type]
+Beta_server_new = Beta_server_temp / len(device_types)
+
+# Set new server parameters
+server_model.Beta = Beta_server_new
+
+accuracy_after = 0
+precision_after = 0
+recall_after = 0
+f1_scores_after = 0
+auc_after = 0
+
+# See if the model works better
+for device_type in device_types:
+    # variables for metrics calculated later
+    right_number = 0
+    true_positives = 0
+    false_positives = 0
+    false_negatives = 0
+    Y_pred = []
+    Y_pred_fx = []
+
+    for i in range(0, len(X_test_all[device_type])):
+        prediction, score = server_model.predict(tf.convert_to_tensor(X_test_all[device_type][i], dtype=tf.float64))
+        Y_pred.append(prediction)
+        Y_pred_fx.append(score)
+        # print(
+        # f"Right label: {inverse_class_labels[Y_test_all[device_type][i]]}. Predicted label: {inverse_class_labels[prediction]}")
+        if Y_test_all[device_type][i] == prediction:
+            right_number += 1
+            if Y_test_all[device_type][i] == 1:
+                true_positives += 1
+        elif prediction == 1:
+            false_positives += 1
+        elif prediction == -1:
+            false_negatives += 1
+
+    results["after"].update({
+        device_type: {
+            "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+            "precision": true_positives / (true_positives + false_positives),
+            "recall": true_positives / (true_positives + false_negatives),
+            "f1_score": f1_score(Y_test_all[device_type], Y_pred),
+            "auc": roc_auc_score(Y_test_all[device_type], Y_pred_fx)
+        }
+    })
+    accuracy_after += results["after"][device_type]["accuracy"]
+    precision_after += results["after"][device_type]["precision"]
+    recall_after += results["after"][device_type]["recall"]
+    f1_scores_after += results["after"][device_type]["f1_score"]
+    auc_after += results["after"][device_type]["auc"]
+
+accuracy_after /= len(device_types)
+precision_after /= len(device_types)
+recall_after /= len(device_types)
+f1_scores_after /= len(device_types)
+auc_after /= len(device_types)
+
+print("Metrics after sending the parameters to the environments")
+print("================================================")
+print(f"Accuracy for server test set: {str(round(accuracy, 2))}%")
+print(f"Precision for server test set: {str(round(precision, 4))}")
+print(f"Recall for server test set: {str(round(recall, 4))}")
+print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
+print(f"AUC for server test set: {str(round(auc, 4))}")
 
 print("")
