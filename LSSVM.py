@@ -66,7 +66,7 @@ class LSSVM:
 
         jsonString = json.dumps(model)
         if to_file:
-            with open("fl_params.json", "w") as outfile:
+            with open("params.json", "w") as outfile:
                 outfile.write(jsonString)
 
         return jsonString

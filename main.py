@@ -38,23 +38,6 @@ def init_gpu(devices="", v=2):
     return K
 
 
-def dct(dct_filter_num, filter_len):
-    basis = np.empty((dct_filter_num, filter_len))
-    basis[0, :] = 1.0 / np.sqrt(filter_len)
-
-    samples = np.arange(1, 2 * filter_len, 2) * np.pi / (2.0 * filter_len)
-
-    for i in range(1, dct_filter_num):
-        basis[i, :] = np.cos(i * samples) * np.sqrt(2.0 / filter_len)
-
-    return basis
-
-
-def sigmoid(x, k, b):
-    y = 1 / (1 + np.exp(-k * x)) + b
-    return (y)
-
-
 init_gpu(devices="1", v=2)
 VISUALISE = False
 class_labels = {
@@ -265,12 +248,13 @@ for i in range(0, len(X_test)):
     elif prediction == -1:
         false_negatives += 1
 
+tf.squeeze(Y_pred_fx)
 accuracy = (right_number / len(X_test)) * 100
 precision = true_positives / (true_positives + false_positives)
 recall = true_positives / (true_positives + false_negatives)
 # f1_score = 2 * (precision * recall) / (precision + recall)
 f1_score = f1_score(Y_test, Y_pred)
-auc = roc_auc_score(Y_test, Y_pred_fx)
+auc = roc_auc_score(Y_test, tf.squeeze(Y_pred_fx))
 
 print(f"Testing the svm with {svm.config['PVinit']} prototype vectors for each channel.")
 print("================================================")

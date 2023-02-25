@@ -1,3 +1,4 @@
+import json
 import os
 import random
 
@@ -7,17 +8,13 @@ import tensorflow as tf
 from FE_funcs.feat_extract import FE
 from LSSVM import LSSVM
 from sklearn.metrics import f1_score, roc_auc_score
-
-
-# from sklearn.metrics import f1_score, roc_auc_score
+import tensorflow.keras.backend as K
 
 
 def init_gpu(devices="", v=2):
     if v == 2:  # tf2
-        import tensorflow as tf
-        import tensorflow.keras.backend as K
         os.environ["CUDA_VISIBLE_DEVICES"] = devices
-        gpus = tf.config.list_physical_devices('GPU')
+        gpus = tf.config.list_physical_devices("GPU")
         if gpus:
             try:
                 tf.config.set_visible_devices(gpus, 'GPU')
@@ -26,12 +23,10 @@ def init_gpu(devices="", v=2):
                     tf.config.experimental.set_memory_growth(gpu, True)
             except RuntimeError as e:
                 print(e)
-        from tensorflow.python.framework.ops import disable_eager_execution
+        # from tensorflow.python.framework.ops import disable_eager_execution
         # disable_eager_execution()
     else:  # tf1
         os.environ["CUDA_VISIBLE_DEVICES"] = devices
-        import tensorflow.keras.backend as K
-        import tensorflow as tf
         config = tf.compat.v1.ConfigProto()
         config.gpu_options.allow_growth = True
         sess = tf.compat.v1.Session(config=config)
@@ -40,28 +35,11 @@ def init_gpu(devices="", v=2):
     return K
 
 
-def dct(dct_filter_num, filter_len):
-    basis = np.empty((dct_filter_num, filter_len))
-    basis[0, :] = 1.0 / np.sqrt(filter_len)
-
-    samples = np.arange(1, 2 * filter_len, 2) * np.pi / (2.0 * filter_len)
-
-    for i in range(1, dct_filter_num):
-        basis[i, :] = np.cos(i * samples) * np.sqrt(2.0 / filter_len)
-
-    return basis
-
-
-def sigmoid(x, k, b):
-    y = 1 / (1 + np.exp(-k * x)) + b
-    return (y)
-
-
 def get_data_set(device_number="0"):
     """
     Generates a training and test set for the selected device from each type with labels
     :param device_number: The device number to generate the dataset from.
-    :return: A tuple with 4 matrices, one for the training set, one for the training labels, one for the test set
+    :return: A tuple with 4 matrices/vectors, one for the training set, one for the training labels, one for the test set
     and one for the test labels
     """
     X_train_all = {}
@@ -211,6 +189,7 @@ def get_data_set(device_number="0"):
     return (X_train_all, Y_train_all, X_test_all, Y_test_all)
 
 
+tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
 VISUALISE = False
 class_labels = {
@@ -221,7 +200,11 @@ inverse_class_labels = {
     1: "normal",
     -1: "abnormal"
 }
-device_types = ["fan", "pump", "valve", "slider"]  # Different types of devices
+device_types = ["fan",
+                "pump",
+                "valve",
+                "slider"
+                ]  # Different types of devices
 server_devices = "0"  # This number selects the devices used on the server, NOT the total number of devices.
 
 # Model configuration parameters
@@ -319,7 +302,7 @@ for device_type in device_types:
             "precision": true_positives / (true_positives + false_positives),
             "recall": true_positives / (true_positives + false_negatives),
             "f1_score": f1_score(Y_test_all[device_type], Y_pred),
-            "auc": roc_auc_score(Y_test_all[device_type], Y_pred_fx)
+            "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
         }
     })
     accuracy += results["before"][device_type]["accuracy"]
@@ -335,7 +318,7 @@ f1_scores /= len(device_types)
 auc /= len(device_types)
 
 print("Metrics before sending the parameters to the environments")
-print("================================================")
+print("=========================================================")
 print(f"Accuracy for server test set: {str(round(accuracy, 2))}%")
 print(f"Precision for server test set: {str(round(precision, 4))}")
 print(f"Recall for server test set: {str(round(recall, 4))}")
@@ -349,7 +332,7 @@ Beta_envs = {}
 for i in ["2", "4", "6"]:
     X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(i)
 
-    env_model = LSSVM(Beta=Beta_server, config=config)
+    env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv)
 
     # Do a normal step for each device type with the server model
     for device_type in device_types:
@@ -360,9 +343,9 @@ for i in ["2", "4", "6"]:
 
 # Aggregate the model parameters. Just take the average of each parameter
 Beta_server_temp = Beta_server
-for device_type in device_types:
-    Beta_server_temp += Beta_envs[device_type]
-Beta_server_new = Beta_server_temp / len(device_types)
+for i in ["2", "4", "6"]:
+    Beta_server_temp += Beta_envs[i]
+Beta_server_new = Beta_server_temp / 3
 
 # Set new server parameters
 server_model.Beta = Beta_server_new
@@ -404,7 +387,7 @@ for device_type in device_types:
             "precision": true_positives / (true_positives + false_positives),
             "recall": true_positives / (true_positives + false_negatives),
             "f1_score": f1_score(Y_test_all[device_type], Y_pred),
-            "auc": roc_auc_score(Y_test_all[device_type], Y_pred_fx)
+            "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
         }
     })
     accuracy_after += results["after"][device_type]["accuracy"]
@@ -420,11 +403,18 @@ f1_scores_after /= len(device_types)
 auc_after /= len(device_types)
 
 print("Metrics after sending the parameters to the environments")
-print("================================================")
-print(f"Accuracy for server test set: {str(round(accuracy, 2))}%")
-print(f"Precision for server test set: {str(round(precision, 4))}")
-print(f"Recall for server test set: {str(round(recall, 4))}")
-print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
-print(f"AUC for server test set: {str(round(auc, 4))}")
+print("========================================================")
+print(f"Accuracy for server test set: {str(round(accuracy_after, 2))}%")
+print(f"Precision for server test set: {str(round(precision_after, 4))}")
+print(f"Recall for server test set: {str(round(recall_after, 4))}")
+print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
+print(f"AUC for server test set: {str(round(auc_after, 4))}")
+
+jsonString = json.dumps(results)
+with open("results.json", "w") as outfile:
+    outfile.write(jsonString)
+
+print("========================================================")
+print("Written results for each device to results.json")
 
 print("")
