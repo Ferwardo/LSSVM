@@ -345,7 +345,7 @@ for i in ["2", "4", "6"]:
 Beta_server_temp = Beta_server
 for i in ["2", "4", "6"]:
     Beta_server_temp += Beta_envs[i]
-Beta_server_new = Beta_server_temp / 3
+Beta_server_new = Beta_server_temp / 4
 
 # Set new server parameters
 server_model.Beta = Beta_server_new
@@ -402,7 +402,7 @@ recall_after /= len(device_types)
 f1_scores_after /= len(device_types)
 auc_after /= len(device_types)
 
-print("Metrics after sending the parameters to the environments")
+print("\n\nMetrics after sending the parameters to the environments")
 print("========================================================")
 print(f"Accuracy for server test set: {str(round(accuracy_after, 2))}%")
 print(f"Precision for server test set: {str(round(precision_after, 4))}")
