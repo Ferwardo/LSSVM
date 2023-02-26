@@ -72,8 +72,6 @@ class LSSVM:
         return jsonString
 
     def get_federated_learning_params(self, as_json=False, to_file=False):
-        if not as_json:
-            return self.Beta
 
         jsonString = json.dumps({"beta": {
             "shape": self.Beta.numpy().shape,
@@ -83,6 +81,9 @@ class LSSVM:
         if to_file:
             with open("fl_params.json", "w") as outfile:
                 outfile.write(jsonString)
+
+        if not as_json:
+            return self.Beta
 
         return jsonString
 

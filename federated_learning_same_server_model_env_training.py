@@ -325,8 +325,10 @@ print(f"Recall for server test set: {str(round(recall, 4))}")
 print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
 print(f"AUC for server test set: {str(round(auc, 4))}")
 
-Beta_server = server_model.get_federated_learning_params(as_json=False, to_file=False)
+Beta_server = server_model.get_federated_learning_params(as_json=False, to_file=True)
 Beta_envs = {}
+
+print(f"Inital server parameters: \n{Beta_server}\n")
 
 # Dataset generation and training on each of the three environments
 for i in ["2", "4", "6"]:
@@ -340,12 +342,15 @@ for i in ["2", "4", "6"]:
                             tf.convert_to_tensor(Y_train_all[device_type]))
 
     Beta_envs[i] = env_model.Beta
+    print(f"Env parameters: {Beta_envs[i]}")
 
 # Aggregate the model parameters. Just take the average of each parameter
 Beta_server_temp = Beta_server
 for i in ["2", "4", "6"]:
     Beta_server_temp += Beta_envs[i]
 Beta_server_new = Beta_server_temp / 4
+
+print(f"Aggregated server parameters: \n{Beta_server_new}")
 
 # Set new server parameters
 server_model.Beta = Beta_server_new
