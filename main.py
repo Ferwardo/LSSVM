@@ -248,13 +248,13 @@ for i in range(0, len(X_test)):
     elif prediction == -1:
         false_negatives += 1
 
-tf.squeeze(Y_pred_fx)
+Y_pred_fx = tf.squeeze(Y_pred_fx)
 accuracy = (right_number / len(X_test)) * 100
 precision = true_positives / (true_positives + false_positives)
 recall = true_positives / (true_positives + false_negatives)
 # f1_score = 2 * (precision * recall) / (precision + recall)
 f1_score = f1_score(Y_test, Y_pred)
-auc = roc_auc_score(Y_test, tf.squeeze(Y_pred_fx))
+auc = roc_auc_score(Y_test, Y_pred_fx)
 
 print(f"Testing the svm with {svm.config['PVinit']} prototype vectors for each channel.")
 print("================================================")
