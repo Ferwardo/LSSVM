@@ -259,7 +259,7 @@ Y_init = tf.convert_to_tensor(Y_init, dtype=tf.float64)
 
 server_model.compute(X_init, Y_init, X_pv, Y_pv)
 
-results = {"before": {}, "after": {}}
+results = {"before": {}, "after": {}, "envs": {}}
 
 # Do a normal step for each device type with the server model
 for device_type in device_types:
@@ -336,10 +336,80 @@ for i in ["2", "4", "6"]:
 
     env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv)
 
-    # Do a normal step for each device type with the server model
     for device_type in device_types:
-        server_model.normal(tf.convert_to_tensor(X_train_all[device_type]),
-                            tf.convert_to_tensor(Y_train_all[device_type]))
+        # predict with the server parameters as a baseline.
+        right_number = 0
+        true_positives = 0
+        false_positives = 0
+        false_negatives = 0
+        Y_pred = []
+        Y_pred_fx = []
+
+        for j in range(0, len(X_test_all[device_type])):
+            prediction, score = env_model.predict(tf.convert_to_tensor(X_test_all[device_type][j], dtype=tf.float64))
+            Y_pred.append(prediction)
+            Y_pred_fx.append(score)
+            if Y_test_all[device_type][j] == prediction:
+                right_number += 1
+                if Y_test_all[device_type][j] == 1:
+                    true_positives += 1
+            elif prediction == 1:
+                false_positives += 1
+            elif prediction == -1:
+                false_negatives += 1
+
+        results["envs"].update({
+            "before": {
+                i: {
+                    device_type: {
+                        "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+                        "precision": true_positives / (true_positives + false_positives),
+                        "recall": true_positives / (true_positives + false_negatives),
+                        "f1_score": f1_score(Y_test_all[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
+                    }
+                }
+            }
+        })
+
+        # Do a normal step for each device type with the server model
+        env_model.normal(tf.convert_to_tensor(X_train_all[device_type]),
+                         tf.convert_to_tensor(Y_train_all[device_type]))
+
+        # predict with the learned parameters
+        right_number = 0
+        true_positives = 0
+        false_positives = 0
+        false_negatives = 0
+        Y_pred = []
+        Y_pred_fx = []
+
+        for j in range(0, len(X_test_all[device_type])):
+            prediction, score = env_model.predict(tf.convert_to_tensor(X_test_all[device_type][j], dtype=tf.float64))
+            Y_pred.append(prediction)
+            Y_pred_fx.append(score)
+            if Y_test_all[device_type][j] == prediction:
+                right_number += 1
+                if Y_test_all[device_type][j] == 1:
+                    true_positives += 1
+            elif prediction == 1:
+                false_positives += 1
+            elif prediction == -1:
+                false_negatives += 1
+
+        results["envs"].update({
+            "after": {
+                i: {
+                    device_type: {
+                        "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+                        "precision": true_positives / (true_positives + false_positives),
+                        "recall": true_positives / (true_positives + false_negatives),
+                        "f1_score": f1_score(Y_test_all[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
+                    }
+                }
+            }
+        })
 
     Beta_envs[i] = env_model.Beta
     print(f"Env parameters: {Beta_envs[i]}")
