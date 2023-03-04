@@ -373,6 +373,9 @@ for i in ["2", "4", "6"]:
             }
         })
 
+        print(
+            f"Accuracy for environment {i} and device {device_type} before training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
+
         # Do a normal step for each device type with the server model
         env_model.normal(tf.convert_to_tensor(X_train_all[device_type]),
                          tf.convert_to_tensor(Y_train_all[device_type]))
@@ -397,6 +400,9 @@ for i in ["2", "4", "6"]:
                 false_positives += 1
             elif prediction == -1:
                 false_negatives += 1
+
+        print(
+            f"Accuracy for environment {i} and device {device_type} after training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
 
         results["envs"].update({
             "after": {

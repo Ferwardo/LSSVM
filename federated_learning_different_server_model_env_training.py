@@ -334,7 +334,8 @@ print(f"Inital server parameters: \n{Beta_server}\n")
 for i in ["2", "4", "6"]:
     X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(i)
 
-    env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv)
+    env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv, P_inv=server_model.P_inv,
+                      Omega=server_model.Omega, zeta=server_model.zeta)
 
     for device_type in device_types:
         # predict with the server parameters as a baseline.
@@ -357,6 +358,8 @@ for i in ["2", "4", "6"]:
                 false_positives += 1
             elif prediction == -1:
                 false_negatives += 1
+
+        print(f"Accuracy for environment {i} and device {device_type} before training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
 
         results["envs"].update({
             "before": {
@@ -397,6 +400,9 @@ for i in ["2", "4", "6"]:
             elif prediction == -1:
                 false_negatives += 1
 
+        print(
+            f"Accuracy for environment {i} and device {device_type} after training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
+
         results["envs"].update({
             "after": {
                 i: {
@@ -411,7 +417,7 @@ for i in ["2", "4", "6"]:
             }
         })
 
-    # Send back the model parameters to the server after each devices had learned its machines.
+    # Send back the model parameters to the server after each device has learned its machines.
     Beta_server = (Beta_server + env_model.Beta) / 2
 
 print(f"Aggregated server parameters: \n{Beta_server}")
