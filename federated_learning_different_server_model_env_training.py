@@ -271,7 +271,7 @@ recall = 0
 f1_scores = 0
 auc = 0
 
-# Evaluate for each device type with the server model
+# Evaluate for each device type with the initial server model
 for device_type in device_types:
     # variables for metrics calculated later
     right_number = 0
@@ -334,8 +334,7 @@ print(f"Inital server parameters: \n{Beta_server}\n")
 for i in ["2", "4", "6"]:
     X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(i)
 
-    env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv, P_inv=server_model.P_inv,
-                      Omega=server_model.Omega, zeta=server_model.zeta)
+    env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv)
 
     for device_type in device_types:
         # predict with the server parameters as a baseline.
@@ -412,19 +411,13 @@ for i in ["2", "4", "6"]:
             }
         })
 
-    Beta_envs[i] = env_model.Beta
-    print(f"Env parameters: {Beta_envs[i]}")
+    # Send back the model parameters to the server after each devices had learned its machines.
+    Beta_server = (Beta_server + env_model.Beta) / 2
 
-# Aggregate the model parameters. Just take the average of each parameter
-Beta_server_temp = Beta_server
-for i in ["2", "4", "6"]:
-    Beta_server_temp += Beta_envs[i]
-Beta_server_new = Beta_server_temp / 4
-
-print(f"Aggregated server parameters: \n{Beta_server_new}")
+print(f"Aggregated server parameters: \n{Beta_server}")
 
 # Set new server parameters
-server_model.Beta = Beta_server_new
+server_model.Beta = Beta_server
 
 accuracy_after = 0
 precision_after = 0
@@ -487,7 +480,7 @@ print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
 print(f"AUC for server test set: {str(round(auc_after, 4))}")
 
 jsonString = json.dumps(results)
-with open("results.json", "w") as outfile:
+with open("results_different_server.json", "w") as outfile:
     outfile.write(jsonString)
 
 print("========================================================")
