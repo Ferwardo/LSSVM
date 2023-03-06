@@ -95,7 +95,7 @@ class LSSVM:
         :param Y_init: The labels for the corresponding observations of X_init
         :param X_pv: The prototype vectors used to initialise the model, optional
         :param Y_init: The labels for the corresponding observations of X_pv, optional
-        :param C: Regularisation parameters, optional
+        :param C: Regularisation parameters, only optional when a config with a C is passed
         """
 
         if self.X_pv is None:
@@ -108,6 +108,12 @@ class LSSVM:
             assert Y_pv is not None, "Either pass the inital Y_pv in the constructor or this function"
             self.Y_pv = Y_pv
 
+        if self.config["C"] is None:
+            assert C is not None, "Either pass the regularisation parameter in the constructor (the config dict) or this function"
+            self.config = {"C": C}
+        else:
+            C = self.config["C"]
+
         # with tf.device("/gpu:0"):
         # Compute Omega_mm and its inverse
         self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"], type="rbf")
@@ -117,9 +123,6 @@ class LSSVM:
         Omega_tm = self.__gen_kernel_matrix(X_init, X_pv, self.config["sigma"], type="rbf")
 
         # Compute P_inv with ((Omega_tm'*Omega_tm)+C*Omega_mm)^-1
-        if C is None:
-            C = self.config["C"]
-
         self.P_inv = tf.linalg.pinv(
             tf.matmul(Omega_tm, Omega_tm, transpose_a=True) + tf.scalar_mul(C, self.Omega))
 

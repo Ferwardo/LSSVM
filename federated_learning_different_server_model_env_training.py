@@ -332,7 +332,7 @@ print(f"Inital server parameters: \n{Beta_server}\n")
 
 # Dataset generation and training on each of the three environments
 for i in ["2", "4", "6"]:
-    X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(i)
+    X_train_all_env, Y_train_all_env, X_test_all_env, Y_test_all_env = get_data_set(i)
 
     env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv, P_inv=server_model.P_inv,
                       Omega=server_model.Omega, zeta=server_model.zeta)
@@ -346,38 +346,40 @@ for i in ["2", "4", "6"]:
         Y_pred = []
         Y_pred_fx = []
 
-        for j in range(0, len(X_test_all[device_type])):
-            prediction, score = env_model.predict(tf.convert_to_tensor(X_test_all[device_type][j], dtype=tf.float64))
+        for j in range(0, len(X_test_all_env[device_type])):
+            prediction, score = env_model.predict(
+                tf.convert_to_tensor(X_test_all_env[device_type][j], dtype=tf.float64))
             Y_pred.append(prediction)
             Y_pred_fx.append(score)
-            if Y_test_all[device_type][j] == prediction:
+            if Y_test_all_env[device_type][j] == prediction:
                 right_number += 1
-                if Y_test_all[device_type][j] == 1:
+                if Y_test_all_env[device_type][j] == 1:
                     true_positives += 1
             elif prediction == 1:
                 false_positives += 1
             elif prediction == -1:
                 false_negatives += 1
 
-        print(f"Accuracy for environment {i} and device {device_type} before training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
+        print(
+            f"Accuracy for environment {i} and device {device_type} before training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
 
         results["envs"].update({
             "before": {
                 i: {
                     device_type: {
-                        "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+                        "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
                         "precision": true_positives / (true_positives + false_positives),
                         "recall": true_positives / (true_positives + false_negatives),
-                        "f1_score": f1_score(Y_test_all[device_type], Y_pred),
-                        "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
                     }
                 }
             }
         })
 
         # Do a normal step for each device type with the server model
-        env_model.normal(tf.convert_to_tensor(X_train_all[device_type]),
-                         tf.convert_to_tensor(Y_train_all[device_type]))
+        env_model.normal(tf.convert_to_tensor(X_train_all_env[device_type]),
+                         tf.convert_to_tensor(Y_train_all_env[device_type]))
 
         # predict with the learned parameters
         right_number = 0
@@ -387,13 +389,14 @@ for i in ["2", "4", "6"]:
         Y_pred = []
         Y_pred_fx = []
 
-        for j in range(0, len(X_test_all[device_type])):
-            prediction, score = env_model.predict(tf.convert_to_tensor(X_test_all[device_type][j], dtype=tf.float64))
+        for j in range(0, len(X_test_all_env[device_type])):
+            prediction, score = env_model.predict(
+                tf.convert_to_tensor(X_test_all_env[device_type][j], dtype=tf.float64))
             Y_pred.append(prediction)
             Y_pred_fx.append(score)
-            if Y_test_all[device_type][j] == prediction:
+            if Y_test_all_env[device_type][j] == prediction:
                 right_number += 1
-                if Y_test_all[device_type][j] == 1:
+                if Y_test_all_env[device_type][j] == 1:
                     true_positives += 1
             elif prediction == 1:
                 false_positives += 1
@@ -401,17 +404,17 @@ for i in ["2", "4", "6"]:
                 false_negatives += 1
 
         print(
-            f"Accuracy for environment {i} and device {device_type} after training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
+            f"Accuracy for environment {i} and device {device_type} after training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
 
         results["envs"].update({
             "after": {
                 i: {
                     device_type: {
-                        "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+                        "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
                         "precision": true_positives / (true_positives + false_positives),
                         "recall": true_positives / (true_positives + false_negatives),
-                        "f1_score": f1_score(Y_test_all[device_type], Y_pred),
-                        "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
                     }
                 }
             }
