@@ -114,7 +114,6 @@ class LSSVM:
         else:
             C = self.config["C"]
 
-        # with tf.device("/gpu:0"):
         # Compute Omega_mm and its inverse
         self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"], type="rbf")
         self.Omega_inv = tf.linalg.pinv(self.Omega)

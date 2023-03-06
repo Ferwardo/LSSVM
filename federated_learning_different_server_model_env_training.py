@@ -209,6 +209,7 @@ def get_data_set(device_number="0", with_subsampling=False):
 tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
 VISUALISE = False
+DEBUG = False
 class_labels = {
     "normal": 1,
     "abnormal": -1
@@ -237,7 +238,7 @@ config = {
 }
 
 # Dataset generation and training of the server
-X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices, with_subsampling=True)
+X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices, with_subsampling=DEBUG)
 
 # Initialise the server model.
 server_model = LSSVM(config=config)
@@ -349,7 +350,7 @@ print(f"Inital server parameters: \n{Beta_server}\n")
 
 # Dataset generation and training on each of the three environments
 for i in ["2", "4", "6"]:
-    X_train_all_env, Y_train_all_env, X_test_all_env, Y_test_all_env = get_data_set(i)
+    X_train_all_env, Y_train_all_env, X_test_all_env, Y_test_all_env = get_data_set(i, with_subsampling=DEBUG)
 
     env_model = LSSVM(Beta=Beta_server, config=config, X_pv=X_pv, Y_pv=Y_pv, P_inv=server_model.P_inv,
                       Omega=server_model.Omega, zeta=server_model.zeta)
@@ -394,10 +395,12 @@ for i in ["2", "4", "6"]:
             }
         })
 
+    for device_type in device_types:
         # Do a normal step for each device type with the server model
         env_model.normal(tf.convert_to_tensor(X_train_all_env[device_type]),
                          tf.convert_to_tensor(Y_train_all_env[device_type]))
 
+    for device_type in device_types:
         # predict with the learned parameters
         right_number = 0
         true_positives = 0
@@ -506,7 +509,7 @@ print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
 print(f"AUC for server test set: {str(round(auc_after, 4))}")
 
 jsonString = json.dumps(results)
-with open("results_different_server.json", "w") as outfile:
+with open("results_different_server_06-03_14-32.json", "w") as outfile:
     outfile.write(jsonString)
 
 print("========================================================")
