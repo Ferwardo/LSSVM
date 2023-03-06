@@ -35,10 +35,11 @@ def init_gpu(devices="", v=2):
     return K
 
 
-def get_data_set(device_number="0"):
+def get_data_set(device_number="0", with_subsampling=False):
     """
     Generates a training and test set for the selected device from each type with labels
     :param device_number: The device number to generate the dataset from.
+    :param with_subsampling: Subsamples the dataset for faster training while debugging.
     :return: A tuple with 4 matrices/vectors, one for the training set, one for the training labels, one for the test set
     and one for the test labels
     """
@@ -71,8 +72,16 @@ def get_data_set(device_number="0"):
         Z_abnormal = []
 
         counter = 0
+        subsampling_cnt = 0
         for mfcc in normal:
             counter += 1
+
+            if with_subsampling:
+                subsampling_cnt += 1
+                if subsampling_cnt != 1:
+                    if subsampling_cnt >= 10:
+                        subsampling_cnt = 0
+                    continue
 
             for channel in range(0, mfcc.shape[0]):
                 means = []
@@ -91,14 +100,22 @@ def get_data_set(device_number="0"):
                     # plt.colorbar()
                     plt.show()
 
-        abnormal_rate = 1
-        index = -1
+        # abnormal_rate = 1
+        # index = -1
+        subsampling_cnt = 0
         for mfcc in abnormal:
-            index += 1
-            if index % abnormal_rate != 0 and abnormal_rate != 1:
-                continue
+            # index += 1
+            # if index % abnormal_rate != 0 and abnormal_rate != 1:
+            #     continue
 
             counter += 1
+
+            if with_subsampling:
+                subsampling_cnt += 1
+                if subsampling_cnt != 1:
+                    if subsampling_cnt >= 10:
+                        subsampling_cnt = 0
+                    continue
 
             for channel in range(0, mfcc.shape[0]):
                 means = []
@@ -220,7 +237,7 @@ config = {
 }
 
 # Dataset generation and training of the server
-X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices)
+X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices, with_subsampling=True)
 
 # Initialise the server model.
 server_model = LSSVM(config=config)
