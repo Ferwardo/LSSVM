@@ -48,6 +48,11 @@ def get_data_set(device_number="0", with_subsampling=False):
     X_test_all = {}
     Y_test_all = {}
 
+    # # Get the dataset mean and standard deviation
+    mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")
+    mean = mean_std_array[0]
+    std = mean_std_array[1]
+
     for device_type in device_types:
         # Compute dataset
         normal = []
@@ -62,6 +67,10 @@ def get_data_set(device_number="0", with_subsampling=False):
                 abnormal.append(
                     np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal/" + file,
                             allow_pickle=True))
+
+        # Normalise data
+        normal = (np.asarray(normal) - mean) / std
+        abnormal = (np.asarray(abnormal) - mean) / std
 
         # Dataset and labels
         X_normal = []

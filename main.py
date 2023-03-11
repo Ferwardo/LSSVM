@@ -38,6 +38,7 @@ def init_gpu(devices="", v=2):
     return K
 
 
+tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
 VISUALISE = False
 class_labels = {
@@ -74,6 +75,15 @@ abnormal = []
 for file in os.listdir("./dataset/id_00/abnormal"):
     if file != "mfcc":
         abnormal.append(np.load("./dataset/id_00/abnormal/" + file, allow_pickle=True))
+
+# # Get the dataset mean and standard deviation
+mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")
+mean = mean_std_array[0]
+std = mean_std_array[1]
+
+# Normalise data
+normal = (np.asarray(normal) - mean) / std
+abnormal = (np.asarray(abnormal) - mean) / std
 
 # Dataset and labels
 X_normal = []
