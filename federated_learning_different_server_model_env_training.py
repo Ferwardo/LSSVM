@@ -109,6 +109,9 @@ def get_data_set(device_number="0", with_subsampling=False):
                     # plt.colorbar()
                     plt.show()
 
+        # Set the normal variable to be garbage collected as it isn't needed anymore
+        del normal
+
         # abnormal_rate = 1
         # index = -1
         subsampling_cnt = 0
@@ -142,6 +145,9 @@ def get_data_set(device_number="0", with_subsampling=False):
                     plt.imshow(mfcc[i], interpolation="nearest", origin="lower", aspect="auto")
                     # plt.colorbar()
                     plt.show()
+
+        # Set the abnormal variable to be garbage collected as it isn't needed anymore
+        del abnormal
 
         # Split into train and test dataset
         randIndices = []

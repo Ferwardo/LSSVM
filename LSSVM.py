@@ -1,11 +1,12 @@
 import json
 
 import tensorflow as tf
+import numpy as np
 
 
 class LSSVM:
     def __init__(self, Beta=None, Omega=None, P_inv=None, X_pv=None, Y_pv=None, zeta=None,
-                 config=None):
+                 config=None, C=None, sigma=None):
         # Initialise parameters of the model
         self.Beta = Beta
         self.Omega = Omega
@@ -30,6 +31,40 @@ class LSSVM:
                 "threshold_minimum": 0.05,
             }
         self.config = config
+        if C is not None:
+            self.config["C"] = C
+        if sigma is not None:
+            self.config["sigma"] = sigma
+
+    # Function for the hyper param learning
+    def set_params(self, **parameters):
+        for parameter, value in parameters.items():
+            setattr(self, parameter, value)
+        return self
+
+    def get_params(self, deep=True):
+        return dict(Beta=self.Beta, Omega=self.Omega, P_inv=self.P_inv, config=self.config)
+
+    def fit(self, X, y):
+        try:
+            first_abnormal_index = y.tolist().index(-1)
+        except:
+            first_abnormal_index = 64
+        X_pv = X[0:64]
+        X_pv = tf.convert_to_tensor(np.concatenate([X_pv, X[first_abnormal_index:(first_abnormal_index + 64), :]]),
+                                    dtype=tf.float64)
+
+        Y_pv = y[0:64]
+        Y_pv = tf.convert_to_tensor(np.concatenate([Y_pv, y[first_abnormal_index:(first_abnormal_index + 64)]]),
+                                    dtype=tf.float64)
+
+        X = tf.convert_to_tensor(X, dtype=tf.float64)
+        y = tf.convert_to_tensor(y, dtype=tf.float64)
+
+        self.compute(X_pv, Y_pv, X_pv=X_pv, Y_pv=Y_pv)
+        self.normal(X, y)
+
+        return self
 
     # I/O functions for the federated learning
     def get_parameters(self, to_file=False):
