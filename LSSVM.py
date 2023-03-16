@@ -36,16 +36,34 @@ class LSSVM:
         if sigma is not None:
             self.config["sigma"] = sigma
 
-    # Function for the hyper param learning
+    # Function for the hyper param learning/sklearn compliance
     def set_params(self, **parameters):
+        """
+        Function to comply with the scitkit-learn api. Sets the params given with this function
+        :param parameters: The parameters to be set.
+        :return: An instance of the current model.
+        """
         for parameter, value in parameters.items():
             setattr(self, parameter, value)
         return self
 
     def get_params(self, deep=True):
+        """
+        Function to comply with the scitkit-learn api. Gets all params is an sklearn readable format.
+        Use only when trying to do something with sklearn.
+        :param deep: Does nothing, only added for compliance with the api.
+        :return: A dict with the most important model parameters.
+        """
         return dict(Beta=self.Beta, Omega=self.Omega, P_inv=self.P_inv, config=self.config)
 
     def fit(self, X, y):
+        """
+        Function to comply with the scitkit-learn api. Fits data to the labels using the prototype vectors gotten in the function.
+        Use only when trying to do something with sklearn.
+        :param X: The complete trainingset
+        :param y: The accompanying labels
+        :return: An instance of the model with the current parameters
+        """
         try:
             first_abnormal_index = y.tolist().index(-1)
         except:
@@ -68,6 +86,11 @@ class LSSVM:
 
     # I/O functions for the federated learning
     def get_parameters(self, to_file=False):
+        """
+        Gets all model parameters
+        :param to_file: If true the parameters are written to disk
+        :return: A dict with all model parameters and their shapes.
+        """
         model = {
             "beta": {
                 "shape": self.Beta.shape,
@@ -107,6 +130,12 @@ class LSSVM:
         return jsonString
 
     def get_federated_learning_params(self, as_json=False, to_file=False):
+        """
+        Gets the parameters of the SVM used for the federated learning experiment.
+        :param as_json: If True a json string is returned. If False a tf tensor is returned.
+        :param to_file: If True the json string of the parameters is written to disk.
+        :return: Either a json string or tf tensor depending on the optional parameters.
+        """
 
         jsonString = json.dumps({"beta": {
             "shape": self.Beta.numpy().shape,
@@ -125,7 +154,7 @@ class LSSVM:
     # Computation steps for the model itself
     def compute(self, X_init, Y_init, X_pv=None, Y_pv=None, C=None):
         """
-        Compute the model parameters from scratch
+        Compute the model parameters from scratch.
         :param X_init: The observations used to initialise the model
         :param Y_init: The labels for the corresponding observations of X_init
         :param X_pv: The prototype vectors used to initialise the model, optional
@@ -170,7 +199,7 @@ class LSSVM:
 
     def normal(self, X, Y):
         """
-        Does a normal training step
+        Does a normal training step.
         :param X: The observations to train on
         :param Y: The corresponding class labels of X
         """
@@ -208,9 +237,10 @@ class LSSVM:
 
     def predict(self, x):
         """
-        Predicts the label of the given observation
+        Predicts the label of the given observation together with the "score" of the sample i.e. the value calculated with.
+        If a matrix is given (when using this model together with scikit-learn for example) a numpy array of predictions is returned.
         :param x: A single vector with an observation to be classified.
-        :return: The predicted class label and the whole score
+        :return: The predicted class label and the whole score if a single is provided. If a matrix is provided a numpy array of predictions
         """
 
         if len(x.shape) > 1:
@@ -235,13 +265,13 @@ class LSSVM:
         return tf.math.sign(temp).numpy()[0][0], temp
 
     # Private helper functions
-    def __gen_kernel_matrix(self, X, X_t, sigma, type="rbf"):  # the tf.function only made it worse
+    def __gen_kernel_matrix(self, X, X_t, sigma, type="rbf"):
         """
         Computes the RBF kernel matrix between X and Xt given kernel bandwidth sigma
         :param X: An N times D data matrix
         :param X_t: An N_t times D data matrix
         :param sigma: The kernel bandwidth,
-        :param type: The type of kernel used, standard the rbf kernel. Also, available is the linear (lin)
+        :param type: The type of kernel used, standard the rbf kernel. Also, available is the linear (lin) kernel.
         :return: The N times N_t kernel matrix.
         """
 

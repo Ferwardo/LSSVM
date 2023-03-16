@@ -36,10 +36,11 @@ There is also a function to predict a label:
 ```python
 predict(x)
 
-# Predicts the label of the given observation
+# Predicts the label of the given observation together with the "score" of the sample i.e. the value calculated with.
+# If a matrix is given (when using this model together with scikit-learn for example) a numpy array of predictions is returned.
 # 
 # x: A single vector with an observation to be classified.
-# returns: The predicted class label
+# returns: The predicted class label and the whole score if a single is provided. If a matrix is provided a numpy array of predictions
 ```
 
-The implementation itself can be found in [LSSVM.py](https://github.com/Ferwardo/LSSVM/blob/main/LSSVM.py)
+The implementation itself can be found in [LSSVM.py](https://github.com/Ferwardo/LSSVM/blob/main/LSSVM.py).

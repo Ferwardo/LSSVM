@@ -77,7 +77,7 @@ def get_data_set(device_number="0"):
             for channel in range(0, mfcc.shape[0]):
                 means = []
                 stds = []
-                for filter in range(0, mfcc.shape[1]):
+                for filter in range(0, mfcc.shape[2]):
                     means.append(mfcc[channel, filter].mean())
                     stds.append(mfcc[channel, filter].std())
 
@@ -103,7 +103,7 @@ def get_data_set(device_number="0"):
             for channel in range(0, mfcc.shape[0]):
                 means = []
                 stds = []
-                for filter in range(0, mfcc.shape[1]):
+                for filter in range(0, mfcc.shape[2]):
                     means.append(mfcc[channel, filter].mean())
                     stds.append(mfcc[channel, filter].std())
 
@@ -326,7 +326,7 @@ print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
 print(f"AUC for server test set: {str(round(auc, 4))}")
 
 Beta_server = server_model.get_federated_learning_params(as_json=False, to_file=True)
-Beta_envs = {}
+Beta_envs = Beta_server[:]  # The aggragated server params, initialised with a copy by value of the server params.
 
 print(f"Inital server parameters: \n{Beta_server}\n")
 
@@ -420,14 +420,11 @@ for i in ["2", "4", "6"]:
             }
         })
 
-    Beta_envs[i] = env_model.Beta
+    Beta_envs += env_model.Beta
     # print(f"Env parameters: {Beta_envs[i]}")
 
-# Aggregate the model parameters. Just take the average of each parameter
-Beta_server_temp = Beta_server
-for i in ["2", "4", "6"]:
-    Beta_server_temp += Beta_envs[i]
-Beta_server_new = Beta_server_temp / 4
+# Take the average to get the new server params
+Beta_server_new = Beta_envs / 4
 
 print(f"Aggregated server parameters: \n{Beta_server_new}")
 

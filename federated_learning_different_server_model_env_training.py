@@ -95,7 +95,7 @@ def get_data_set(device_number="0", with_subsampling=False):
             for channel in range(0, mfcc.shape[0]):
                 means = []
                 stds = []
-                for filter in range(0, mfcc.shape[1]):
+                for filter in range(0, mfcc.shape[2]):
                     means.append(mfcc[channel, filter].mean())
                     stds.append(mfcc[channel, filter].std())
 
@@ -132,7 +132,7 @@ def get_data_set(device_number="0", with_subsampling=False):
             for channel in range(0, mfcc.shape[0]):
                 means = []
                 stds = []
-                for filter in range(0, mfcc.shape[1]):
+                for filter in range(0, mfcc.shape[2]):
                     means.append(mfcc[channel, filter].mean())
                     stds.append(mfcc[channel, filter].std())
 

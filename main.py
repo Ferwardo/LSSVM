@@ -101,7 +101,7 @@ for mfcc in normal:
     for channel in range(0, mfcc.shape[0]):
         means = []
         stds = []
-        for filter in range(0, mfcc.shape[1]):
+        for filter in range(0, mfcc.shape[2]):
             means.append(mfcc[channel, filter].mean())
             stds.append(mfcc[channel, filter].std())
 
@@ -127,7 +127,7 @@ for mfcc in abnormal:
     for channel in range(0, mfcc.shape[0]):
         means = []
         stds = []
-        for filter in range(0, mfcc.shape[1]):
+        for filter in range(0, mfcc.shape[2]):
             means.append(mfcc[channel, filter].mean())
             stds.append(mfcc[channel, filter].std())
 
