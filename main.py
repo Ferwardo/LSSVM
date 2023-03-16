@@ -67,14 +67,16 @@ Y_pv_temp = []
 
 # Compute dataset
 normal = []
-for file in os.listdir("./dataset/id_00/normal"):
+for file in os.listdir("./dataset/federated_learning/fan/id_00/normal"):
     if file != "mfcc":
-        normal.append(np.load("./dataset/id_00/normal/" + file, allow_pickle=True).astype("float32"))
+        normal.append(
+            np.load("./dataset/federated_learning/fan/id_00/normal/" + file, allow_pickle=True).astype("float32"))
 
 abnormal = []
-for file in os.listdir("./dataset/id_00/abnormal"):
+for file in os.listdir("./dataset/federated_learning/fan/id_00/abnormal"):
     if file != "mfcc":
-        abnormal.append(np.load("./dataset/id_00/abnormal/" + file, allow_pickle=True).astype("float32"))
+        abnormal.append(
+            np.load("./dataset/federated_learning/fan/id_00/abnormal/" + file, allow_pickle=True).astype("float32"))
 
 # # Get the dataset mean and standard deviation
 mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")

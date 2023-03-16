@@ -311,12 +311,21 @@ class LSSVM:
         # Newest version
         # Calculates the RBF kernel using exp(-||X(n,:)-X_t(nt,:)||^2/sigma) for each value in Omega.
         if type.lower() == "rbf":
-            for nt in range(0, size_x_t[0]):
-                # temp = tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]]))
-                Kerval = tf.norm(X - tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]])), axis=1) ** 2
+            X_t_tens = tf.cast(tf.tile(tf.expand_dims(tf.transpose(X_t), 0), [size_x[0], 1, 1]),tf.float64)
+            X_tens = tf.cast(tf.tile(tf.expand_dims(X, 2), [1, 1, size_x_t[0]]), tf.float64)
 
-                # temp = tf.exp(-Kerval / sigma)
-                Omega[:, nt].assign(tf.exp(-Kerval / sigma))
+            Kerval = tf.cast(tf.norm(X_tens - X_t_tens, axis=1) ** 2, tf.float64)
+
+            Omega.assign(tf.exp(-Kerval / sigma))
+
+            # for nt in range(0, size_x_t[0]):
+            #     # temp = tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]]))
+            #     Kerval = tf.cast(
+            #         tf.norm(X - tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]])), axis=1) ** 2,
+            #         tf.float64)
+            #
+            #     # temp = tf.exp(-Kerval / sigma)
+            #     Omega[:, nt].assign(tf.exp(-Kerval / sigma))
 
         elif type.lower() == "lin":
             for n in range(0, size_x[0]):
