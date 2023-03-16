@@ -55,24 +55,26 @@ device_types = ["fan",
 normal = []
 abnormal = []
 for device_type in device_types:
-    for file in os.listdir(f"./dataset/{device_type}/id_00/normal"):
+    for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_00/normal"):
         try:
             if file != "mfcc":
                 normal.append(
-                    np.load(f"./dataset/{device_type}/id_00/normal/" + file, allow_pickle=True).astype("float32"))
+                    np.load(f"./dataset/federated_learning/{device_type}/id_00/normal/" + file,
+                            allow_pickle=True).astype("float32"))
         except:
-            print(f"./dataset/{device_type}/id_00/normal/{file} not loaded")
+            print(f"./dataset/federated_learning/{device_type}/id_00/normal/{file} not loaded")
 
-    for file in os.listdir(f"./dataset/{device_type}/id_00/abnormal"):
+    for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_00/abnormal"):
         try:
             if file != "mfcc":
                 abnormal.append(
-                    np.load(f"./dataset/{device_type}/id_00/abnormal/" + file, allow_pickle=True).astype("float32"))
+                    np.load(f"./dataset/federated_learning/{device_type}/id_00/abnormal/" + file,
+                            allow_pickle=True).astype("float32"))
         except:
-            print(f"./dataset/{device_type}/id_00/abnormal/{file}")
+            print(f"./dataset/federated_learning/{device_type}/id_00/abnormal/{file}")
 
 # Normalise data
-mean_std_array = np.load("./dataset/mean_std.npy")
+mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")
 mean = mean_std_array[0]
 std = mean_std_array[1]
 

@@ -212,6 +212,19 @@ class LSSVM:
         :param x: A single vector with an observation to be classified.
         :return: The predicted class label and the whole score
         """
+
+        if len(x.shape) > 1:
+            predictions = np.asarray([])
+            for i in x.shape[0]:
+                sigma = self.__gen_kernel_matrix(
+                    tf.reshape(tf.tile(x[i], [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
+                    self.X_pv, sigma=self.config["sigma"])
+                sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
+
+                temp = tf.linalg.matmul(self.Beta, sigma, transpose_a=True)
+                predictions.append(tf.math.sign(temp).numpy()[0][0])
+            return predictions
+
         sigma = self.__gen_kernel_matrix(
             tf.reshape(tf.tile(x, [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
             self.X_pv, sigma=self.config["sigma"])
