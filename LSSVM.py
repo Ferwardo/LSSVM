@@ -238,21 +238,25 @@ class LSSVM:
     def predict(self, x):
         """
         Predicts the label of the given observation together with the "score" of the sample i.e. the value calculated with.
-        If a matrix is given (when using this model together with scikit-learn for example) a numpy array of predictions is returned.
+        If a matrix is given (when using this model together with scikit-learn for example) a numpy array of predictions is returned without the score.
+
         :param x: A single vector with an observation to be classified.
         :return: The predicted class label and the whole score if a single is provided. If a matrix is provided a numpy array of predictions
         """
 
+        # This is so this function can also be used for the learning of the hyperparameters by sklearn.
+        # Sklearn provides a matrix instead of individual samples to predict, so we loop over them.
         if len(x.shape) > 1:
             predictions = np.asarray([])
-            for i in x.shape[0]:
+            for i in range(0, x.shape[0]):
+                temp = x[i]
                 sigma = self.__gen_kernel_matrix(
-                    tf.reshape(tf.tile(x[i], [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[0])),
+                    tf.reshape(tf.tile(x[i], [self.X_pv.shape[0]]), (self.X_pv.shape[0], x.shape[1])),
                     self.X_pv, sigma=self.config["sigma"])
                 sigma = tf.reshape(tf.convert_to_tensor(sigma.numpy()[0]), (sigma.numpy()[0].shape[0], 1))
 
                 temp = tf.linalg.matmul(self.Beta, sigma, transpose_a=True)
-                predictions.append(tf.math.sign(temp).numpy()[0][0])
+                predictions = np.append(predictions, tf.math.sign(temp).numpy()[0][0])
             return predictions
 
         sigma = self.__gen_kernel_matrix(
@@ -311,7 +315,7 @@ class LSSVM:
         # Newest version
         # Calculates the RBF kernel using exp(-||X(n,:)-X_t(nt,:)||^2/sigma) for each value in Omega.
         if type.lower() == "rbf":
-            X_t_tens = tf.cast(tf.tile(tf.expand_dims(tf.transpose(X_t), 0), [size_x[0], 1, 1]),tf.float64)
+            X_t_tens = tf.cast(tf.tile(tf.expand_dims(tf.transpose(X_t), 0), [size_x[0], 1, 1]), tf.float64)
             X_tens = tf.cast(tf.tile(tf.expand_dims(X, 2), [1, 1, size_x_t[0]]), tf.float64)
 
             Kerval = tf.cast(tf.norm(X_tens - X_t_tens, axis=1) ** 2, tf.float64)

@@ -36,7 +36,7 @@ def init_gpu(devices="", v=2):
 tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
 VISUALISE = False
-with_subsampling = True
+with_subsampling = False
 class_labels = {
     "normal": 1,
     "abnormal": -1
@@ -161,8 +161,8 @@ del abnormal
 X = np.concatenate([X_normal, X_abnormal])
 Y = np.concatenate([Y_normal, Y_abnormal])
 
-C_range = np.logspace(-2, 10, 13)  # taken from the examples of sklearn
-sigma_range = np.logspace(-9, 3, 13)
+C_range = np.logspace(-2, 10, 10)  # taken from the examples of sklearn
+sigma_range = np.logspace(-9, 3, 10)
 param_grid = dict(C=C_range, sigma=sigma_range)
 grid = GridSearchCV(estimator=LSSVM(), scoring="accuracy", param_grid=param_grid)
 grid.fit(X, Y)
