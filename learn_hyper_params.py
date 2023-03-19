@@ -161,8 +161,8 @@ del abnormal
 X = np.concatenate([X_normal, X_abnormal])
 Y = np.concatenate([Y_normal, Y_abnormal])
 
-C_range = np.logspace(-2, 10, 10)  # taken from the examples of sklearn
-sigma_range = np.logspace(-9, 3, 10)
+C_range = np.logspace(-2, 10, 13)  # taken from the examples of sklearn
+sigma_range = np.logspace(-9, 3, 13)
 param_grid = dict(C=C_range, sigma=sigma_range)
 grid = GridSearchCV(estimator=LSSVM(), scoring="accuracy", param_grid=param_grid)
 grid.fit(X, Y)
