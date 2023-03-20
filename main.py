@@ -51,26 +51,26 @@ inverse_class_labels = {
 }
 
 # Model configuration parameters
-# config = {
-#     "K": 2,
-#     "Ninit": 4,
-#     "PVinit": 16,
-#     "M": 1500,
-#     "C": 0.01,
-#     "sigma": 9.999999999999999e-10,
-#     "threshold_type": 'fxd',
-#     "threshold_minimum": 0.05,
-# }
 config = {
     "K": 2,
     "Ninit": 4,
     "PVinit": 16,
     "M": 1500,
-    "C": 10,
-    "sigma": 20,
+    "C": 0.01,
+    "sigma": 9.999999999999999e-10,
     "threshold_type": 'fxd',
     "threshold_minimum": 0.05,
 }
+# config = {
+#     "K": 2,
+#     "Ninit": 4,
+#     "PVinit": 16,
+#     "M": 1500,
+#     "C": 10,
+#     "sigma": 20,
+#     "threshold_type": 'fxd',
+#     "threshold_minimum": 0.05,
+# }
 
 X_pv_temp = []
 Y_pv_temp = []
