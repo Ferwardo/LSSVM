@@ -35,10 +35,12 @@ def init_gpu(devices="", v=2):
     return K
 
 
-def get_data_set(device_number="0"):
+def get_data_set(device_number="0", with_subsampling=False, mean_calc_needed=False):
     """
     Generates a training and test set for the selected device from each type with labels
+    :param mean_calc_needed: Whether a calculation of the mean and standard deviation is needed for the dataset.
     :param device_number: The device number to generate the dataset from.
+    :param with_subsampling: Subsamples the dataset for faster training while debugging.
     :return: A tuple with 4 matrices/vectors, one for the training set, one for the training labels, one for the test set
     and one for the test labels
     """
@@ -47,20 +49,44 @@ def get_data_set(device_number="0"):
     X_test_all = {}
     Y_test_all = {}
 
+    if mean_calc_needed: #normalisation is only needed with the raw MFCC's
+        # Get the dataset mean and standard deviation
+        mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")
+        mean = mean_std_array[0]
+        std = mean_std_array[1]
+
     for device_type in device_types:
         # Compute dataset
         normal = []
-        for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_0{device_number}/normal"):
-            if file != "mfcc":
-                normal.append(np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/normal/" + file,
-                                      allow_pickle=True))
-
         abnormal = []
-        for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal"):
-            if file != "mfcc":
-                abnormal.append(
-                    np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal/" + file,
-                            allow_pickle=True))
+        if mean_calc_needed:
+            for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_0{device_number}/normal"):
+                if file != "mfcc":
+                    normal.append(
+                        np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/normal/" + file,
+                                allow_pickle=True))
+
+            for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal"):
+                if file != "mfcc":
+                    abnormal.append(
+                        np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal/" + file,
+                                allow_pickle=True))
+
+            # Normalise data
+            normal = (np.asarray(normal) - mean) / std
+            abnormal = (np.asarray(abnormal) - mean) / std
+        else:
+            for file in os.listdir(f"./dataset_means_std/{device_type}/id_0{device_number}/normal"):
+                if file != "mfcc":
+                    normal.append(
+                        np.load(f"./dataset_means_std/{device_type}/id_0{device_number}/normal/" + file,
+                                allow_pickle=True))
+
+            for file in os.listdir(f"./dataset_means_std/{device_type}/id_0{device_number}/abnormal"):
+                if file != "mfcc":
+                    abnormal.append(
+                        np.load(f"./dataset_means_std/{device_type}/id_0{device_number}/abnormal/" + file,
+                                allow_pickle=True))
 
         # Dataset and labels
         X_normal = []
@@ -71,19 +97,32 @@ def get_data_set(device_number="0"):
         Z_abnormal = []
 
         counter = 0
+        subsampling_cnt = 0
         for mfcc in normal:
             counter += 1
 
-            for channel in range(0, mfcc.shape[0]):
-                means = []
-                stds = []
-                for filter in range(0, mfcc.shape[2]):
-                    means.append(mfcc[channel, filter].mean())
-                    stds.append(mfcc[channel, filter].std())
+            if with_subsampling:
+                subsampling_cnt += 1
+                if subsampling_cnt != 1:
+                    if subsampling_cnt >= 10:
+                        subsampling_cnt = 0
+                    continue
 
-                X_normal.append(tuple(means + stds))
-                Y_normal.append(class_labels["normal"])
-                Z_normal.append(counter)
+            for channel in range(0, mfcc.shape[0]):
+                if mean_calc_needed:
+                    means = []
+                    stds = []
+                    for filter in range(0, mfcc.shape[2]):
+                        means.append(mfcc[channel, filter].mean())
+                        stds.append(mfcc[channel, filter].std())
+
+                    X_normal.append(tuple(means + stds))
+                    Y_normal.append(class_labels["normal"])
+                    Z_normal.append(counter)
+                else:
+                    X_normal.append(mfcc[channel])
+                    Y_normal.append(class_labels["normal"])
+                    Z_normal.append(counter)
 
             if VISUALISE:
                 for i in range(0, mfcc.shape[0]):
@@ -91,31 +130,50 @@ def get_data_set(device_number="0"):
                     # plt.colorbar()
                     plt.show()
 
-        abnormal_rate = 1
-        index = -1
+        # Set the normal variable to be garbage collected as it isn't needed anymore
+        del normal
+
+        # abnormal_rate = 1
+        # index = -1
+        subsampling_cnt = 0
         for mfcc in abnormal:
-            index += 1
-            if index % abnormal_rate != 0 and abnormal_rate != 1:
-                continue
+            # index += 1
+            # if index % abnormal_rate != 0 and abnormal_rate != 1:
+            #     continue
 
             counter += 1
 
-            for channel in range(0, mfcc.shape[0]):
-                means = []
-                stds = []
-                for filter in range(0, mfcc.shape[2]):
-                    means.append(mfcc[channel, filter].mean())
-                    stds.append(mfcc[channel, filter].std())
+            if with_subsampling:
+                subsampling_cnt += 1
+                if subsampling_cnt != 1:
+                    if subsampling_cnt >= 10:
+                        subsampling_cnt = 0
+                    continue
 
-                X_abnormal.append(tuple(means + stds))
-                Y_abnormal.append(class_labels["abnormal"])
-                Z_abnormal.append(counter)
+            for channel in range(0, mfcc.shape[0]):
+                if mean_calc_needed:
+                    means = []
+                    stds = []
+                    for filter in range(0, mfcc.shape[2]):
+                        means.append(mfcc[channel, filter].mean())
+                        stds.append(mfcc[channel, filter].std())
+
+                    X_abnormal.append(tuple(means + stds))
+                    Y_abnormal.append(class_labels["abnormal"])
+                    Z_abnormal.append(counter)
+                else:
+                    X_abnormal.append(mfcc[channel])
+                    Y_abnormal.append(class_labels["abnormal"])
+                    Z_abnormal.append(counter)
 
             if VISUALISE:
                 for i in range(0, mfcc.shape[0]):
                     plt.imshow(mfcc[i], interpolation="nearest", origin="lower", aspect="auto")
                     # plt.colorbar()
                     plt.show()
+
+        # Set the abnormal variable to be garbage collected as it isn't needed anymore
+        del abnormal
 
         # Split into train and test dataset
         randIndices = []
@@ -192,6 +250,7 @@ def get_data_set(device_number="0"):
 tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
 VISUALISE = False
+DEBUG = False
 class_labels = {
     "normal": 1,
     "abnormal": -1
@@ -208,17 +267,17 @@ device_types = ["fan",
 server_devices = "0"  # This number selects the devices used on the server, NOT the total number of devices.
 
 # Model configuration parameters
+# config = {
+#     "K": 2,
+#     "Ninit": 4,
+#     "PVinit": 16,
+#     "M": 1500,
+#     "C": 0.01,
+#     "sigma": 9.999999999999999e-10,
+#     "threshold_type": 'fxd',
+#     "threshold_minimum": 0.05,
+# }
 config = {
-    "K": 2,
-    "Ninit": 4,
-    "PVinit": 16,
-    "M": 1500,
-    "C": 0.01,
-    "sigma": 9.999999999999999e-10,
-    "threshold_type": 'fxd',
-    "threshold_minimum": 0.05,
-}
-config_old = {
     "K": 2,
     "Ninit": 4,
     "PVinit": 16,
@@ -230,7 +289,7 @@ config_old = {
 }
 
 # Dataset generation and training of the server
-X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices)
+X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices, with_subsampling=DEBUG)
 
 # Initialise the server model.
 server_model = LSSVM(config=config)
@@ -387,10 +446,12 @@ for i in ["2", "4", "6"]:
         print(
             f"Accuracy for environment {i} and device {device_type} before training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
 
+    for device_type in device_types:
         # Do a normal step for each device type with the server model
         env_model.normal(tf.convert_to_tensor(X_train_all_env[device_type]),
                          tf.convert_to_tensor(Y_train_all_env[device_type]))
 
+    for device_type in device_types:
         # predict with the learned parameters
         right_number = 0
         true_positives = 0

@@ -11,7 +11,7 @@ class LSSVM:
         self.Beta = Beta
         self.Omega = Omega
         if self.Omega is not None:
-            self.Omega_inv = tf.linalg.pinv(Omega)
+            self.Omega_inv = tf.linalg.inv(Omega)
         self.P_inv = P_inv
         self.P_inv_prev = P_inv
         self.X_pv = X_pv
@@ -180,13 +180,13 @@ class LSSVM:
 
         # Compute Omega_mm and its inverse
         self.Omega = self.__gen_kernel_matrix(X_pv, X_pv, self.config["sigma"], type="rbf")
-        self.Omega_inv = tf.linalg.pinv(self.Omega)
+        self.Omega_inv = tf.linalg.inv(self.Omega)
 
         # Compute Omega_tm for the rest of the calculations
         Omega_tm = self.__gen_kernel_matrix(X_init, X_pv, self.config["sigma"], type="rbf")
 
         # Compute P_inv with ((Omega_tm'*Omega_tm)+C*Omega_mm)^-1
-        self.P_inv = tf.linalg.pinv(
+        self.P_inv = tf.linalg.inv(
             tf.matmul(Omega_tm, Omega_tm, transpose_a=True) + tf.scalar_mul(C, self.Omega))
 
         # Compute Beta with P_inv . Omega_tm' . Y_init
@@ -320,7 +320,7 @@ class LSSVM:
 
             Kerval = tf.cast(tf.norm(X_tens - X_t_tens, axis=1) ** 2, tf.float64)
 
-            Omega.assign(tf.exp(-Kerval / sigma))
+            Omega.assign(tf.exp(-Kerval / 2 * (sigma ** 2)))
 
             # for nt in range(0, size_x_t[0]):
             #     # temp = tf.transpose(tf.tile(tf.expand_dims(X_t[nt, :], 1), [1, size_x[0]]))

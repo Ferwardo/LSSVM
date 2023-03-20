@@ -51,17 +51,17 @@ inverse_class_labels = {
 }
 
 # Model configuration parameters
+# config = {
+#     "K": 2,
+#     "Ninit": 4,
+#     "PVinit": 16,
+#     "M": 1500,
+#     "C": 0.01,
+#     "sigma": 9.999999999999999e-10,
+#     "threshold_type": 'fxd',
+#     "threshold_minimum": 0.05,
+# }
 config = {
-    "K": 2,
-    "Ninit": 4,
-    "PVinit": 16,
-    "M": 1500,
-    "C": 0.01,
-    "sigma": 9.999999999999999e-10,
-    "threshold_type": 'fxd',
-    "threshold_minimum": 0.05,
-}
-config_old = {
     "K": 2,
     "Ninit": 4,
     "PVinit": 16,
@@ -77,25 +77,26 @@ Y_pv_temp = []
 
 # Compute dataset
 normal = []
-for file in os.listdir("./dataset/federated_learning/fan/id_00/normal"):
+abnormal = []
+for file in os.listdir("./dataset_means_std/fan/id_00/normal"):
     if file != "mfcc":
         normal.append(
-            np.load("./dataset/federated_learning/fan/id_00/normal/" + file, allow_pickle=True).astype("float32"))
+            np.load("./dataset_means_std/fan/id_00/normal/" + file, allow_pickle=True).astype("float32"))
 
-abnormal = []
-for file in os.listdir("./dataset/federated_learning/fan/id_00/abnormal"):
+for file in os.listdir("./dataset_means_std/fan/id_00/abnormal"):
     if file != "mfcc":
         abnormal.append(
-            np.load("./dataset/federated_learning/fan/id_00/abnormal/" + file, allow_pickle=True).astype("float32"))
+            np.load("./dataset_means_std/fan/id_00/abnormal/" + file, allow_pickle=True).astype("float32"))
 
+#Data is normalised when written to disk
 # # Get the dataset mean and standard deviation
-mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")
-mean = mean_std_array[0]
-std = mean_std_array[1]
-
-# Normalise data
-normal = (np.asarray(normal) - mean) / std
-abnormal = (np.asarray(abnormal) - mean) / std
+# mean_std_array = np.load("./dataset_means_std/mean_std.npy")
+# mean = mean_std_array[0]
+# std = mean_std_array[1]
+#
+# # Normalise data
+# normal = (np.asarray(normal) - mean) / std
+# abnormal = (np.asarray(abnormal) - mean) / std
 
 # Dataset and labels
 X_normal = []
@@ -111,13 +112,7 @@ for mfcc in normal:
     counter += 1
 
     for channel in range(0, mfcc.shape[0]):
-        means = []
-        stds = []
-        for filter in range(0, mfcc.shape[2]):
-            means.append(mfcc[channel, filter].mean())
-            stds.append(mfcc[channel, filter].std())
-
-        X_normal.append(tuple(means + stds))
+        X_normal.append(mfcc[channel])
         Y_normal.append(class_labels["normal"])
         Z_normal.append(counter)
 
@@ -137,13 +132,7 @@ for mfcc in abnormal:
     counter += 1
 
     for channel in range(0, mfcc.shape[0]):
-        means = []
-        stds = []
-        for filter in range(0, mfcc.shape[2]):
-            means.append(mfcc[channel, filter].mean())
-            stds.append(mfcc[channel, filter].std())
-
-        X_abnormal.append(tuple(means + stds))
+        X_abnormal.append(mfcc[channel])
         Y_abnormal.append(class_labels["abnormal"])
         Z_abnormal.append(counter)
 
