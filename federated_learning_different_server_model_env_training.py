@@ -63,13 +63,13 @@ def get_data_set(device_number="0", with_subsampling=False, mean_calc_needed=Fal
                 if file != "mfcc":
                     normal.append(
                         np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/normal/" + file,
-                                allow_pickle=True))
+                                allow_pickle=True).astype("float64"))
 
             for file in os.listdir(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal"):
                 if file != "mfcc":
                     abnormal.append(
                         np.load(f"./dataset/federated_learning/{device_type}/id_0{device_number}/abnormal/" + file,
-                                allow_pickle=True))
+                                allow_pickle=True).astype("float64"))
 
             # Normalise data
             normal = (np.asarray(normal) - mean) / std
@@ -79,13 +79,13 @@ def get_data_set(device_number="0", with_subsampling=False, mean_calc_needed=Fal
                 if file != "mfcc":
                     normal.append(
                         np.load(f"./dataset_means_std/{device_type}/id_0{device_number}/normal/" + file,
-                                allow_pickle=True))
+                                allow_pickle=True).astype("float64"))
 
             for file in os.listdir(f"./dataset_means_std/{device_type}/id_0{device_number}/abnormal"):
                 if file != "mfcc":
                     abnormal.append(
                         np.load(f"./dataset_means_std/{device_type}/id_0{device_number}/abnormal/" + file,
-                                allow_pickle=True))
+                                allow_pickle=True).astype("float64"))
 
         # Dataset and labels
         X_normal = []
@@ -266,6 +266,16 @@ device_types = ["fan",
 server_devices = "0"  # This number selects the devices used on the server, NOT the total number of devices.
 
 # Model configuration parameters
+config = {
+    "K": 2,
+    "Ninit": 4,
+    "PVinit": 16,
+    "M": 1500,
+    "C": 0.1,
+    "sigma": 1,
+    "threshold_type": 'fxd',
+    "threshold_minimum": 0.05,
+}
 # config = {
 #     "K": 2,
 #     "Ninit": 4,
@@ -276,16 +286,16 @@ server_devices = "0"  # This number selects the devices used on the server, NOT 
 #     "threshold_type": 'fxd',
 #     "threshold_minimum": 0.05,
 # }
-config = {
-    "K": 2,
-    "Ninit": 4,
-    "PVinit": 16,
-    "M": 1500,
-    "C": 10,
-    "sigma": 20,
-    "threshold_type": 'fxd',
-    "threshold_minimum": 0.05,
-}
+# config = {
+#     "K": 2,
+#     "Ninit": 4,
+#     "PVinit": 16,
+#     "M": 1500,
+#     "C": 10,
+#     "sigma": 20,
+#     "threshold_type": 'fxd',
+#     "threshold_minimum": 0.05,
+# }
 
 # Dataset generation and training of the server
 X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices, with_subsampling=DEBUG)
@@ -559,7 +569,7 @@ print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
 print(f"AUC for server test set: {str(round(auc_after, 4))}")
 
 jsonString = json.dumps(results)
-with open("results_different_server_06-03_14-32.json", "w") as outfile:
+with open("results_different_server.json", "w") as outfile:
     outfile.write(jsonString)
 
 print("========================================================")

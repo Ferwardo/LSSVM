@@ -56,11 +56,21 @@ config = {
     "Ninit": 4,
     "PVinit": 16,
     "M": 1500,
-    "C": 0.01,
-    "sigma": 9.999999999999999e-10,
+    "C": 0.1,
+    "sigma": 1,
     "threshold_type": 'fxd',
     "threshold_minimum": 0.05,
 }
+# config = {
+#     "K": 2,
+#     "Ninit": 4,
+#     "PVinit": 16,
+#     "M": 1500,
+#     "C": 0.01,
+#     "sigma": 9.999999999999999e-10,
+#     "threshold_type": 'fxd',
+#     "threshold_minimum": 0.05,
+# }
 # config = {
 #     "K": 2,
 #     "Ninit": 4,

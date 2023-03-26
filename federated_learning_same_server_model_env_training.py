@@ -49,7 +49,7 @@ def get_data_set(device_number="0", with_subsampling=False, mean_calc_needed=Fal
     X_test_all = {}
     Y_test_all = {}
 
-    if mean_calc_needed: #normalisation is only needed with the raw MFCC's
+    if mean_calc_needed:  # normalisation is only needed with the raw MFCC's
         # Get the dataset mean and standard deviation
         mean_std_array = np.load("./dataset/federated_learning/mean_std.npy")
         mean = mean_std_array[0]
@@ -267,26 +267,26 @@ device_types = ["fan",
 server_devices = "0"  # This number selects the devices used on the server, NOT the total number of devices.
 
 # Model configuration parameters
-# config = {
-#     "K": 2,
-#     "Ninit": 4,
-#     "PVinit": 16,
-#     "M": 1500,
-#     "C": 0.01,
-#     "sigma": 9.999999999999999e-10,
-#     "threshold_type": 'fxd',
-#     "threshold_minimum": 0.05,
-# }
 config = {
     "K": 2,
     "Ninit": 4,
     "PVinit": 16,
     "M": 1500,
-    "C": 10,
-    "sigma": 20,
+    "C": 0.1,
+    "sigma": 1,
     "threshold_type": 'fxd',
     "threshold_minimum": 0.05,
 }
+# config = {
+#     "K": 2,
+#     "Ninit": 4,
+#     "PVinit": 16,
+#     "M": 1500,
+#     "C": 10,
+#     "sigma": 20,
+#     "threshold_type": 'fxd',
+#     "threshold_minimum": 0.05,
+# }
 
 # Dataset generation and training of the server
 X_train_all, Y_train_all, X_test_all, Y_test_all = get_data_set(server_devices, with_subsampling=DEBUG)
@@ -307,7 +307,7 @@ for device_type in device_types:
     Y_pv += Y_train_all[device_type][first_abnormal_index:first_abnormal_index + int(server_model.config["PVinit"])]
 
 X_pv = tf.convert_to_tensor(X_pv)
-Y_pv = tf.convert_to_tensor(X_pv, dtype=tf.float64)
+Y_pv = tf.convert_to_tensor(Y_pv, dtype=tf.float64)
 
 # Get the initial dataset from each of the device types.
 X_init = []
@@ -465,9 +465,9 @@ for i in ["2", "4", "6"]:
                 tf.convert_to_tensor(X_test_all_env[device_type][j], dtype=tf.float64))
             Y_pred.append(prediction)
             Y_pred_fx.append(score)
-            if Y_test_all[device_type][j] == prediction:
+            if Y_test_all_env[device_type][j] == prediction:
                 right_number += 1
-                if Y_test_all[device_type][j] == 1:
+                if Y_test_all_env[device_type][j] == 1:
                     true_positives += 1
             elif prediction == 1:
                 false_positives += 1
@@ -484,8 +484,8 @@ for i in ["2", "4", "6"]:
                         "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
                         "precision": true_positives / (true_positives + false_positives),
                         "recall": true_positives / (true_positives + false_negatives),
-                        "f1_score": f1_score(Y_test_all[device_type], Y_pred),
-                        "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
                     }
                 }
             }
