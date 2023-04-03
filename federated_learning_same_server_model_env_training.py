@@ -250,7 +250,7 @@ def get_data_set(device_number="0", with_subsampling=False, mean_calc_needed=Fal
 tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
 VISUALISE = False
-DEBUG = True
+DEBUG = False
 epochs = 10
 folds = [256, 128, 64, 32]  # the random seed for each fold
 class_labels = {
@@ -445,24 +445,16 @@ for fold in folds:
                         false_negatives += 1
 
                 if epoch == 0:
-                    results["envs"].update({
-                        "before": {
-                            str(i): {
-                                str(device_type): {
-                                    "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
-                                    "precision": true_positives / (true_positives + false_positives),
-                                    "recall": true_positives / (true_positives + false_negatives),
-                                    "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
-                                    "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
-                                }
-                            }
-                        }
-                    })
+                    results["envs"]["before"][f"{i}"][f"{device_type}"] = {
+                        "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
+                        "precision": true_positives / (true_positives + false_positives),
+                        "recall": true_positives / (true_positives + false_negatives),
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
+                    }
 
                 print(
                     f"Accuracy for {device_type} before training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
-                print(
-                    f"AUC for {device_type} before training: {str(round(roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx)), 4))}%")
 
             for device_type in device_types:
                 # Do a normal step for each device type with the server model
@@ -495,23 +487,15 @@ for fold in folds:
 
                 print(
                     f"Accuracy for {device_type} after training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
-                print(
-                    f"AUC for {device_type} after training: {str(round(roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx)), 4))}%")
 
-                if epoch == epochs:
-                    results["envs"].update({
-                        "after": {
-                            str(i): {
-                                str(device_type): {
-                                    "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
-                                    "precision": true_positives / (true_positives + false_positives),
-                                    "recall": true_positives / (true_positives + false_negatives),
-                                    "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
-                                    "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
-                                }
-                            }
-                        }
-                    })
+                if epoch == epochs - 1:
+                    results["envs"]["after"][f"{i}"][f"{device_type}"] = {
+                        "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
+                        "precision": true_positives / (true_positives + false_positives),
+                        "recall": true_positives / (true_positives + false_negatives),
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
+                    }
 
             Beta_envs += env_model.Beta
             # print(f"Env parameters: {Beta_envs[i]}")
@@ -585,8 +569,8 @@ for fold in folds:
     print(f"AUC for server test set: {str(round(auc_after, 4))}")
 
     jsonString = json.dumps(results)
-    os.makedirs(os.path.dirname("/same_server_model/results_256.json"), exist_ok=True)
-    with open(f"/same_server_model/results_{fold}.json", "w") as outfile:
+    os.makedirs("./same_server_model/", exist_ok=True)
+    with open("./same_server_model/results_" + str(fold) + ".json", "w+") as outfile:
         outfile.write(jsonString)
 
     print("========================================================")

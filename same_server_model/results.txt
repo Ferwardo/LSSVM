@@ -1,0 +1,1504 @@
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server test set: 92.13%
+Precision for server test set: 0.921
+Recall for server test set: 0.9912
+F1 score for server test set: 0.9539
+AUC for server test set: 0.8831
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 58.94%
+Accuracy for pump before training: 90.47%
+Accuracy for valve before training: 83.98%
+Accuracy for slider before training: 83.78%
+=========================================================
+Accuracy for fan after training: 72.67%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 85.68%
+Accuracy for slider after training: 82.89%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.86%
+Accuracy for pump before training: 84.88%
+Accuracy for valve before training: 88.58%
+Accuracy for slider before training: 67.78%
+=========================================================
+Accuracy for fan after training: 75.07%
+Accuracy for pump after training: 86.12%
+Accuracy for valve after training: 90.2%
+Accuracy for slider after training: 73.47%
+ID 6
+=========================================================
+Accuracy for fan before training: 72.33%
+Accuracy for pump before training: 88.9%
+Accuracy for valve before training: 88.22%
+Accuracy for slider before training: 82.37%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 89.95%
+Accuracy for valve after training: 89.95%
+Accuracy for slider after training: 84.29%
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 68.75%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 82.44%
+=========================================================
+Accuracy for fan after training: 73.04%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 85.68%
+Accuracy for slider after training: 82.07%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.07%
+Accuracy for pump before training: 86.62%
+Accuracy for valve before training: 89.3%
+Accuracy for slider before training: 71.11%
+=========================================================
+Accuracy for fan after training: 75.14%
+Accuracy for pump after training: 86.38%
+Accuracy for valve after training: 90.56%
+Accuracy for slider after training: 74.31%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 89.42%
+Accuracy for valve before training: 89.49%
+Accuracy for slider before training: 83.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.47%
+Accuracy for valve after training: 90.31%
+Accuracy for slider after training: 84.78%
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 72.46%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 85.8%
+Accuracy for slider before training: 81.4%
+=========================================================
+Accuracy for fan after training: 73.55%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 85.92%
+Accuracy for slider after training: 81.55%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.22%
+Accuracy for pump before training: 86.75%
+Accuracy for valve before training: 89.57%
+Accuracy for slider before training: 72.5%
+=========================================================
+Accuracy for fan after training: 75.29%
+Accuracy for pump after training: 86.5%
+Accuracy for valve after training: 90.56%
+Accuracy for slider after training: 74.44%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 89.69%
+Accuracy for valve before training: 89.67%
+Accuracy for slider before training: 84.29%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.82%
+Accuracy for valve after training: 90.13%
+Accuracy for slider after training: 85.74%
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.11%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.65%
+=========================================================
+Accuracy for fan after training: 73.84%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 86.29%
+Accuracy for slider after training: 81.25%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.29%
+Accuracy for pump before training: 87.0%
+Accuracy for valve before training: 89.75%
+Accuracy for slider before training: 74.03%
+=========================================================
+Accuracy for fan after training: 75.29%
+Accuracy for pump after training: 86.62%
+Accuracy for valve after training: 90.47%
+Accuracy for slider after training: 74.44%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.38%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 85.42%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 85.9%
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.47%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.43%
+=========================================================
+Accuracy for fan after training: 73.62%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 86.41%
+Accuracy for slider after training: 81.18%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.29%
+Accuracy for pump before training: 87.0%
+Accuracy for valve before training: 90.11%
+Accuracy for slider before training: 74.31%
+=========================================================
+Accuracy for fan after training: 74.78%
+Accuracy for pump after training: 86.88%
+Accuracy for valve after training: 90.29%
+Accuracy for slider after training: 74.44%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.56%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 85.9%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 86.38%
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.33%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.36%
+=========================================================
+Accuracy for fan after training: 73.69%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 86.65%
+Accuracy for slider after training: 80.95%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.07%
+Accuracy for pump before training: 87.0%
+Accuracy for valve before training: 90.2%
+Accuracy for slider before training: 74.44%
+=========================================================
+Accuracy for fan after training: 74.71%
+Accuracy for pump after training: 87.0%
+Accuracy for valve after training: 90.02%
+Accuracy for slider after training: 74.58%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 86.38%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 86.22%
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.62%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.21%
+=========================================================
+Accuracy for fan after training: 73.69%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 86.89%
+Accuracy for slider after training: 80.95%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.71%
+Accuracy for pump before training: 87.0%
+Accuracy for valve before training: 90.02%
+Accuracy for slider before training: 74.58%
+=========================================================
+Accuracy for fan after training: 74.71%
+Accuracy for pump after training: 87.12%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 74.86%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 86.22%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 86.22%
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.76%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.13%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 86.89%
+Accuracy for slider after training: 80.8%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.71%
+Accuracy for pump before training: 87.0%
+Accuracy for valve before training: 89.84%
+Accuracy for slider before training: 74.72%
+=========================================================
+Accuracy for fan after training: 74.71%
+Accuracy for pump after training: 87.5%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 74.86%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 86.06%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 86.22%
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.76%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.13%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 87.01%
+Accuracy for slider after training: 80.88%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.71%
+Accuracy for pump before training: 87.0%
+Accuracy for valve before training: 89.84%
+Accuracy for slider before training: 74.72%
+=========================================================
+Accuracy for fan after training: 74.71%
+Accuracy for pump after training: 87.88%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 75.14%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 86.06%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 86.22%
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.76%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 86.41%
+Accuracy for slider before training: 80.13%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.65%
+Accuracy for valve after training: 87.01%
+Accuracy for slider after training: 80.88%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.71%
+Accuracy for pump before training: 87.5%
+Accuracy for valve before training: 89.75%
+Accuracy for slider before training: 74.86%
+=========================================================
+Accuracy for fan after training: 74.71%
+Accuracy for pump after training: 88.0%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 75.28%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.86%
+Accuracy for slider before training: 86.06%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 86.06%
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server test set: 81.83%
+Precision for server test set: 0.8175
+Recall for server test set: 0.9985
+F1 score for server test set: 0.8968
+AUC for server test set: 0.6538
+========================================================
+Written results for each device to results.json
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server test set: 91.89%
+Precision for server test set: 0.918
+Recall for server test set: 0.9917
+F1 score for server test set: 0.9525
+AUC for server test set: 0.8887
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 58.87%
+Accuracy for pump before training: 89.91%
+Accuracy for valve before training: 84.74%
+Accuracy for slider before training: 83.48%
+=========================================================
+Accuracy for fan after training: 72.46%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 85.22%
+Accuracy for slider after training: 83.41%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.22%
+Accuracy for pump before training: 84.53%
+Accuracy for valve before training: 86.79%
+Accuracy for slider before training: 67.64%
+=========================================================
+Accuracy for fan after training: 75.22%
+Accuracy for pump after training: 85.77%
+Accuracy for valve after training: 88.57%
+Accuracy for slider after training: 71.94%
+ID 6
+=========================================================
+Accuracy for fan before training: 72.54%
+Accuracy for pump before training: 88.81%
+Accuracy for valve before training: 86.69%
+Accuracy for slider before training: 82.28%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 89.39%
+Accuracy for slider after training: 84.02%
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 68.97%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 82.29%
+=========================================================
+Accuracy for fan after training: 73.11%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 85.82%
+Accuracy for slider after training: 82.89%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.29%
+Accuracy for pump before training: 85.77%
+Accuracy for valve before training: 88.21%
+Accuracy for slider before training: 70.69%
+=========================================================
+Accuracy for fan after training: 75.51%
+Accuracy for pump after training: 85.77%
+Accuracy for valve after training: 88.66%
+Accuracy for slider after training: 73.06%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 89.69%
+Accuracy for valve before training: 88.22%
+Accuracy for slider before training: 83.54%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.03%
+Accuracy for valve after training: 89.66%
+Accuracy for slider after training: 84.49%
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 72.46%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 81.18%
+=========================================================
+Accuracy for fan after training: 73.62%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 86.42%
+Accuracy for slider after training: 82.29%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.51%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.57%
+Accuracy for slider before training: 72.22%
+=========================================================
+Accuracy for fan after training: 75.51%
+Accuracy for pump after training: 86.14%
+Accuracy for valve after training: 88.84%
+Accuracy for slider after training: 74.31%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 89.03%
+Accuracy for slider before training: 83.7%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.56%
+Accuracy for valve after training: 89.66%
+Accuracy for slider after training: 84.97%
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.11%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 80.58%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 86.54%
+Accuracy for slider after training: 82.14%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.58%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.48%
+Accuracy for slider before training: 73.33%
+=========================================================
+Accuracy for fan after training: 75.51%
+Accuracy for pump after training: 86.14%
+Accuracy for valve after training: 89.11%
+Accuracy for slider after training: 74.72%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.38%
+Accuracy for valve before training: 89.03%
+Accuracy for slider before training: 84.65%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.75%
+Accuracy for slider after training: 84.97%
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.62%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 80.21%
+=========================================================
+Accuracy for fan after training: 73.91%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 86.54%
+Accuracy for slider after training: 81.92%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.58%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.57%
+Accuracy for slider before training: 73.89%
+=========================================================
+Accuracy for fan after training: 75.58%
+Accuracy for pump after training: 86.14%
+Accuracy for valve after training: 89.29%
+Accuracy for slider after training: 75.0%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.65%
+Accuracy for valve before training: 89.21%
+Accuracy for slider before training: 84.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.57%
+Accuracy for slider after training: 85.28%
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.84%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 80.13%
+=========================================================
+Accuracy for fan after training: 73.62%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 86.66%
+Accuracy for slider after training: 81.92%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.58%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.57%
+Accuracy for slider before training: 74.31%
+=========================================================
+Accuracy for fan after training: 75.36%
+Accuracy for pump after training: 86.14%
+Accuracy for valve after training: 89.46%
+Accuracy for slider after training: 75.0%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.21%
+Accuracy for slider before training: 84.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.3%
+Accuracy for slider after training: 85.28%
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.62%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 79.91%
+=========================================================
+Accuracy for fan after training: 73.69%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 86.78%
+Accuracy for slider after training: 81.77%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.36%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.57%
+Accuracy for slider before training: 74.58%
+=========================================================
+Accuracy for fan after training: 75.29%
+Accuracy for pump after training: 86.14%
+Accuracy for valve after training: 89.55%
+Accuracy for slider after training: 75.42%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.12%
+Accuracy for slider before training: 84.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.3%
+Accuracy for slider after training: 85.28%
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.76%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.58%
+Accuracy for slider before training: 79.84%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 86.9%
+Accuracy for slider after training: 81.7%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.29%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.39%
+Accuracy for slider before training: 74.86%
+=========================================================
+Accuracy for fan after training: 75.0%
+Accuracy for pump after training: 86.63%
+Accuracy for valve after training: 89.64%
+Accuracy for slider after training: 75.56%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.12%
+Accuracy for slider before training: 84.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.3%
+Accuracy for slider after training: 84.97%
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.76%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.7%
+Accuracy for slider before training: 79.84%
+=========================================================
+Accuracy for fan after training: 73.84%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 87.14%
+Accuracy for slider after training: 81.7%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.0%
+Accuracy for pump before training: 86.14%
+Accuracy for valve before training: 88.39%
+Accuracy for slider before training: 75.14%
+=========================================================
+Accuracy for fan after training: 75.0%
+Accuracy for pump after training: 87.0%
+Accuracy for valve after training: 89.64%
+Accuracy for slider after training: 75.69%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.12%
+Accuracy for slider before training: 84.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 91.0%
+Accuracy for valve after training: 89.21%
+Accuracy for slider after training: 84.97%
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.76%
+Accuracy for pump before training: 90.0%
+Accuracy for valve before training: 85.7%
+Accuracy for slider before training: 79.84%
+=========================================================
+Accuracy for fan after training: 73.84%
+Accuracy for pump after training: 90.0%
+Accuracy for valve after training: 87.14%
+Accuracy for slider after training: 81.7%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.0%
+Accuracy for pump before training: 86.51%
+Accuracy for valve before training: 88.3%
+Accuracy for slider before training: 75.28%
+=========================================================
+Accuracy for fan after training: 75.0%
+Accuracy for pump after training: 87.13%
+Accuracy for valve after training: 89.55%
+Accuracy for slider after training: 75.69%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.41%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.12%
+Accuracy for slider before training: 84.97%
+=========================================================
+Accuracy for fan after training: 73.41%
+Accuracy for pump after training: 91.0%
+Accuracy for valve after training: 89.21%
+Accuracy for slider after training: 85.13%
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server test set: 80.94%
+Precision for server test set: 0.8126
+Recall for server test set: 0.994
+F1 score for server test set: 0.8919
+AUC for server test set: 0.6842
+========================================================
+Written results for each device to results.json
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server test set: 91.49%
+Precision for server test set: 0.9139
+Recall for server test set: 0.9908
+F1 score for server test set: 0.95
+AUC for server test set: 0.8829
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 61.47%
+Accuracy for pump before training: 89.76%
+Accuracy for valve before training: 83.98%
+Accuracy for slider before training: 82.63%
+=========================================================
+Accuracy for fan after training: 72.28%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 84.47%
+Accuracy for slider after training: 83.53%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.71%
+Accuracy for pump before training: 84.5%
+Accuracy for valve before training: 87.14%
+Accuracy for slider before training: 69.18%
+=========================================================
+Accuracy for fan after training: 74.86%
+Accuracy for pump after training: 85.38%
+Accuracy for valve after training: 88.86%
+Accuracy for slider after training: 74.15%
+ID 6
+=========================================================
+Accuracy for fan before training: 72.88%
+Accuracy for pump before training: 89.26%
+Accuracy for valve before training: 86.5%
+Accuracy for slider before training: 83.6%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.05%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 84.25%
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 70.29%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 84.47%
+Accuracy for slider before training: 81.51%
+=========================================================
+Accuracy for fan after training: 72.65%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 85.44%
+Accuracy for slider after training: 82.78%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.93%
+Accuracy for pump before training: 85.5%
+Accuracy for valve before training: 87.5%
+Accuracy for slider before training: 71.59%
+=========================================================
+Accuracy for fan after training: 74.93%
+Accuracy for pump after training: 85.5%
+Accuracy for valve after training: 89.13%
+Accuracy for slider after training: 74.43%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 89.79%
+Accuracy for valve before training: 88.87%
+Accuracy for slider before training: 83.93%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.67%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.06%
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 71.91%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 84.47%
+Accuracy for slider before training: 81.59%
+=========================================================
+Accuracy for fan after training: 73.01%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 86.41%
+Accuracy for slider after training: 82.49%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.0%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.77%
+Accuracy for slider before training: 74.15%
+=========================================================
+Accuracy for fan after training: 75.07%
+Accuracy for pump after training: 85.62%
+Accuracy for valve after training: 89.13%
+Accuracy for slider after training: 74.86%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 89.88%
+Accuracy for valve before training: 89.51%
+Accuracy for slider before training: 84.58%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.71%
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 72.65%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 84.71%
+Accuracy for slider before training: 80.91%
+=========================================================
+Accuracy for fan after training: 73.46%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 86.65%
+Accuracy for slider after training: 82.11%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.07%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 74.86%
+=========================================================
+Accuracy for fan after training: 75.07%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 75.0%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.58%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.55%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.88%
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.31%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 80.61%
+=========================================================
+Accuracy for fan after training: 73.6%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 86.77%
+Accuracy for slider after training: 81.81%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.14%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 75.0%
+=========================================================
+Accuracy for fan after training: 75.14%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.49%
+Accuracy for slider after training: 75.28%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.85%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.71%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 86.04%
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.16%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 80.24%
+=========================================================
+Accuracy for fan after training: 73.24%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 87.01%
+Accuracy for slider after training: 81.81%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.14%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 75.14%
+=========================================================
+Accuracy for fan after training: 74.86%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.76%
+Accuracy for slider after training: 75.28%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.85%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.55%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.88%
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.16%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 80.09%
+=========================================================
+Accuracy for fan after training: 73.31%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 87.14%
+Accuracy for slider after training: 81.66%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.86%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.95%
+Accuracy for slider before training: 75.28%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 75.71%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.85%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.88%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.88%
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.31%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.79%
+=========================================================
+Accuracy for fan after training: 73.38%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 87.14%
+Accuracy for slider after training: 81.66%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.57%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.95%
+Accuracy for slider before training: 75.28%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 75.71%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.85%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.88%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.88%
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.46%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.79%
+=========================================================
+Accuracy for fan after training: 73.38%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 87.26%
+Accuracy for slider after training: 81.66%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.57%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.95%
+Accuracy for slider before training: 75.57%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 86.62%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 75.71%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.85%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.71%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.88%
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.46%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.72%
+=========================================================
+Accuracy for fan after training: 73.53%
+Accuracy for pump after training: 89.86%
+Accuracy for valve after training: 87.26%
+Accuracy for slider after training: 81.59%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.57%
+Accuracy for pump before training: 86.38%
+Accuracy for valve before training: 88.95%
+Accuracy for slider before training: 75.57%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 87.0%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 75.85%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.1%
+Accuracy for pump before training: 90.85%
+Accuracy for valve before training: 89.05%
+Accuracy for slider before training: 85.71%
+=========================================================
+Accuracy for fan after training: 73.1%
+Accuracy for pump after training: 90.85%
+Accuracy for valve after training: 89.78%
+Accuracy for slider after training: 85.88%
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server test set: 81.18%
+Precision for server test set: 0.8114
+Recall for server test set: 0.9985
+F1 score for server test set: 0.8932
+AUC for server test set: 0.6765
+========================================================
+Written results for each device to results.json
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server test set: 92.0%
+Precision for server test set: 0.9194
+Recall for server test set: 0.9909
+F1 score for server test set: 0.9529
+AUC for server test set: 0.8793
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 60.01%
+Accuracy for pump before training: 89.84%
+Accuracy for valve before training: 83.98%
+Accuracy for slider before training: 83.63%
+=========================================================
+Accuracy for fan after training: 72.81%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 84.47%
+Accuracy for slider after training: 83.11%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.78%
+Accuracy for pump before training: 84.62%
+Accuracy for valve before training: 87.41%
+Accuracy for slider before training: 67.7%
+=========================================================
+Accuracy for fan after training: 74.93%
+Accuracy for pump after training: 85.25%
+Accuracy for valve after training: 88.22%
+Accuracy for slider after training: 72.75%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.25%
+Accuracy for pump before training: 89.25%
+Accuracy for valve before training: 86.87%
+Accuracy for slider before training: 82.21%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 89.95%
+Accuracy for valve after training: 89.58%
+Accuracy for slider after training: 83.81%
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 69.81%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.19%
+Accuracy for slider before training: 82.07%
+=========================================================
+Accuracy for fan after training: 73.25%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 84.59%
+Accuracy for slider after training: 82.59%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.0%
+Accuracy for pump before training: 85.75%
+Accuracy for valve before training: 88.4%
+Accuracy for slider before training: 70.65%
+=========================================================
+Accuracy for fan after training: 75.0%
+Accuracy for pump after training: 85.62%
+Accuracy for valve after training: 88.58%
+Accuracy for slider after training: 73.74%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 89.6%
+Accuracy for valve before training: 88.59%
+Accuracy for slider before training: 83.17%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.38%
+Accuracy for valve after training: 89.86%
+Accuracy for slider after training: 84.46%
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 72.81%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 81.1%
+=========================================================
+Accuracy for fan after training: 73.54%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.19%
+Accuracy for slider after training: 82.07%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.14%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.49%
+Accuracy for slider before training: 73.03%
+=========================================================
+Accuracy for fan after training: 75.14%
+Accuracy for pump after training: 85.62%
+Accuracy for valve after training: 88.94%
+Accuracy for slider after training: 74.02%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 89.86%
+Accuracy for valve before training: 88.77%
+Accuracy for slider before training: 83.81%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.76%
+Accuracy for slider after training: 84.62%
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.32%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 80.43%
+=========================================================
+Accuracy for fan after training: 73.61%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.44%
+Accuracy for slider after training: 81.92%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.14%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.76%
+Accuracy for slider before training: 73.6%
+=========================================================
+Accuracy for fan after training: 75.14%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.03%
+Accuracy for slider after training: 74.3%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.3%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.62%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.58%
+Accuracy for slider after training: 84.78%
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.61%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 80.06%
+=========================================================
+Accuracy for fan after training: 73.61%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.68%
+Accuracy for slider after training: 81.62%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.14%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 88.58%
+Accuracy for slider before training: 74.16%
+=========================================================
+Accuracy for fan after training: 74.93%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.3%
+Accuracy for slider after training: 74.3%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.82%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.78%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 85.1%
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.61%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.91%
+=========================================================
+Accuracy for fan after training: 73.32%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.68%
+Accuracy for slider after training: 81.4%
+ID 4
+=========================================================
+Accuracy for fan before training: 75.14%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 89.03%
+Accuracy for slider before training: 74.16%
+=========================================================
+Accuracy for fan after training: 74.71%
+Accuracy for pump after training: 86.0%
+Accuracy for valve after training: 89.75%
+Accuracy for slider after training: 74.44%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.94%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 84.94%
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.46%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.91%
+=========================================================
+Accuracy for fan after training: 73.39%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.68%
+Accuracy for slider after training: 81.32%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.93%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 89.21%
+Accuracy for slider before training: 74.16%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 86.25%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 74.72%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.78%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 84.78%
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.54%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.76%
+=========================================================
+Accuracy for fan after training: 73.54%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.8%
+Accuracy for slider after training: 81.47%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.78%
+Accuracy for pump before training: 86.0%
+Accuracy for valve before training: 89.21%
+Accuracy for slider before training: 74.16%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 86.75%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 75.0%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.78%
+=========================================================
+Accuracy for fan after training: 73.68%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 84.78%
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.61%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.76%
+=========================================================
+Accuracy for fan after training: 73.61%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 85.92%
+Accuracy for slider after training: 81.47%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.57%
+Accuracy for pump before training: 86.38%
+Accuracy for valve before training: 89.21%
+Accuracy for slider before training: 74.44%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 86.88%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 75.0%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.62%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 84.78%
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 89.93%
+Accuracy for valve before training: 85.44%
+Accuracy for slider before training: 79.84%
+=========================================================
+Accuracy for fan after training: 73.61%
+Accuracy for pump after training: 89.93%
+Accuracy for valve after training: 86.04%
+Accuracy for slider after training: 81.47%
+ID 4
+=========================================================
+Accuracy for fan before training: 74.57%
+Accuracy for pump before training: 86.62%
+Accuracy for valve before training: 89.21%
+Accuracy for slider before training: 74.44%
+=========================================================
+Accuracy for fan after training: 74.57%
+Accuracy for pump after training: 87.0%
+Accuracy for valve after training: 89.84%
+Accuracy for slider after training: 75.0%
+ID 6
+=========================================================
+Accuracy for fan before training: 73.68%
+Accuracy for pump before training: 90.91%
+Accuracy for valve before training: 89.13%
+Accuracy for slider before training: 84.62%
+=========================================================
+Accuracy for fan after training: 73.76%
+Accuracy for pump after training: 90.91%
+Accuracy for valve after training: 89.22%
+Accuracy for slider after training: 84.62%
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server test set: 81.24%
+Precision for server test set: 0.8122
+Recall for server test set: 0.9985
+F1 score for server test set: 0.8936
+AUC for server test set: 0.6699
+========================================================
+Written results for each device to results.json
