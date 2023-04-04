@@ -365,6 +365,7 @@ Accuracy for fan after training: 73.41%
 Accuracy for pump after training: 90.91%
 Accuracy for valve after training: 89.86%
 Accuracy for slider after training: 86.06%
+
 Metrics after sending the parameters to the environments
 ========================================================
 Accuracy for server test set: 81.83%
@@ -374,6 +375,7 @@ F1 score for server test set: 0.8968
 AUC for server test set: 0.6538
 ========================================================
 Written results for each device to results.json
+
 Metrics before sending the parameters to the environments
 =========================================================
 Accuracy for server test set: 91.89%
@@ -741,6 +743,7 @@ Accuracy for fan after training: 73.41%
 Accuracy for pump after training: 91.0%
 Accuracy for valve after training: 89.21%
 Accuracy for slider after training: 85.13%
+
 Metrics after sending the parameters to the environments
 ========================================================
 Accuracy for server test set: 80.94%
@@ -750,6 +753,7 @@ F1 score for server test set: 0.8919
 AUC for server test set: 0.6842
 ========================================================
 Written results for each device to results.json
+
 Metrics before sending the parameters to the environments
 =========================================================
 Accuracy for server test set: 91.49%
@@ -1117,6 +1121,7 @@ Accuracy for fan after training: 73.1%
 Accuracy for pump after training: 90.85%
 Accuracy for valve after training: 89.78%
 Accuracy for slider after training: 85.88%
+
 Metrics after sending the parameters to the environments
 ========================================================
 Accuracy for server test set: 81.18%
@@ -1126,6 +1131,7 @@ F1 score for server test set: 0.8932
 AUC for server test set: 0.6765
 ========================================================
 Written results for each device to results.json
+
 Metrics before sending the parameters to the environments
 =========================================================
 Accuracy for server test set: 92.0%

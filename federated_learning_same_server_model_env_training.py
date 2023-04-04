@@ -508,65 +508,66 @@ for fold in folds:
         # Set new server parameters
         server_model.Beta = Beta_server_new
 
-    accuracy_after = 0
-    precision_after = 0
-    recall_after = 0
-    f1_scores_after = 0
-    auc_after = 0
+        accuracy_after = 0
+        precision_after = 0
+        recall_after = 0
+        f1_scores_after = 0
+        auc_after = 0
 
-    # See if the model works better
-    for device_type in device_types:
-        # variables for metrics calculated later
-        right_number = 0
-        true_positives = 0
-        false_positives = 0
-        false_negatives = 0
-        Y_pred = []
-        Y_pred_fx = []
+        # See if the model works better
+        for device_type in device_types:
+            # variables for metrics calculated later
+            right_number = 0
+            true_positives = 0
+            false_positives = 0
+            false_negatives = 0
+            Y_pred = []
+            Y_pred_fx = []
 
-        for i in range(0, len(X_test_all[device_type])):
-            prediction, score = server_model.predict(tf.convert_to_tensor(X_test_all[device_type][i], dtype=tf.float64))
-            Y_pred.append(prediction)
-            Y_pred_fx.append(score)
-            # print(
-            # f"Right label: {inverse_class_labels[Y_test_all[device_type][i]]}. Predicted label: {inverse_class_labels[prediction]}")
-            if Y_test_all[device_type][i] == prediction:
-                right_number += 1
-                if Y_test_all[device_type][i] == 1:
-                    true_positives += 1
-            elif prediction == 1:
-                false_positives += 1
-            elif prediction == -1:
-                false_negatives += 1
+            for i in range(0, len(X_test_all[device_type])):
+                prediction, score = server_model.predict(tf.convert_to_tensor(X_test_all[device_type][i], dtype=tf.float64))
+                Y_pred.append(prediction)
+                Y_pred_fx.append(score)
+                # print(
+                # f"Right label: {inverse_class_labels[Y_test_all[device_type][i]]}. Predicted label: {inverse_class_labels[prediction]}")
+                if Y_test_all[device_type][i] == prediction:
+                    right_number += 1
+                    if Y_test_all[device_type][i] == 1:
+                        true_positives += 1
+                elif prediction == 1:
+                    false_positives += 1
+                elif prediction == -1:
+                    false_negatives += 1
 
-        results["after"].update({
-            device_type: {
-                "accuracy": (right_number / len(X_test_all[device_type])) * 100,
-                "precision": true_positives / (true_positives + false_positives),
-                "recall": true_positives / (true_positives + false_negatives),
-                "f1_score": f1_score(Y_test_all[device_type], Y_pred),
-                "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
-            }
-        })
-        accuracy_after += results["after"][device_type]["accuracy"]
-        precision_after += results["after"][device_type]["precision"]
-        recall_after += results["after"][device_type]["recall"]
-        f1_scores_after += results["after"][device_type]["f1_score"]
-        auc_after += results["after"][device_type]["auc"]
+            results["after"].update({
+                device_type: {
+                    "accuracy": (right_number / len(X_test_all[device_type])) * 100,
+                    "precision": true_positives / (true_positives + false_positives),
+                    "recall": true_positives / (true_positives + false_negatives),
+                    "f1_score": f1_score(Y_test_all[device_type], Y_pred),
+                    "auc": roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx))
+                }
+            })
+            accuracy_after += results["after"][device_type]["accuracy"]
+            precision_after += results["after"][device_type]["precision"]
+            recall_after += results["after"][device_type]["recall"]
+            f1_scores_after += results["after"][device_type]["f1_score"]
+            auc_after += results["after"][device_type]["auc"]
 
-    accuracy_after /= len(device_types)
-    precision_after /= len(device_types)
-    recall_after /= len(device_types)
-    f1_scores_after /= len(device_types)
-    auc_after /= len(device_types)
+        accuracy_after /= len(device_types)
+        precision_after /= len(device_types)
+        recall_after /= len(device_types)
+        f1_scores_after /= len(device_types)
+        auc_after /= len(device_types)
 
-    print("\n\nMetrics after sending the parameters to the environments")
-    print("========================================================")
-    print(f"Accuracy for server test set: {str(round(accuracy_after, 2))}%")
-    print(f"Precision for server test set: {str(round(precision_after, 4))}")
-    print(f"Recall for server test set: {str(round(recall_after, 4))}")
-    print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
-    print(f"AUC for server test set: {str(round(auc_after, 4))}")
+        print(f"\n\nMetrics after sending the parameters to the environments")
+        print("========================================================")
+        print(f"Accuracy for server test set: {str(round(accuracy_after, 2))}%")
+        print(f"Precision for server test set: {str(round(precision_after, 4))}")
+        print(f"Recall for server test set: {str(round(recall_after, 4))}")
+        print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
+        print(f"AUC for server test set: {str(round(auc_after, 4))}")
+        print("========================================================")
 
     jsonString = json.dumps(results)
     os.makedirs("./same_server_model/", exist_ok=True)
