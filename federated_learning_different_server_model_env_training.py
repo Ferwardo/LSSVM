@@ -351,7 +351,18 @@ for fold in folds:
 
     server_model.compute(X_init, Y_init, X_pv, Y_pv)
 
-    results = {"before": {}, "after": {}, "envs": {}}
+    results = {"before": {}, "after": {}, "envs": {
+        "before": {
+            "2": {"fan": {}, "pump": {}, "valve": {}, "slider": {}},
+            "4": {"fan": {}, "pump": {}, "valve": {}, "slider": {}},
+            "6": {"fan": {}, "pump": {}, "valve": {}, "slider": {}}
+        },
+        "after": {
+            "2": {"fan": {}, "pump": {}, "valve": {}, "slider": {}},
+            "4": {"fan": {}, "pump": {}, "valve": {}, "slider": {}},
+            "6": {"fan": {}, "pump": {}, "valve": {}, "slider": {}}
+        }
+    }}
 
     # Do a normal step for each device type with the server model
     for device_type in device_types:
@@ -468,19 +479,13 @@ for fold in folds:
                     f"AUC for environment {i} and device {device_type} before training: {str(round(roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx)), 4))}\n")
 
                 if epoch == 0:
-                    results["envs"].update({
-                        "before": {
-                            i: {
-                                device_type: {
-                                    "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
-                                    "precision": true_positives / (true_positives + false_positives),
-                                    "recall": true_positives / (true_positives + false_negatives),
-                                    "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
-                                    "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
-                                }
-                            }
-                        }
-                    })
+                    results["envs"]["before"][f"{i}"][f"{device_type}"] = {
+                        "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
+                        "precision": true_positives / (true_positives + false_positives),
+                        "recall": true_positives / (true_positives + false_negatives),
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
+                    }
 
             for device_type in device_types:
                 # Do a normal step for each device type with the server model
@@ -517,19 +522,13 @@ for fold in folds:
                     f"AUC for environment {i} and device {device_type} after training: {str(round(roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx)), 4))}\n")
 
                 if epoch == epochs - 1:
-                    results["envs"].update({
-                        "after": {
-                            i: {
-                                device_type: {
-                                    "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
-                                    "precision": true_positives / (true_positives + false_positives),
-                                    "recall": true_positives / (true_positives + false_negatives),
-                                    "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
-                                    "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
-                                }
-                            }
-                        }
-                    })
+                    results["envs"]["after"][f"{i}"][f"{device_type}"] = {
+                        "accuracy": (right_number / len(X_test_all_env[device_type])) * 100,
+                        "precision": true_positives / (true_positives + false_positives),
+                        "recall": true_positives / (true_positives + false_negatives),
+                        "f1_score": f1_score(Y_test_all_env[device_type], Y_pred),
+                        "auc": roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx))
+                    }
 
             # Send back the model parameters to the server after each device has learned its machines.
             Beta_server = (Beta_server + env_model.Beta) / 2
@@ -606,8 +605,8 @@ for fold in folds:
         # print("========================================================")
 
     jsonString = json.dumps(results)
-    os.makedirs(os.path.dirname("/different_server_model/results_256.json"), exist_ok=True)
-    with open(f"/different_server_model/results_{fold}.json", "w") as outfile:
+    os.makedirs("./different_server_model/", exist_ok=True)
+    with open(f"./different_server_model/results_{fold}.json", "w+") as outfile:
         outfile.write(jsonString)
 
     print("========================================================")

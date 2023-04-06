@@ -4,7 +4,7 @@ import random
 
 import numpy as np
 import matplotlib.pyplot as plt
-import tensorflow as tf
+# import tensorflow as tf
 from FE_funcs.feat_extract import FE
 from LSSVM import LSSVM
 from sklearn.metrics import f1_score, roc_auc_score
@@ -14,6 +14,9 @@ import tensorflow.keras.backend as K
 def init_gpu(devices="", v=2):
     if v == 2:  # tf2
         os.environ["CUDA_VISIBLE_DEVICES"] = devices
+
+        import tensorflow as tf
+
         gpus = tf.config.list_physical_devices("GPU")
         if gpus:
             try:
@@ -26,6 +29,8 @@ def init_gpu(devices="", v=2):
         # from tensorflow.python.framework.ops import disable_eager_execution
         # disable_eager_execution()
     else:  # tf1
+
+        import tensorflow as tf
         os.environ["CUDA_VISIBLE_DEVICES"] = devices
         config = tf.compat.v1.ConfigProto()
         config.gpu_options.allow_growth = True
@@ -247,8 +252,11 @@ def get_data_set(device_number="0", with_subsampling=False, mean_calc_needed=Fal
     return (X_train_all, Y_train_all, X_test_all, Y_test_all)
 
 
-tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
+# tf.config.list_physical_devices("GPU")  # With this my home gpu is seen, if left out it is not
 init_gpu(devices="1", v=2)
+
+import tensorflow as tf
+
 VISUALISE = False
 DEBUG = False
 epochs = 10
@@ -347,6 +355,8 @@ for fold in folds:
     f1_scores = 0
     auc = 0
 
+    print("Metrics before sending the parameters to the environments")
+    print("=========================================================")
     # Evaluate for each device type with the server model
     for device_type in device_types:
         # variables for metrics calculated later
@@ -371,6 +381,10 @@ for fold in folds:
                 false_positives += 1
             elif prediction == -1:
                 false_negatives += 1
+        print(
+            f"Accuracy for server and device {device_type} before training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
+        print(
+            f"AUC for server and device {device_type} before training: {str(round(roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx)), 4))}\n")
 
         results["before"].update({
             device_type: {
@@ -382,20 +396,21 @@ for fold in folds:
             }
         })
         accuracy += results["before"][device_type]["accuracy"]
+
         precision += results["before"][device_type]["precision"]
         recall += results["before"][device_type]["recall"]
         f1_scores += results["before"][device_type]["f1_score"]
         auc += results["before"][device_type]["auc"]
 
-    accuracy /= len(device_types)
+    # accuracy /= len(device_types)
     precision /= len(device_types)
     recall /= len(device_types)
     f1_scores /= len(device_types)
     auc /= len(device_types)
 
-    print("Metrics before sending the parameters to the environments")
-    print("=========================================================")
-    print(f"Accuracy for server test set: {str(round(accuracy, 2))}%")
+    # print("Metrics before sending the parameters to the environments")
+    # print("=========================================================")
+    # print(f"Accuracy for server test set: {str(round(accuracy, 2))}%")
     print(f"Precision for server test set: {str(round(precision, 4))}")
     print(f"Recall for server test set: {str(round(recall, 4))}")
     print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
@@ -454,7 +469,9 @@ for fold in folds:
                     }
 
                 print(
-                    f"Accuracy for {device_type} before training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
+                    f"Accuracy for environment {i} and device {device_type} before training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
+                print(
+                    f"AUC for environment {i} and device {device_type} before training: {str(round(roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx)), 4))}\n")
 
             for device_type in device_types:
                 # Do a normal step for each device type with the server model
@@ -486,7 +503,9 @@ for fold in folds:
                         false_negatives += 1
 
                 print(
-                    f"Accuracy for {device_type} after training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
+                    f"Accuracy for environment {i} and device {device_type} after training: {str(round((right_number / len(X_test_all_env[device_type])) * 100, 2))}%")
+                print(
+                    f"AUC for environment {i} and device {device_type} after training: {str(round(roc_auc_score(Y_test_all_env[device_type], tf.squeeze(Y_pred_fx)), 4))}\n")
 
                 if epoch == epochs - 1:
                     results["envs"]["after"][f"{i}"][f"{device_type}"] = {
@@ -514,6 +533,9 @@ for fold in folds:
         f1_scores_after = 0
         auc_after = 0
 
+        print("\n\n========================================================")
+        print("Metrics after sending the parameters to the environments")
+        print("========================================================")
         # See if the model works better
         for device_type in device_types:
             # variables for metrics calculated later
@@ -525,7 +547,8 @@ for fold in folds:
             Y_pred_fx = []
 
             for i in range(0, len(X_test_all[device_type])):
-                prediction, score = server_model.predict(tf.convert_to_tensor(X_test_all[device_type][i], dtype=tf.float64))
+                prediction, score = server_model.predict(
+                    tf.convert_to_tensor(X_test_all[device_type][i], dtype=tf.float64))
                 Y_pred.append(prediction)
                 Y_pred_fx.append(score)
                 # print(
@@ -538,6 +561,10 @@ for fold in folds:
                     false_positives += 1
                 elif prediction == -1:
                     false_negatives += 1
+            print(
+                f"Accuracy for server and device {device_type} after training: {str(round((right_number / len(X_test_all[device_type])) * 100, 2))}%")
+            print(
+                f"AUC for server and device {device_type} after training: {str(round(roc_auc_score(Y_test_all[device_type], tf.squeeze(Y_pred_fx)), 4))}\n")
 
             results["after"].update({
                 device_type: {
@@ -560,14 +587,14 @@ for fold in folds:
         f1_scores_after /= len(device_types)
         auc_after /= len(device_types)
 
-        print(f"\n\nMetrics after sending the parameters to the environments")
-        print("========================================================")
-        print(f"Accuracy for server test set: {str(round(accuracy_after, 2))}%")
-        print(f"Precision for server test set: {str(round(precision_after, 4))}")
-        print(f"Recall for server test set: {str(round(recall_after, 4))}")
-        print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
-        print(f"AUC for server test set: {str(round(auc_after, 4))}")
-        print("========================================================")
+        # print(f"\n\nMetrics after sending the parameters to the environments")
+        # print("========================================================")
+        # print(f"Accuracy for server test set: {str(round(accuracy_after, 2))}%")
+        # print(f"Precision for server test set: {str(round(precision_after, 4))}")
+        # print(f"Recall for server test set: {str(round(recall_after, 4))}")
+        # print(f"F1 score for server test set: {str(round(f1_scores_after, 4))}")
+        # print(f"AUC for server test set: {str(round(auc_after, 4))}")
+        # print("========================================================")
 
     jsonString = json.dumps(results)
     os.makedirs("./same_server_model/", exist_ok=True)
