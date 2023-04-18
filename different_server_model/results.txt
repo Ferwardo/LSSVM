@@ -724,6 +724,7 @@ Accuracy for server and device slider after training: 75.63%
 AUC for server and device slider after training: 0.5312
 ========================================================
 Written results for each device to results.json
+
 Metrics before sending the parameters to the environments
 =========================================================
 Accuracy for server and device fan before training: 96.84%
@@ -734,6 +735,7 @@ Accuracy for server and device valve before training: 89.21%
 AUC for server and device valve before training: 0.6625
 Accuracy for server and device slider before training: 84.99%
 AUC for server and device slider before training: 0.9274
+
 Precision for server test set: 0.9156
 Recall for server test set: 0.9925
 F1 score for server test set: 0.9515
@@ -1450,6 +1452,7 @@ Accuracy for server and device slider after training: 75.28%
 AUC for server and device slider after training: 0.4815
 ========================================================
 Written results for each device to results.json
+
 Metrics before sending the parameters to the environments
 =========================================================
 Accuracy for server and device fan before training: 96.95%

@@ -432,14 +432,13 @@ for fold in folds:
     print(f"F1 score for server test set: {str(round(f1_scores, 4))}")
     print(f"AUC for server test set: {str(round(auc, 4))}")
 
-    Beta_server = server_model.get_federated_learning_params(as_json=False, to_file=True)
-    Beta_envs = {}
 
     # Dataset generation and training on each of the three environments for 4 folds
     for epoch in range(0, epochs):  # repeat learning the model parameters until convergence
         print("=========================================================")
         print(f"Epoch {epoch + 1}/{epochs}:")
         print("=========================================================")
+        Beta_server = server_model.get_federated_learning_params(as_json=False, to_file=True)
 
         for i in ["2", "4", "6"]:
             print(f"ID {i}")
