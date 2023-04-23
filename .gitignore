@@ -1,3 +1,6 @@
 /.idea/
 /venv/
-/mfcc/
+**/mfcc/
+**/*_old/
+/dataset/
+/temp/

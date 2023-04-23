@@ -1,0 +1,2907 @@
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server and device fan before training: 97.33%
+AUC for server and device fan before training: 0.9879
+Accuracy for server and device pump before training: 95.89%
+AUC for server and device pump before training: 0.9764
+Accuracy for server and device valve before training: 89.95%
+AUC for server and device valve before training: 0.6353
+Accuracy for server and device slider before training: 85.34%
+AUC for server and device slider before training: 0.928
+Precision for server test set: 0.921
+Recall for server test set: 0.9912
+F1 score for server test set: 0.9539
+AUC for server test set: 0.8819
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 59.01%
+AUC for environment 2 and device fan before training: 0.1782
+Accuracy for environment 2 and device pump before training: 90.47%
+AUC for environment 2 and device pump before training: 0.4337
+Accuracy for environment 2 and device valve before training: 83.98%
+AUC for environment 2 and device valve before training: 0.5131
+Accuracy for environment 2 and device slider before training: 83.85%
+AUC for environment 2 and device slider before training: 0.7222
+=========================================================
+Accuracy for environment 2 and device fan after training: 72.46%
+AUC for environment 2 and device fan after training: 0.2677
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5133
+Accuracy for environment 2 and device valve after training: 85.68%
+AUC for environment 2 and device valve after training: 0.7325
+Accuracy for environment 2 and device slider after training: 82.89%
+AUC for environment 2 and device slider after training: 0.7775
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.78%
+AUC for environment 4 and device fan before training: 0.4044
+Accuracy for environment 4 and device pump before training: 86.62%
+AUC for environment 4 and device pump before training: 0.5679
+Accuracy for environment 4 and device valve before training: 89.21%
+AUC for environment 4 and device valve before training: 0.5936
+Accuracy for environment 4 and device slider before training: 69.03%
+AUC for environment 4 and device slider before training: 0.4054
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.14%
+AUC for environment 4 and device fan after training: 0.467
+Accuracy for environment 4 and device pump after training: 86.38%
+AUC for environment 4 and device pump after training: 0.5806
+Accuracy for environment 4 and device valve after training: 89.93%
+AUC for environment 4 and device valve after training: 0.6618
+Accuracy for environment 4 and device slider after training: 73.75%
+AUC for environment 4 and device slider after training: 0.5387
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.1873
+Accuracy for environment 6 and device pump before training: 88.72%
+AUC for environment 6 and device pump before training: 0.6557
+Accuracy for environment 6 and device valve before training: 89.04%
+AUC for environment 6 and device valve before training: 0.4891
+Accuracy for environment 6 and device slider before training: 83.97%
+AUC for environment 6 and device slider before training: 0.6033
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.5827
+Accuracy for environment 6 and device pump after training: 90.47%
+AUC for environment 6 and device pump after training: 0.7525
+Accuracy for environment 6 and device valve after training: 90.22%
+AUC for environment 6 and device valve after training: 0.7339
+Accuracy for environment 6 and device slider after training: 85.26%
+AUC for environment 6 and device slider after training: 0.7518
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 93.54%
+AUC for server and device fan after training: 0.9873
+Accuracy for server and device pump after training: 93.01%
+AUC for server and device pump after training: 0.9616
+Accuracy for server and device valve after training: 89.86%
+AUC for server and device valve after training: 0.6263
+Accuracy for server and device slider after training: 81.35%
+AUC for server and device slider after training: 0.9101
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 72.38%
+AUC for environment 2 and device fan before training: 0.2589
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.4547
+Accuracy for environment 2 and device valve before training: 85.56%
+AUC for environment 2 and device valve before training: 0.5688
+Accuracy for environment 2 and device slider before training: 81.4%
+AUC for environment 2 and device slider before training: 0.6552
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.4%
+AUC for environment 2 and device fan after training: 0.4285
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5408
+Accuracy for environment 2 and device valve after training: 85.92%
+AUC for environment 2 and device valve after training: 0.7724
+Accuracy for environment 2 and device slider after training: 81.47%
+AUC for environment 2 and device slider after training: 0.7674
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.22%
+AUC for environment 4 and device fan before training: 0.4502
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.6422
+Accuracy for environment 4 and device valve before training: 89.48%
+AUC for environment 4 and device valve before training: 0.585
+Accuracy for environment 4 and device slider before training: 72.64%
+AUC for environment 4 and device slider before training: 0.4965
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.29%
+AUC for environment 4 and device fan after training: 0.5295
+Accuracy for environment 4 and device pump after training: 86.5%
+AUC for environment 4 and device pump after training: 0.6336
+Accuracy for environment 4 and device valve after training: 90.02%
+AUC for environment 4 and device valve after training: 0.6956
+Accuracy for environment 4 and device slider after training: 74.44%
+AUC for environment 4 and device slider after training: 0.6712
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.3506
+Accuracy for environment 6 and device pump before training: 90.03%
+AUC for environment 6 and device pump before training: 0.6918
+Accuracy for environment 6 and device valve before training: 89.86%
+AUC for environment 6 and device valve before training: 0.5866
+Accuracy for environment 6 and device slider before training: 85.42%
+AUC for environment 6 and device slider before training: 0.5605
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.7139
+Accuracy for environment 6 and device pump after training: 90.82%
+AUC for environment 6 and device pump after training: 0.7626
+Accuracy for environment 6 and device valve after training: 89.86%
+AUC for environment 6 and device valve after training: 0.7826
+Accuracy for environment 6 and device slider after training: 86.06%
+AUC for environment 6 and device slider after training: 0.7436
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 82.23%
+AUC for server and device fan after training: 0.9841
+Accuracy for server and device pump after training: 91.35%
+AUC for server and device pump after training: 0.8907
+Accuracy for server and device valve after training: 89.86%
+AUC for server and device valve after training: 0.5812
+Accuracy for server and device slider after training: 79.26%
+AUC for server and device slider after training: 0.8027
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.55%
+AUC for environment 2 and device fan before training: 0.4046
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.4743
+Accuracy for environment 2 and device valve before training: 86.41%
+AUC for environment 2 and device valve before training: 0.6155
+Accuracy for environment 2 and device slider before training: 80.51%
+AUC for environment 2 and device slider before training: 0.6019
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.84%
+AUC for environment 2 and device fan after training: 0.5831
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5604
+Accuracy for environment 2 and device valve after training: 86.41%
+AUC for environment 2 and device valve after training: 0.7801
+Accuracy for environment 2 and device slider after training: 81.18%
+AUC for environment 2 and device slider after training: 0.7498
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.29%
+AUC for environment 4 and device fan before training: 0.4995
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.6697
+Accuracy for environment 4 and device valve before training: 89.21%
+AUC for environment 4 and device valve before training: 0.6007
+Accuracy for environment 4 and device slider before training: 74.17%
+AUC for environment 4 and device slider before training: 0.5883
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.07%
+AUC for environment 4 and device fan after training: 0.5672
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6502
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.718
+Accuracy for environment 4 and device slider after training: 74.44%
+AUC for environment 4 and device slider after training: 0.7528
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.536
+Accuracy for environment 6 and device pump before training: 90.56%
+AUC for environment 6 and device pump before training: 0.6891
+Accuracy for environment 6 and device valve before training: 89.86%
+AUC for environment 6 and device valve before training: 0.6492
+Accuracy for environment 6 and device slider before training: 86.38%
+AUC for environment 6 and device slider before training: 0.5458
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.7688
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7669
+Accuracy for environment 6 and device valve after training: 89.86%
+AUC for environment 6 and device valve after training: 0.8041
+Accuracy for environment 6 and device slider after training: 86.38%
+AUC for environment 6 and device slider after training: 0.7284
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 74.72%
+AUC for server and device fan after training: 0.9748
+Accuracy for server and device pump after training: 90.65%
+AUC for server and device pump after training: 0.7975
+Accuracy for server and device valve after training: 89.86%
+AUC for server and device valve after training: 0.5488
+Accuracy for server and device slider after training: 78.42%
+AUC for server and device slider after training: 0.6996
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.4%
+AUC for environment 2 and device fan before training: 0.5434
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.4862
+Accuracy for environment 2 and device valve before training: 86.41%
+AUC for environment 2 and device valve before training: 0.6444
+Accuracy for environment 2 and device slider before training: 80.21%
+AUC for environment 2 and device slider before training: 0.5606
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.69%
+AUC for environment 2 and device fan after training: 0.6657
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5733
+Accuracy for environment 2 and device valve after training: 86.65%
+AUC for environment 2 and device valve after training: 0.7821
+Accuracy for environment 2 and device slider after training: 80.95%
+AUC for environment 2 and device slider after training: 0.7327
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.86%
+AUC for environment 4 and device fan before training: 0.5251
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.6649
+Accuracy for environment 4 and device valve before training: 89.39%
+AUC for environment 4 and device valve before training: 0.6102
+Accuracy for environment 4 and device slider before training: 74.72%
+AUC for environment 4 and device slider before training: 0.6526
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.5847
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6483
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.7247
+Accuracy for environment 4 and device slider after training: 74.86%
+AUC for environment 4 and device slider after training: 0.7899
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.6423
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.6792
+Accuracy for environment 6 and device valve before training: 89.86%
+AUC for environment 6 and device valve before training: 0.684
+Accuracy for environment 6 and device slider before training: 86.06%
+AUC for environment 6 and device slider before training: 0.5588
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.795
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7709
+Accuracy for environment 6 and device valve after training: 89.86%
+AUC for environment 6 and device valve after training: 0.8109
+Accuracy for environment 6 and device slider after training: 86.22%
+AUC for environment 6 and device slider after training: 0.7194
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.7%
+AUC for server and device fan after training: 0.9527
+Accuracy for server and device pump after training: 90.38%
+AUC for server and device pump after training: 0.7266
+Accuracy for server and device valve after training: 89.86%
+AUC for server and device valve after training: 0.5315
+Accuracy for server and device slider after training: 77.93%
+AUC for server and device slider after training: 0.6352
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.62%
+AUC for environment 2 and device fan before training: 0.6201
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.4952
+Accuracy for environment 2 and device valve before training: 86.41%
+AUC for environment 2 and device valve before training: 0.6646
+Accuracy for environment 2 and device slider before training: 80.21%
+AUC for environment 2 and device slider before training: 0.5395
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7075
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5799
+Accuracy for environment 2 and device valve after training: 87.01%
+AUC for environment 2 and device valve after training: 0.7825
+Accuracy for environment 2 and device slider after training: 80.8%
+AUC for environment 2 and device slider after training: 0.7206
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.5372
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.6555
+Accuracy for environment 4 and device valve before training: 89.48%
+AUC for environment 4 and device valve before training: 0.6163
+Accuracy for environment 4 and device slider before training: 74.86%
+AUC for environment 4 and device slider before training: 0.6908
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.5934
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6439
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.7268
+Accuracy for environment 4 and device slider after training: 75.28%
+AUC for environment 4 and device slider after training: 0.806
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.6994
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.6744
+Accuracy for environment 6 and device valve before training: 89.86%
+AUC for environment 6 and device valve before training: 0.6996
+Accuracy for environment 6 and device slider before training: 86.06%
+AUC for environment 6 and device slider before training: 0.5732
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.48%
+AUC for environment 6 and device fan after training: 0.8094
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7735
+Accuracy for environment 6 and device valve after training: 89.86%
+AUC for environment 6 and device valve after training: 0.8138
+Accuracy for environment 6 and device slider after training: 86.22%
+AUC for environment 6 and device slider after training: 0.7145
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.35%
+AUC for server and device fan after training: 0.9119
+Accuracy for server and device pump after training: 90.21%
+AUC for server and device pump after training: 0.6779
+Accuracy for server and device valve after training: 89.76%
+AUC for server and device valve after training: 0.5248
+Accuracy for server and device slider after training: 77.44%
+AUC for server and device slider after training: 0.5925
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.69%
+AUC for environment 2 and device fan before training: 0.6591
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.5021
+Accuracy for environment 2 and device valve before training: 86.41%
+AUC for environment 2 and device valve before training: 0.6767
+Accuracy for environment 2 and device slider before training: 80.28%
+AUC for environment 2 and device slider before training: 0.5329
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7303
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5863
+Accuracy for environment 2 and device valve after training: 87.14%
+AUC for environment 2 and device valve after training: 0.7806
+Accuracy for environment 2 and device slider after training: 80.88%
+AUC for environment 2 and device slider after training: 0.7132
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.5445
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.6484
+Accuracy for environment 4 and device valve before training: 89.48%
+AUC for environment 4 and device valve before training: 0.6219
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.7105
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.5983
+Accuracy for environment 4 and device pump after training: 87.25%
+AUC for environment 4 and device pump after training: 0.6399
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.729
+Accuracy for environment 4 and device slider after training: 75.42%
+AUC for environment 4 and device slider after training: 0.8125
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7329
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.6701
+Accuracy for environment 6 and device valve before training: 89.86%
+AUC for environment 6 and device valve before training: 0.7056
+Accuracy for environment 6 and device slider before training: 86.06%
+AUC for environment 6 and device slider before training: 0.5828
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.48%
+AUC for environment 6 and device fan after training: 0.8183
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7742
+Accuracy for environment 6 and device valve after training: 90.04%
+AUC for environment 6 and device valve after training: 0.8144
+Accuracy for environment 6 and device slider after training: 86.38%
+AUC for environment 6 and device slider after training: 0.7109
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.21%
+AUC for server and device fan after training: 0.86
+Accuracy for server and device pump after training: 90.03%
+AUC for server and device pump after training: 0.6468
+Accuracy for server and device valve after training: 89.49%
+AUC for server and device valve after training: 0.5224
+Accuracy for server and device slider after training: 77.09%
+AUC for server and device slider after training: 0.5654
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.69%
+AUC for environment 2 and device fan before training: 0.6791
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.5082
+Accuracy for environment 2 and device valve before training: 86.41%
+AUC for environment 2 and device valve before training: 0.6848
+Accuracy for environment 2 and device slider before training: 80.28%
+AUC for environment 2 and device slider before training: 0.5322
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7436
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5901
+Accuracy for environment 2 and device valve after training: 87.5%
+AUC for environment 2 and device valve after training: 0.7788
+Accuracy for environment 2 and device slider after training: 80.88%
+AUC for environment 2 and device slider after training: 0.7083
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.5498
+Accuracy for environment 4 and device pump before training: 87.12%
+AUC for environment 4 and device pump before training: 0.643
+Accuracy for environment 4 and device valve before training: 89.21%
+AUC for environment 4 and device valve before training: 0.6259
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.721
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.6009
+Accuracy for environment 4 and device pump after training: 87.5%
+AUC for environment 4 and device pump after training: 0.6371
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.7307
+Accuracy for environment 4 and device slider after training: 75.69%
+AUC for environment 4 and device slider after training: 0.8154
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7543
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.6682
+Accuracy for environment 6 and device valve before training: 89.86%
+AUC for environment 6 and device valve before training: 0.7075
+Accuracy for environment 6 and device slider before training: 86.06%
+AUC for environment 6 and device slider before training: 0.5895
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.55%
+AUC for environment 6 and device fan after training: 0.8245
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7748
+Accuracy for environment 6 and device valve after training: 89.86%
+AUC for environment 6 and device valve after training: 0.8139
+Accuracy for environment 6 and device slider after training: 86.22%
+AUC for environment 6 and device slider after training: 0.7091
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.0%
+AUC for server and device fan after training: 0.808
+Accuracy for server and device pump after training: 90.12%
+AUC for server and device pump after training: 0.6278
+Accuracy for server and device valve after training: 89.04%
+AUC for server and device valve after training: 0.5212
+Accuracy for server and device slider after training: 77.09%
+AUC for server and device slider after training: 0.549
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.69%
+AUC for environment 2 and device fan before training: 0.6894
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.5125
+Accuracy for environment 2 and device valve before training: 86.17%
+AUC for environment 2 and device valve before training: 0.6906
+Accuracy for environment 2 and device slider before training: 80.28%
+AUC for environment 2 and device slider before training: 0.5337
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7516
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5931
+Accuracy for environment 2 and device valve after training: 87.74%
+AUC for environment 2 and device valve after training: 0.7768
+Accuracy for environment 2 and device slider after training: 81.03%
+AUC for environment 2 and device slider after training: 0.7055
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.5535
+Accuracy for environment 4 and device pump before training: 87.38%
+AUC for environment 4 and device pump before training: 0.6393
+Accuracy for environment 4 and device valve before training: 89.21%
+AUC for environment 4 and device valve before training: 0.6308
+Accuracy for environment 4 and device slider before training: 75.42%
+AUC for environment 4 and device slider before training: 0.7267
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.602
+Accuracy for environment 4 and device pump after training: 87.88%
+AUC for environment 4 and device pump after training: 0.6349
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.7319
+Accuracy for environment 4 and device slider after training: 75.97%
+AUC for environment 4 and device slider after training: 0.8163
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7694
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.6669
+Accuracy for environment 6 and device valve before training: 89.76%
+AUC for environment 6 and device valve before training: 0.709
+Accuracy for environment 6 and device slider before training: 85.9%
+AUC for environment 6 and device slider before training: 0.5946
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.7%
+AUC for environment 6 and device fan after training: 0.8286
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7754
+Accuracy for environment 6 and device valve after training: 89.95%
+AUC for environment 6 and device valve after training: 0.8138
+Accuracy for environment 6 and device slider after training: 86.22%
+AUC for environment 6 and device slider after training: 0.7081
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.0%
+AUC for server and device fan after training: 0.7634
+Accuracy for server and device pump after training: 90.21%
+AUC for server and device pump after training: 0.6167
+Accuracy for server and device valve after training: 88.13%
+AUC for server and device valve after training: 0.5209
+Accuracy for server and device slider after training: 77.09%
+AUC for server and device slider after training: 0.5379
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.69%
+AUC for environment 2 and device fan before training: 0.6943
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.517
+Accuracy for environment 2 and device valve before training: 86.41%
+AUC for environment 2 and device valve before training: 0.6946
+Accuracy for environment 2 and device slider before training: 80.28%
+AUC for environment 2 and device slider before training: 0.5366
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7564
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5957
+Accuracy for environment 2 and device valve after training: 87.99%
+AUC for environment 2 and device valve after training: 0.7761
+Accuracy for environment 2 and device slider after training: 81.1%
+AUC for environment 2 and device slider after training: 0.7031
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.5557
+Accuracy for environment 4 and device pump before training: 87.5%
+AUC for environment 4 and device pump before training: 0.6366
+Accuracy for environment 4 and device valve before training: 89.12%
+AUC for environment 4 and device valve before training: 0.6338
+Accuracy for environment 4 and device slider before training: 75.28%
+AUC for environment 4 and device slider before training: 0.7295
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.6029
+Accuracy for environment 4 and device pump after training: 88.0%
+AUC for environment 4 and device pump after training: 0.6334
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.7331
+Accuracy for environment 4 and device slider after training: 76.11%
+AUC for environment 4 and device slider after training: 0.8162
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7798
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.666
+Accuracy for environment 6 and device valve before training: 89.76%
+AUC for environment 6 and device valve before training: 0.7099
+Accuracy for environment 6 and device slider before training: 86.06%
+AUC for environment 6 and device slider before training: 0.5972
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.7%
+AUC for environment 6 and device fan after training: 0.8316
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7755
+Accuracy for environment 6 and device valve after training: 89.95%
+AUC for environment 6 and device valve after training: 0.813
+Accuracy for environment 6 and device slider after training: 86.06%
+AUC for environment 6 and device slider after training: 0.7068
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.07%
+AUC for server and device fan after training: 0.7287
+Accuracy for server and device pump after training: 90.3%
+AUC for server and device pump after training: 0.6103
+Accuracy for server and device valve after training: 87.59%
+AUC for server and device valve after training: 0.5208
+Accuracy for server and device slider after training: 77.03%
+AUC for server and device slider after training: 0.5302
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.69%
+AUC for environment 2 and device fan before training: 0.6963
+Accuracy for environment 2 and device pump before training: 90.65%
+AUC for environment 2 and device pump before training: 0.5204
+Accuracy for environment 2 and device valve before training: 86.53%
+AUC for environment 2 and device valve before training: 0.6972
+Accuracy for environment 2 and device slider before training: 80.21%
+AUC for environment 2 and device slider before training: 0.5396
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.69%
+AUC for environment 2 and device fan after training: 0.7595
+Accuracy for environment 2 and device pump after training: 90.65%
+AUC for environment 2 and device pump after training: 0.5975
+Accuracy for environment 2 and device valve after training: 88.47%
+AUC for environment 2 and device valve after training: 0.7753
+Accuracy for environment 2 and device slider after training: 81.1%
+AUC for environment 2 and device slider after training: 0.7011
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.557
+Accuracy for environment 4 and device pump before training: 87.62%
+AUC for environment 4 and device pump before training: 0.6342
+Accuracy for environment 4 and device valve before training: 88.58%
+AUC for environment 4 and device valve before training: 0.6366
+Accuracy for environment 4 and device slider before training: 75.28%
+AUC for environment 4 and device slider before training: 0.7311
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.71%
+AUC for environment 4 and device fan after training: 0.6032
+Accuracy for environment 4 and device pump after training: 88.0%
+AUC for environment 4 and device pump after training: 0.6326
+Accuracy for environment 4 and device valve after training: 89.84%
+AUC for environment 4 and device valve after training: 0.7342
+Accuracy for environment 4 and device slider after training: 76.39%
+AUC for environment 4 and device slider after training: 0.8157
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.788
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.665
+Accuracy for environment 6 and device valve before training: 89.76%
+AUC for environment 6 and device valve before training: 0.7101
+Accuracy for environment 6 and device slider before training: 86.06%
+AUC for environment 6 and device slider before training: 0.5997
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.92%
+AUC for environment 6 and device fan after training: 0.8336
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.775
+Accuracy for environment 6 and device valve after training: 89.76%
+AUC for environment 6 and device valve after training: 0.8118
+Accuracy for environment 6 and device slider after training: 85.74%
+AUC for environment 6 and device slider after training: 0.7064
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.0%
+AUC for server and device fan after training: 0.7031
+Accuracy for server and device pump after training: 90.3%
+AUC for server and device pump after training: 0.6073
+Accuracy for server and device valve after training: 86.32%
+AUC for server and device valve after training: 0.5212
+Accuracy for server and device slider after training: 77.09%
+AUC for server and device slider after training: 0.5247
+========================================================
+Written results for each device to results.json
+
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server and device fan before training: 97.05%
+AUC for server and device fan before training: 0.9885
+Accuracy for server and device pump before training: 96.18%
+AUC for server and device pump before training: 0.9787
+Accuracy for server and device valve before training: 89.12%
+AUC for server and device valve before training: 0.6588
+Accuracy for server and device slider before training: 85.68%
+AUC for server and device slider before training: 0.9285
+Precision for server test set: 0.9193
+Recall for server test set: 0.9915
+F1 score for server test set: 0.9531
+AUC for server test set: 0.8886
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 57.92%
+AUC for environment 2 and device fan before training: 0.1769
+Accuracy for environment 2 and device pump before training: 89.91%
+AUC for environment 2 and device pump before training: 0.4543
+Accuracy for environment 2 and device valve before training: 84.74%
+AUC for environment 2 and device valve before training: 0.4929
+Accuracy for environment 2 and device slider before training: 83.63%
+AUC for environment 2 and device slider before training: 0.7286
+=========================================================
+Accuracy for environment 2 and device fan after training: 72.24%
+AUC for environment 2 and device fan after training: 0.3008
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5307
+Accuracy for environment 2 and device valve after training: 85.46%
+AUC for environment 2 and device valve after training: 0.7291
+Accuracy for environment 2 and device slider after training: 83.63%
+AUC for environment 2 and device slider after training: 0.7608
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.07%
+AUC for environment 4 and device fan before training: 0.3957
+Accuracy for environment 4 and device pump before training: 85.77%
+AUC for environment 4 and device pump before training: 0.5432
+Accuracy for environment 4 and device valve before training: 87.32%
+AUC for environment 4 and device valve before training: 0.5798
+Accuracy for environment 4 and device slider before training: 69.31%
+AUC for environment 4 and device slider before training: 0.3806
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.36%
+AUC for environment 4 and device fan after training: 0.4619
+Accuracy for environment 4 and device pump after training: 85.77%
+AUC for environment 4 and device pump after training: 0.6
+Accuracy for environment 4 and device valve after training: 88.57%
+AUC for environment 4 and device valve after training: 0.7307
+Accuracy for environment 4 and device slider after training: 72.08%
+AUC for environment 4 and device slider after training: 0.5414
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.2252
+Accuracy for environment 6 and device pump before training: 88.99%
+AUC for environment 6 and device pump before training: 0.6988
+Accuracy for environment 6 and device valve before training: 87.41%
+AUC for environment 6 and device valve before training: 0.5064
+Accuracy for environment 6 and device slider before training: 83.23%
+AUC for environment 6 and device slider before training: 0.6073
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.5803
+Accuracy for environment 6 and device pump after training: 89.95%
+AUC for environment 6 and device pump after training: 0.7456
+Accuracy for environment 6 and device valve after training: 89.57%
+AUC for environment 6 and device valve after training: 0.7399
+Accuracy for environment 6 and device slider after training: 84.81%
+AUC for environment 6 and device slider after training: 0.7619
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 96.14%
+AUC for server and device fan after training: 0.9889
+Accuracy for server and device pump after training: 93.14%
+AUC for server and device pump after training: 0.9667
+Accuracy for server and device valve after training: 89.21%
+AUC for server and device valve after training: 0.6533
+Accuracy for server and device slider after training: 81.22%
+AUC for server and device slider after training: 0.9008
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 72.17%
+AUC for environment 2 and device fan before training: 0.2765
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.4693
+Accuracy for environment 2 and device valve before training: 85.58%
+AUC for environment 2 and device valve before training: 0.5851
+Accuracy for environment 2 and device slider before training: 81.32%
+AUC for environment 2 and device slider before training: 0.6379
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.4%
+AUC for environment 2 and device fan after training: 0.4901
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5595
+Accuracy for environment 2 and device valve after training: 86.42%
+AUC for environment 2 and device valve after training: 0.7811
+Accuracy for environment 2 and device slider after training: 82.51%
+AUC for environment 2 and device slider after training: 0.7306
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.51%
+AUC for environment 4 and device fan before training: 0.4482
+Accuracy for environment 4 and device pump before training: 86.14%
+AUC for environment 4 and device pump before training: 0.5823
+Accuracy for environment 4 and device valve before training: 87.95%
+AUC for environment 4 and device valve before training: 0.6078
+Accuracy for environment 4 and device slider before training: 72.36%
+AUC for environment 4 and device slider before training: 0.4494
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.51%
+AUC for environment 4 and device fan after training: 0.5176
+Accuracy for environment 4 and device pump after training: 86.14%
+AUC for environment 4 and device pump after training: 0.6301
+Accuracy for environment 4 and device valve after training: 88.84%
+AUC for environment 4 and device valve after training: 0.7674
+Accuracy for environment 4 and device slider after training: 74.31%
+AUC for environment 4 and device slider after training: 0.6486
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.4014
+Accuracy for environment 6 and device pump before training: 90.03%
+AUC for environment 6 and device pump before training: 0.739
+Accuracy for environment 6 and device valve before training: 88.76%
+AUC for environment 6 and device valve before training: 0.6064
+Accuracy for environment 6 and device slider before training: 84.34%
+AUC for environment 6 and device slider before training: 0.6038
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.7093
+Accuracy for environment 6 and device pump after training: 90.73%
+AUC for environment 6 and device pump after training: 0.7523
+Accuracy for environment 6 and device valve after training: 89.48%
+AUC for environment 6 and device valve after training: 0.7809
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7585
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 89.61%
+AUC for server and device fan after training: 0.9856
+Accuracy for server and device pump after training: 91.49%
+AUC for server and device pump after training: 0.9133
+Accuracy for server and device valve after training: 89.21%
+AUC for server and device valve after training: 0.6122
+Accuracy for server and device slider after training: 78.98%
+AUC for server and device slider after training: 0.8104
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.47%
+AUC for environment 2 and device fan before training: 0.4351
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.4789
+Accuracy for environment 2 and device valve before training: 85.58%
+AUC for environment 2 and device valve before training: 0.6495
+Accuracy for environment 2 and device slider before training: 79.69%
+AUC for environment 2 and device slider before training: 0.5692
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.91%
+AUC for environment 2 and device fan after training: 0.6402
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5704
+Accuracy for environment 2 and device valve after training: 86.66%
+AUC for environment 2 and device valve after training: 0.7943
+Accuracy for environment 2 and device slider after training: 81.92%
+AUC for environment 2 and device slider after training: 0.7145
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.58%
+AUC for environment 4 and device fan before training: 0.4965
+Accuracy for environment 4 and device pump before training: 86.14%
+AUC for environment 4 and device pump before training: 0.6019
+Accuracy for environment 4 and device valve before training: 88.48%
+AUC for environment 4 and device valve before training: 0.6191
+Accuracy for environment 4 and device slider before training: 74.03%
+AUC for environment 4 and device slider before training: 0.5252
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.51%
+AUC for environment 4 and device fan after training: 0.5454
+Accuracy for environment 4 and device pump after training: 86.14%
+AUC for environment 4 and device pump after training: 0.6392
+Accuracy for environment 4 and device valve after training: 89.2%
+AUC for environment 4 and device valve after training: 0.7706
+Accuracy for environment 4 and device slider after training: 75.14%
+AUC for environment 4 and device slider after training: 0.7078
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.5648
+Accuracy for environment 6 and device pump before training: 90.56%
+AUC for environment 6 and device pump before training: 0.7323
+Accuracy for environment 6 and device valve before training: 89.12%
+AUC for environment 6 and device valve before training: 0.6637
+Accuracy for environment 6 and device slider before training: 84.81%
+AUC for environment 6 and device slider before training: 0.5975
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.7676
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7527
+Accuracy for environment 6 and device valve after training: 89.21%
+AUC for environment 6 and device valve after training: 0.7964
+Accuracy for environment 6 and device slider after training: 85.28%
+AUC for environment 6 and device slider after training: 0.7479
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 79.63%
+AUC for server and device fan after training: 0.976
+Accuracy for server and device pump after training: 90.28%
+AUC for server and device pump after training: 0.8329
+Accuracy for server and device valve after training: 88.49%
+AUC for server and device valve after training: 0.5876
+Accuracy for server and device slider after training: 77.72%
+AUC for server and device slider after training: 0.7087
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.69%
+AUC for environment 2 and device fan before training: 0.5816
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.4847
+Accuracy for environment 2 and device valve before training: 85.58%
+AUC for environment 2 and device valve before training: 0.6812
+Accuracy for environment 2 and device slider before training: 79.69%
+AUC for environment 2 and device slider before training: 0.5356
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.69%
+AUC for environment 2 and device fan after training: 0.709
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5745
+Accuracy for environment 2 and device valve after training: 87.02%
+AUC for environment 2 and device valve after training: 0.7963
+Accuracy for environment 2 and device slider after training: 81.85%
+AUC for environment 2 and device slider after training: 0.7099
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.58%
+AUC for environment 4 and device fan before training: 0.5159
+Accuracy for environment 4 and device pump before training: 86.14%
+AUC for environment 4 and device pump before training: 0.6036
+Accuracy for environment 4 and device valve before training: 88.12%
+AUC for environment 4 and device valve before training: 0.6291
+Accuracy for environment 4 and device slider before training: 74.72%
+AUC for environment 4 and device slider before training: 0.5796
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.36%
+AUC for environment 4 and device fan after training: 0.5582
+Accuracy for environment 4 and device pump after training: 86.14%
+AUC for environment 4 and device pump after training: 0.6396
+Accuracy for environment 4 and device valve after training: 89.11%
+AUC for environment 4 and device valve after training: 0.7674
+Accuracy for environment 4 and device slider after training: 75.42%
+AUC for environment 4 and device slider after training: 0.7348
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.6542
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.7174
+Accuracy for environment 6 and device valve before training: 89.12%
+AUC for environment 6 and device valve before training: 0.6912
+Accuracy for environment 6 and device slider before training: 84.97%
+AUC for environment 6 and device slider before training: 0.5941
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.7969
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.752
+Accuracy for environment 6 and device valve after training: 89.21%
+AUC for environment 6 and device valve after training: 0.8039
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7388
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 73.6%
+AUC for server and device fan after training: 0.9554
+Accuracy for server and device pump after training: 89.84%
+AUC for server and device pump after training: 0.7608
+Accuracy for server and device valve after training: 87.68%
+AUC for server and device valve after training: 0.5717
+Accuracy for server and device slider after training: 76.47%
+AUC for server and device slider after training: 0.6416
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.76%
+AUC for environment 2 and device fan before training: 0.6614
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.4905
+Accuracy for environment 2 and device valve before training: 85.7%
+AUC for environment 2 and device valve before training: 0.6995
+Accuracy for environment 2 and device slider before training: 79.76%
+AUC for environment 2 and device slider before training: 0.5263
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7396
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5782
+Accuracy for environment 2 and device valve after training: 87.38%
+AUC for environment 2 and device valve after training: 0.7943
+Accuracy for environment 2 and device slider after training: 81.62%
+AUC for environment 2 and device slider after training: 0.7123
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.29%
+AUC for environment 4 and device fan before training: 0.5261
+Accuracy for environment 4 and device pump before training: 86.14%
+AUC for environment 4 and device pump before training: 0.6046
+Accuracy for environment 4 and device valve before training: 88.04%
+AUC for environment 4 and device valve before training: 0.637
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.6141
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.5656
+Accuracy for environment 4 and device pump after training: 86.26%
+AUC for environment 4 and device pump after training: 0.6399
+Accuracy for environment 4 and device valve after training: 89.11%
+AUC for environment 4 and device valve after training: 0.7676
+Accuracy for environment 4 and device slider after training: 75.56%
+AUC for environment 4 and device slider after training: 0.7478
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7006
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.7083
+Accuracy for environment 6 and device valve before training: 88.94%
+AUC for environment 6 and device valve before training: 0.7014
+Accuracy for environment 6 and device slider before training: 84.97%
+AUC for environment 6 and device slider before training: 0.5926
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.8137
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.753
+Accuracy for environment 6 and device valve after training: 89.21%
+AUC for environment 6 and device valve after training: 0.8075
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7311
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.77%
+AUC for server and device fan after training: 0.9176
+Accuracy for server and device pump after training: 89.58%
+AUC for server and device pump after training: 0.7076
+Accuracy for server and device valve after training: 87.05%
+AUC for server and device valve after training: 0.5617
+Accuracy for server and device slider after training: 75.84%
+AUC for server and device slider after training: 0.5988
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.76%
+AUC for environment 2 and device fan before training: 0.6983
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.4951
+Accuracy for environment 2 and device valve before training: 85.7%
+AUC for environment 2 and device valve before training: 0.7084
+Accuracy for environment 2 and device slider before training: 79.76%
+AUC for environment 2 and device slider before training: 0.5291
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7544
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5812
+Accuracy for environment 2 and device valve after training: 87.5%
+AUC for environment 2 and device valve after training: 0.7926
+Accuracy for environment 2 and device slider after training: 81.62%
+AUC for environment 2 and device slider after training: 0.7188
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.0%
+AUC for environment 4 and device fan before training: 0.531
+Accuracy for environment 4 and device pump before training: 86.39%
+AUC for environment 4 and device pump before training: 0.6049
+Accuracy for environment 4 and device valve before training: 87.86%
+AUC for environment 4 and device valve before training: 0.6425
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.6338
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.5703
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.64
+Accuracy for environment 4 and device valve after training: 89.2%
+AUC for environment 4 and device valve after training: 0.768
+Accuracy for environment 4 and device slider after training: 75.69%
+AUC for environment 4 and device slider after training: 0.7538
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7256
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.704
+Accuracy for environment 6 and device valve before training: 88.85%
+AUC for environment 6 and device valve before training: 0.7051
+Accuracy for environment 6 and device slider before training: 84.97%
+AUC for environment 6 and device slider before training: 0.5918
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.8251
+Accuracy for environment 6 and device pump after training: 91.0%
+AUC for environment 6 and device pump after training: 0.7534
+Accuracy for environment 6 and device valve after training: 89.12%
+AUC for environment 6 and device valve after training: 0.8088
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7258
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.14%
+AUC for server and device fan after training: 0.858
+Accuracy for server and device pump after training: 89.41%
+AUC for server and device pump after training: 0.6668
+Accuracy for server and device valve after training: 86.69%
+AUC for server and device valve after training: 0.5558
+Accuracy for server and device slider after training: 75.49%
+AUC for server and device slider after training: 0.5687
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.76%
+AUC for environment 2 and device fan before training: 0.7169
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.499
+Accuracy for environment 2 and device valve before training: 86.06%
+AUC for environment 2 and device valve before training: 0.7147
+Accuracy for environment 2 and device slider before training: 79.76%
+AUC for environment 2 and device slider before training: 0.537
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.76%
+AUC for environment 2 and device fan after training: 0.7621
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5835
+Accuracy for environment 2 and device valve after training: 87.62%
+AUC for environment 2 and device valve after training: 0.7906
+Accuracy for environment 2 and device slider after training: 81.62%
+AUC for environment 2 and device slider after training: 0.7266
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.0%
+AUC for environment 4 and device fan before training: 0.5337
+Accuracy for environment 4 and device pump before training: 86.76%
+AUC for environment 4 and device pump before training: 0.6044
+Accuracy for environment 4 and device valve before training: 87.86%
+AUC for environment 4 and device valve before training: 0.6462
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.646
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.5735
+Accuracy for environment 4 and device pump after training: 87.13%
+AUC for environment 4 and device pump after training: 0.6409
+Accuracy for environment 4 and device valve after training: 89.29%
+AUC for environment 4 and device valve after training: 0.7686
+Accuracy for environment 4 and device slider after training: 75.69%
+AUC for environment 4 and device slider after training: 0.7581
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7414
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.7031
+Accuracy for environment 6 and device valve before training: 88.67%
+AUC for environment 6 and device valve before training: 0.7056
+Accuracy for environment 6 and device slider before training: 84.97%
+AUC for environment 6 and device slider before training: 0.5916
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.8327
+Accuracy for environment 6 and device pump after training: 91.0%
+AUC for environment 6 and device pump after training: 0.7529
+Accuracy for environment 6 and device valve after training: 89.03%
+AUC for environment 6 and device valve after training: 0.8095
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7217
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.14%
+AUC for server and device fan after training: 0.7844
+Accuracy for server and device pump after training: 89.32%
+AUC for server and device pump after training: 0.6378
+Accuracy for server and device valve after training: 86.51%
+AUC for server and device valve after training: 0.551
+Accuracy for server and device slider after training: 75.49%
+AUC for server and device slider after training: 0.5452
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.76%
+AUC for environment 2 and device fan before training: 0.7264
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.5032
+Accuracy for environment 2 and device valve before training: 86.06%
+AUC for environment 2 and device valve before training: 0.7183
+Accuracy for environment 2 and device slider before training: 79.76%
+AUC for environment 2 and device slider before training: 0.5462
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.84%
+AUC for environment 2 and device fan after training: 0.7653
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5857
+Accuracy for environment 2 and device valve after training: 87.62%
+AUC for environment 2 and device valve after training: 0.7887
+Accuracy for environment 2 and device slider after training: 81.7%
+AUC for environment 2 and device slider after training: 0.7343
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.0%
+AUC for environment 4 and device fan before training: 0.5353
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.6049
+Accuracy for environment 4 and device valve before training: 87.95%
+AUC for environment 4 and device valve before training: 0.6508
+Accuracy for environment 4 and device slider before training: 74.86%
+AUC for environment 4 and device slider before training: 0.6535
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.5756
+Accuracy for environment 4 and device pump after training: 87.13%
+AUC for environment 4 and device pump after training: 0.6411
+Accuracy for environment 4 and device valve after training: 89.38%
+AUC for environment 4 and device valve after training: 0.7692
+Accuracy for environment 4 and device slider after training: 75.83%
+AUC for environment 4 and device slider after training: 0.7605
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7517
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.7037
+Accuracy for environment 6 and device valve before training: 88.31%
+AUC for environment 6 and device valve before training: 0.7053
+Accuracy for environment 6 and device slider before training: 84.81%
+AUC for environment 6 and device slider before training: 0.591
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.8386
+Accuracy for environment 6 and device pump after training: 91.0%
+AUC for environment 6 and device pump after training: 0.7521
+Accuracy for environment 6 and device valve after training: 89.03%
+AUC for environment 6 and device valve after training: 0.8096
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7188
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.07%
+AUC for server and device fan after training: 0.7058
+Accuracy for server and device pump after training: 89.24%
+AUC for server and device pump after training: 0.6148
+Accuracy for server and device valve after training: 86.42%
+AUC for server and device valve after training: 0.5486
+Accuracy for server and device slider after training: 75.49%
+AUC for server and device slider after training: 0.5272
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.76%
+AUC for environment 2 and device fan before training: 0.73
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.5068
+Accuracy for environment 2 and device valve before training: 86.06%
+AUC for environment 2 and device valve before training: 0.7207
+Accuracy for environment 2 and device slider before training: 79.76%
+AUC for environment 2 and device slider before training: 0.5559
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.84%
+AUC for environment 2 and device fan after training: 0.7657
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5878
+Accuracy for environment 2 and device valve after training: 87.62%
+AUC for environment 2 and device valve after training: 0.7867
+Accuracy for environment 2 and device slider after training: 81.62%
+AUC for environment 2 and device slider after training: 0.741
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.0%
+AUC for environment 4 and device fan before training: 0.5359
+Accuracy for environment 4 and device pump before training: 87.13%
+AUC for environment 4 and device pump before training: 0.6048
+Accuracy for environment 4 and device valve before training: 88.12%
+AUC for environment 4 and device valve before training: 0.6548
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.6593
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.5766
+Accuracy for environment 4 and device pump after training: 87.13%
+AUC for environment 4 and device pump after training: 0.6408
+Accuracy for environment 4 and device valve after training: 89.38%
+AUC for environment 4 and device valve after training: 0.7697
+Accuracy for environment 4 and device slider after training: 75.83%
+AUC for environment 4 and device slider after training: 0.762
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.7582
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.7037
+Accuracy for environment 6 and device valve before training: 88.31%
+AUC for environment 6 and device valve before training: 0.7042
+Accuracy for environment 6 and device slider before training: 84.81%
+AUC for environment 6 and device slider before training: 0.5903
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.8429
+Accuracy for environment 6 and device pump after training: 91.0%
+AUC for environment 6 and device pump after training: 0.7507
+Accuracy for environment 6 and device valve after training: 89.03%
+AUC for environment 6 and device valve after training: 0.8097
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7167
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.07%
+AUC for server and device fan after training: 0.6298
+Accuracy for server and device pump after training: 89.15%
+AUC for server and device pump after training: 0.5978
+Accuracy for server and device valve after training: 86.42%
+AUC for server and device valve after training: 0.5462
+Accuracy for server and device slider after training: 75.49%
+AUC for server and device slider after training: 0.513
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.76%
+AUC for environment 2 and device fan before training: 0.7296
+Accuracy for environment 2 and device pump before training: 90.0%
+AUC for environment 2 and device pump before training: 0.5098
+Accuracy for environment 2 and device valve before training: 86.3%
+AUC for environment 2 and device valve before training: 0.7223
+Accuracy for environment 2 and device slider before training: 79.76%
+AUC for environment 2 and device slider before training: 0.5654
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.84%
+AUC for environment 2 and device fan after training: 0.7647
+Accuracy for environment 2 and device pump after training: 90.0%
+AUC for environment 2 and device pump after training: 0.5899
+Accuracy for environment 2 and device valve after training: 87.74%
+AUC for environment 2 and device valve after training: 0.785
+Accuracy for environment 2 and device slider after training: 81.62%
+AUC for environment 2 and device slider after training: 0.7468
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.0%
+AUC for environment 4 and device fan before training: 0.5362
+Accuracy for environment 4 and device pump before training: 87.13%
+AUC for environment 4 and device pump before training: 0.6043
+Accuracy for environment 4 and device valve before training: 88.21%
+AUC for environment 4 and device valve before training: 0.6579
+Accuracy for environment 4 and device slider before training: 74.86%
+AUC for environment 4 and device slider before training: 0.6639
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.5768
+Accuracy for environment 4 and device pump after training: 87.13%
+AUC for environment 4 and device pump after training: 0.6418
+Accuracy for environment 4 and device valve after training: 89.38%
+AUC for environment 4 and device valve after training: 0.7699
+Accuracy for environment 4 and device slider after training: 75.97%
+AUC for environment 4 and device slider after training: 0.7632
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.41%
+AUC for environment 6 and device fan before training: 0.763
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.7048
+Accuracy for environment 6 and device valve before training: 88.31%
+AUC for environment 6 and device valve before training: 0.7032
+Accuracy for environment 6 and device slider before training: 84.81%
+AUC for environment 6 and device slider before training: 0.5893
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.41%
+AUC for environment 6 and device fan after training: 0.8463
+Accuracy for environment 6 and device pump after training: 91.0%
+AUC for environment 6 and device pump after training: 0.7497
+Accuracy for environment 6 and device valve after training: 89.03%
+AUC for environment 6 and device valve after training: 0.8096
+Accuracy for environment 6 and device slider after training: 84.97%
+AUC for environment 6 and device slider after training: 0.7145
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.07%
+AUC for server and device fan after training: 0.5605
+Accuracy for server and device pump after training: 89.15%
+AUC for server and device pump after training: 0.5847
+Accuracy for server and device valve after training: 86.33%
+AUC for server and device valve after training: 0.545
+Accuracy for server and device slider after training: 75.56%
+AUC for server and device slider after training: 0.5018
+========================================================
+Written results for each device to results.json
+
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server and device fan before training: 96.73%
+AUC for server and device fan before training: 0.9881
+Accuracy for server and device pump before training: 95.86%
+AUC for server and device pump before training: 0.9744
+Accuracy for server and device valve before training: 88.5%
+AUC for server and device valve before training: 0.6365
+Accuracy for server and device slider before training: 85.6%
+AUC for server and device slider before training: 0.9291
+Precision for server test set: 0.9166
+Recall for server test set: 0.9901
+F1 score for server test set: 0.9511
+AUC for server test set: 0.882
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 60.37%
+AUC for environment 2 and device fan before training: 0.1712
+Accuracy for environment 2 and device pump before training: 89.76%
+AUC for environment 2 and device pump before training: 0.4366
+Accuracy for environment 2 and device valve before training: 83.62%
+AUC for environment 2 and device valve before training: 0.4808
+Accuracy for environment 2 and device slider before training: 82.93%
+AUC for environment 2 and device slider before training: 0.7115
+=========================================================
+Accuracy for environment 2 and device fan after training: 71.91%
+AUC for environment 2 and device fan after training: 0.265
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.4849
+Accuracy for environment 2 and device valve after training: 84.95%
+AUC for environment 2 and device valve after training: 0.7394
+Accuracy for environment 2 and device slider after training: 83.76%
+AUC for environment 2 and device slider after training: 0.7626
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.4224
+Accuracy for environment 4 and device pump before training: 85.25%
+AUC for environment 4 and device pump before training: 0.5234
+Accuracy for environment 4 and device valve before training: 87.77%
+AUC for environment 4 and device valve before training: 0.6099
+Accuracy for environment 4 and device slider before training: 70.17%
+AUC for environment 4 and device slider before training: 0.4063
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.0%
+AUC for environment 4 and device fan after training: 0.4878
+Accuracy for environment 4 and device pump after training: 85.38%
+AUC for environment 4 and device pump after training: 0.5797
+Accuracy for environment 4 and device valve after training: 88.86%
+AUC for environment 4 and device valve after training: 0.7114
+Accuracy for environment 4 and device slider after training: 74.43%
+AUC for environment 4 and device slider after training: 0.5293
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.03%
+AUC for environment 6 and device fan before training: 0.2258
+Accuracy for environment 6 and device pump before training: 89.35%
+AUC for environment 6 and device pump before training: 0.6833
+Accuracy for environment 6 and device valve before training: 88.32%
+AUC for environment 6 and device valve before training: 0.4897
+Accuracy for environment 6 and device slider before training: 83.93%
+AUC for environment 6 and device slider before training: 0.5876
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.6192
+Accuracy for environment 6 and device pump after training: 90.76%
+AUC for environment 6 and device pump after training: 0.7487
+Accuracy for environment 6 and device valve after training: 89.78%
+AUC for environment 6 and device valve after training: 0.74
+Accuracy for environment 6 and device slider after training: 85.55%
+AUC for environment 6 and device slider after training: 0.7491
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 93.89%
+AUC for server and device fan after training: 0.9864
+Accuracy for server and device pump after training: 92.78%
+AUC for server and device pump after training: 0.9611
+Accuracy for server and device valve after training: 89.05%
+AUC for server and device valve after training: 0.6227
+Accuracy for server and device slider after training: 80.48%
+AUC for server and device slider after training: 0.9115
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 71.91%
+AUC for environment 2 and device fan before training: 0.2785
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4439
+Accuracy for environment 2 and device valve before training: 84.47%
+AUC for environment 2 and device valve before training: 0.5803
+Accuracy for environment 2 and device slider before training: 81.21%
+AUC for environment 2 and device slider before training: 0.6445
+=========================================================
+Accuracy for environment 2 and device fan after training: 72.94%
+AUC for environment 2 and device fan after training: 0.4276
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5036
+Accuracy for environment 2 and device valve after training: 86.29%
+AUC for environment 2 and device valve after training: 0.8177
+Accuracy for environment 2 and device slider after training: 82.63%
+AUC for environment 2 and device slider after training: 0.7589
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.0%
+AUC for environment 4 and device fan before training: 0.4757
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.5393
+Accuracy for environment 4 and device valve before training: 88.86%
+AUC for environment 4 and device valve before training: 0.6412
+Accuracy for environment 4 and device slider before training: 74.29%
+AUC for environment 4 and device slider before training: 0.4611
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.07%
+AUC for environment 4 and device fan after training: 0.5438
+Accuracy for environment 4 and device pump after training: 86.0%
+AUC for environment 4 and device pump after training: 0.6116
+Accuracy for environment 4 and device valve after training: 89.13%
+AUC for environment 4 and device valve after training: 0.7385
+Accuracy for environment 4 and device slider after training: 75.0%
+AUC for environment 4 and device slider after training: 0.6335
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.4088
+Accuracy for environment 6 and device pump before training: 90.4%
+AUC for environment 6 and device pump before training: 0.7392
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.6076
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5627
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.7314
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7674
+Accuracy for environment 6 and device valve after training: 89.78%
+AUC for environment 6 and device valve after training: 0.7869
+Accuracy for environment 6 and device slider after training: 86.04%
+AUC for environment 6 and device slider after training: 0.7324
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 82.32%
+AUC for server and device fan after training: 0.9802
+Accuracy for server and device pump after training: 90.85%
+AUC for server and device pump after training: 0.9045
+Accuracy for server and device valve after training: 89.05%
+AUC for server and device valve after training: 0.5667
+Accuracy for server and device slider after training: 78.65%
+AUC for server and device slider after training: 0.8278
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.38%
+AUC for environment 2 and device fan before training: 0.4376
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.451
+Accuracy for environment 2 and device valve before training: 84.71%
+AUC for environment 2 and device valve before training: 0.6527
+Accuracy for environment 2 and device slider before training: 80.46%
+AUC for environment 2 and device slider before training: 0.6008
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.53%
+AUC for environment 2 and device fan after training: 0.5751
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5176
+Accuracy for environment 2 and device valve after training: 86.89%
+AUC for environment 2 and device valve after training: 0.8349
+Accuracy for environment 2 and device slider after training: 81.81%
+AUC for environment 2 and device slider after training: 0.7582
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.14%
+AUC for environment 4 and device fan before training: 0.5166
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.551
+Accuracy for environment 4 and device valve before training: 88.59%
+AUC for environment 4 and device valve before training: 0.6319
+Accuracy for environment 4 and device slider before training: 75.0%
+AUC for environment 4 and device slider before training: 0.5287
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.07%
+AUC for environment 4 and device fan after training: 0.571
+Accuracy for environment 4 and device pump after training: 86.0%
+AUC for environment 4 and device pump after training: 0.6172
+Accuracy for environment 4 and device valve after training: 89.22%
+AUC for environment 4 and device valve after training: 0.7384
+Accuracy for environment 4 and device slider after training: 75.28%
+AUC for environment 4 and device slider after training: 0.692
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.5669
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7417
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.6835
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5602
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.7797
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7775
+Accuracy for environment 6 and device valve after training: 89.69%
+AUC for environment 6 and device valve after training: 0.8061
+Accuracy for environment 6 and device slider after training: 85.88%
+AUC for environment 6 and device slider after training: 0.7167
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 74.5%
+AUC for server and device fan after training: 0.9688
+Accuracy for server and device pump after training: 89.79%
+AUC for server and device pump after training: 0.8217
+Accuracy for server and device valve after training: 89.05%
+AUC for server and device valve after training: 0.5346
+Accuracy for server and device slider after training: 76.9%
+AUC for server and device slider after training: 0.7202
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.31%
+AUC for environment 2 and device fan before training: 0.5806
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4608
+Accuracy for environment 2 and device valve before training: 85.32%
+AUC for environment 2 and device valve before training: 0.6875
+Accuracy for environment 2 and device slider before training: 80.01%
+AUC for environment 2 and device slider before training: 0.5797
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.31%
+AUC for environment 2 and device fan after training: 0.6519
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5251
+Accuracy for environment 2 and device valve after training: 87.14%
+AUC for environment 2 and device valve after training: 0.8356
+Accuracy for environment 2 and device slider after training: 81.81%
+AUC for environment 2 and device slider after training: 0.7621
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.78%
+AUC for environment 4 and device fan before training: 0.5313
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.5544
+Accuracy for environment 4 and device valve before training: 88.41%
+AUC for environment 4 and device valve before training: 0.6247
+Accuracy for environment 4 and device slider before training: 75.28%
+AUC for environment 4 and device slider before training: 0.5775
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5807
+Accuracy for environment 4 and device pump after training: 86.0%
+AUC for environment 4 and device pump after training: 0.6163
+Accuracy for environment 4 and device valve after training: 89.67%
+AUC for environment 4 and device valve after training: 0.7345
+Accuracy for environment 4 and device slider after training: 75.57%
+AUC for environment 4 and device slider after training: 0.7207
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.6438
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7378
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.7188
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5679
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.8039
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7822
+Accuracy for environment 6 and device valve after training: 89.69%
+AUC for environment 6 and device valve after training: 0.8151
+Accuracy for environment 6 and device slider after training: 85.88%
+AUC for environment 6 and device slider after training: 0.7049
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.95%
+AUC for server and device fan after training: 0.9442
+Accuracy for server and device pump after training: 89.44%
+AUC for server and device pump after training: 0.7478
+Accuracy for server and device valve after training: 88.96%
+AUC for server and device valve after training: 0.5149
+Accuracy for server and device slider after training: 76.19%
+AUC for server and device slider after training: 0.6461
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.46%
+AUC for environment 2 and device fan before training: 0.6555
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4675
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.7047
+Accuracy for environment 2 and device slider before training: 79.72%
+AUC for environment 2 and device slider before training: 0.5758
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.38%
+AUC for environment 2 and device fan after training: 0.6877
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5305
+Accuracy for environment 2 and device valve after training: 87.26%
+AUC for environment 2 and device valve after training: 0.8327
+Accuracy for environment 2 and device slider after training: 81.59%
+AUC for environment 2 and device slider after training: 0.7678
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.539
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.5528
+Accuracy for environment 4 and device valve before training: 88.41%
+AUC for environment 4 and device valve before training: 0.6266
+Accuracy for environment 4 and device slider before training: 75.57%
+AUC for environment 4 and device slider before training: 0.6092
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.585
+Accuracy for environment 4 and device pump after training: 86.88%
+AUC for environment 4 and device pump after training: 0.6147
+Accuracy for environment 4 and device valve after training: 89.86%
+AUC for environment 4 and device valve after training: 0.7333
+Accuracy for environment 4 and device slider after training: 75.57%
+AUC for environment 4 and device slider after training: 0.7374
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.683
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7354
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.736
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5748
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.818
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7845
+Accuracy for environment 6 and device valve after training: 89.69%
+AUC for environment 6 and device valve after training: 0.8197
+Accuracy for environment 6 and device slider after training: 85.71%
+AUC for environment 6 and device slider after training: 0.6968
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.67%
+AUC for server and device fan after training: 0.8926
+Accuracy for server and device pump after training: 89.17%
+AUC for server and device pump after training: 0.6924
+Accuracy for server and device valve after training: 88.59%
+AUC for server and device valve after training: 0.5022
+Accuracy for server and device slider after training: 76.05%
+AUC for server and device slider after training: 0.595
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.46%
+AUC for environment 2 and device fan before training: 0.6914
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.473
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.7132
+Accuracy for environment 2 and device slider before training: 79.72%
+AUC for environment 2 and device slider before training: 0.5791
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.46%
+AUC for environment 2 and device fan after training: 0.7053
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5366
+Accuracy for environment 2 and device valve after training: 87.38%
+AUC for environment 2 and device valve after training: 0.8302
+Accuracy for environment 2 and device slider after training: 81.59%
+AUC for environment 2 and device slider after training: 0.7746
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5432
+Accuracy for environment 4 and device pump before training: 86.5%
+AUC for environment 4 and device pump before training: 0.5541
+Accuracy for environment 4 and device valve before training: 88.41%
+AUC for environment 4 and device valve before training: 0.629
+Accuracy for environment 4 and device slider before training: 75.57%
+AUC for environment 4 and device slider before training: 0.6324
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5867
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.614
+Accuracy for environment 4 and device valve after training: 89.86%
+AUC for environment 4 and device valve after training: 0.7343
+Accuracy for environment 4 and device slider after training: 76.14%
+AUC for environment 4 and device slider after training: 0.7495
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.7061
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7355
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.7453
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5801
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.8269
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7846
+Accuracy for environment 6 and device valve after training: 89.6%
+AUC for environment 6 and device valve after training: 0.8225
+Accuracy for environment 6 and device slider after training: 85.71%
+AUC for environment 6 and device slider after training: 0.6909
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.74%
+AUC for server and device fan after training: 0.8163
+Accuracy for server and device pump after training: 89.0%
+AUC for server and device pump after training: 0.6513
+Accuracy for server and device valve after training: 88.32%
+AUC for server and device valve after training: 0.4946
+Accuracy for server and device slider after training: 75.84%
+AUC for server and device slider after training: 0.5597
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.46%
+AUC for environment 2 and device fan before training: 0.7093
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4776
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.719
+Accuracy for environment 2 and device slider before training: 79.72%
+AUC for environment 2 and device slider before training: 0.5858
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.53%
+AUC for environment 2 and device fan after training: 0.7139
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5414
+Accuracy for environment 2 and device valve after training: 87.38%
+AUC for environment 2 and device valve after training: 0.828
+Accuracy for environment 2 and device slider after training: 81.44%
+AUC for environment 2 and device slider after training: 0.7809
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5458
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.5565
+Accuracy for environment 4 and device valve before training: 88.5%
+AUC for environment 4 and device valve before training: 0.6308
+Accuracy for environment 4 and device slider before training: 75.57%
+AUC for environment 4 and device slider before training: 0.6493
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5872
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6141
+Accuracy for environment 4 and device valve after training: 89.86%
+AUC for environment 4 and device valve after training: 0.7359
+Accuracy for environment 4 and device slider after training: 76.14%
+AUC for environment 4 and device slider after training: 0.759
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.7202
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7369
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.7505
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5829
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.8331
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7835
+Accuracy for environment 6 and device valve after training: 89.6%
+AUC for environment 6 and device valve after training: 0.8239
+Accuracy for environment 6 and device slider after training: 85.71%
+AUC for environment 6 and device slider after training: 0.6869
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.74%
+AUC for server and device fan after training: 0.7295
+Accuracy for server and device pump after training: 88.91%
+AUC for server and device pump after training: 0.6199
+Accuracy for server and device valve after training: 88.05%
+AUC for server and device valve after training: 0.4897
+Accuracy for server and device slider after training: 75.84%
+AUC for server and device slider after training: 0.5376
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.53%
+AUC for environment 2 and device fan before training: 0.7182
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4832
+Accuracy for environment 2 and device valve before training: 85.32%
+AUC for environment 2 and device valve before training: 0.7229
+Accuracy for environment 2 and device slider before training: 79.72%
+AUC for environment 2 and device slider before training: 0.5926
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.46%
+AUC for environment 2 and device fan after training: 0.718
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5458
+Accuracy for environment 2 and device valve after training: 87.38%
+AUC for environment 2 and device valve after training: 0.8254
+Accuracy for environment 2 and device slider after training: 81.36%
+AUC for environment 2 and device slider after training: 0.786
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.49%
+AUC for environment 4 and device fan before training: 0.5471
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.5582
+Accuracy for environment 4 and device valve before training: 88.41%
+AUC for environment 4 and device valve before training: 0.6326
+Accuracy for environment 4 and device slider before training: 75.99%
+AUC for environment 4 and device slider before training: 0.6616
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5875
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6142
+Accuracy for environment 4 and device valve after training: 89.86%
+AUC for environment 4 and device valve after training: 0.7371
+Accuracy for environment 4 and device slider after training: 76.28%
+AUC for environment 4 and device slider after training: 0.7657
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.7293
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7383
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.7529
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5832
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.8379
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7828
+Accuracy for environment 6 and device valve after training: 89.6%
+AUC for environment 6 and device valve after training: 0.8246
+Accuracy for environment 6 and device slider after training: 85.55%
+AUC for environment 6 and device slider after training: 0.6836
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.74%
+AUC for server and device fan after training: 0.6431
+Accuracy for server and device pump after training: 88.82%
+AUC for server and device pump after training: 0.5981
+Accuracy for server and device valve after training: 87.86%
+AUC for server and device valve after training: 0.4861
+Accuracy for server and device slider after training: 75.7%
+AUC for server and device slider after training: 0.5238
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.53%
+AUC for environment 2 and device fan before training: 0.7218
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4882
+Accuracy for environment 2 and device valve before training: 85.32%
+AUC for environment 2 and device valve before training: 0.7263
+Accuracy for environment 2 and device slider before training: 79.72%
+AUC for environment 2 and device slider before training: 0.599
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.46%
+AUC for environment 2 and device fan after training: 0.7195
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.5498
+Accuracy for environment 2 and device valve after training: 87.38%
+AUC for environment 2 and device valve after training: 0.824
+Accuracy for environment 2 and device slider after training: 81.36%
+AUC for environment 2 and device slider after training: 0.7901
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.49%
+AUC for environment 4 and device fan before training: 0.5475
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.5585
+Accuracy for environment 4 and device valve before training: 88.41%
+AUC for environment 4 and device valve before training: 0.6351
+Accuracy for environment 4 and device slider before training: 75.99%
+AUC for environment 4 and device slider before training: 0.6702
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5867
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6148
+Accuracy for environment 4 and device valve after training: 89.86%
+AUC for environment 4 and device valve after training: 0.7381
+Accuracy for environment 4 and device slider after training: 76.42%
+AUC for environment 4 and device slider after training: 0.7707
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.7362
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.739
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.7543
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5835
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.8415
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7811
+Accuracy for environment 6 and device valve after training: 89.6%
+AUC for environment 6 and device valve after training: 0.8251
+Accuracy for environment 6 and device slider after training: 85.55%
+AUC for environment 6 and device slider after training: 0.6814
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.74%
+AUC for server and device fan after training: 0.5651
+Accuracy for server and device pump after training: 88.73%
+AUC for server and device pump after training: 0.5831
+Accuracy for server and device valve after training: 87.5%
+AUC for server and device valve after training: 0.4831
+Accuracy for server and device slider after training: 75.56%
+AUC for server and device slider after training: 0.5145
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.53%
+AUC for environment 2 and device fan before training: 0.7229
+Accuracy for environment 2 and device pump before training: 89.86%
+AUC for environment 2 and device pump before training: 0.4933
+Accuracy for environment 2 and device valve before training: 85.19%
+AUC for environment 2 and device valve before training: 0.7281
+Accuracy for environment 2 and device slider before training: 79.72%
+AUC for environment 2 and device slider before training: 0.6053
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.46%
+AUC for environment 2 and device fan after training: 0.7194
+Accuracy for environment 2 and device pump after training: 89.86%
+AUC for environment 2 and device pump after training: 0.553
+Accuracy for environment 2 and device valve after training: 87.38%
+AUC for environment 2 and device valve after training: 0.8224
+Accuracy for environment 2 and device slider after training: 81.36%
+AUC for environment 2 and device slider after training: 0.7936
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.49%
+AUC for environment 4 and device fan before training: 0.547
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.5597
+Accuracy for environment 4 and device valve before training: 88.41%
+AUC for environment 4 and device valve before training: 0.6369
+Accuracy for environment 4 and device slider before training: 75.99%
+AUC for environment 4 and device slider before training: 0.6765
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5859
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6154
+Accuracy for environment 4 and device valve after training: 89.86%
+AUC for environment 4 and device valve after training: 0.7389
+Accuracy for environment 4 and device slider after training: 76.42%
+AUC for environment 4 and device slider after training: 0.7748
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.1%
+AUC for environment 6 and device fan before training: 0.7415
+Accuracy for environment 6 and device pump before training: 90.85%
+AUC for environment 6 and device pump before training: 0.7394
+Accuracy for environment 6 and device valve before training: 89.05%
+AUC for environment 6 and device valve before training: 0.7556
+Accuracy for environment 6 and device slider before training: 85.71%
+AUC for environment 6 and device slider before training: 0.5834
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.1%
+AUC for environment 6 and device fan after training: 0.8444
+Accuracy for environment 6 and device pump after training: 90.85%
+AUC for environment 6 and device pump after training: 0.7801
+Accuracy for environment 6 and device valve after training: 89.6%
+AUC for environment 6 and device valve after training: 0.8252
+Accuracy for environment 6 and device slider after training: 85.55%
+AUC for environment 6 and device slider after training: 0.6797
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.74%
+AUC for server and device fan after training: 0.4985
+Accuracy for server and device pump after training: 88.73%
+AUC for server and device pump after training: 0.5732
+Accuracy for server and device valve after training: 87.5%
+AUC for server and device valve after training: 0.4815
+Accuracy for server and device slider after training: 75.49%
+AUC for server and device slider after training: 0.5079
+========================================================
+Written results for each device to results.json
+
+Metrics before sending the parameters to the environments
+=========================================================
+Accuracy for server and device fan before training: 96.66%
+AUC for server and device fan before training: 0.9887
+Accuracy for server and device pump before training: 96.24%
+AUC for server and device pump before training: 0.9852
+Accuracy for server and device valve before training: 89.22%
+AUC for server and device valve before training: 0.6194
+Accuracy for server and device slider before training: 86.1%
+AUC for server and device slider before training: 0.9216
+Precision for server test set: 0.9198
+Recall for server test set: 0.9909
+F1 score for server test set: 0.9532
+AUC for server test set: 0.8787
+=========================================================
+Epoch 1/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 59.58%
+AUC for environment 2 and device fan before training: 0.177
+Accuracy for environment 2 and device pump before training: 89.84%
+AUC for environment 2 and device pump before training: 0.4562
+Accuracy for environment 2 and device valve before training: 83.86%
+AUC for environment 2 and device valve before training: 0.5571
+Accuracy for environment 2 and device slider before training: 83.63%
+AUC for environment 2 and device slider before training: 0.7301
+=========================================================
+Accuracy for environment 2 and device fan after training: 72.51%
+AUC for environment 2 and device fan after training: 0.2949
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.5293
+Accuracy for environment 2 and device valve after training: 84.47%
+AUC for environment 2 and device valve after training: 0.7491
+Accuracy for environment 2 and device slider after training: 83.26%
+AUC for environment 2 and device slider after training: 0.7746
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.71%
+AUC for environment 4 and device fan before training: 0.4137
+Accuracy for environment 4 and device pump before training: 85.75%
+AUC for environment 4 and device pump before training: 0.5414
+Accuracy for environment 4 and device valve before training: 87.77%
+AUC for environment 4 and device valve before training: 0.5995
+Accuracy for environment 4 and device slider before training: 69.1%
+AUC for environment 4 and device slider before training: 0.365
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.07%
+AUC for environment 4 and device fan after training: 0.4672
+Accuracy for environment 4 and device pump after training: 85.62%
+AUC for environment 4 and device pump after training: 0.5854
+Accuracy for environment 4 and device valve after training: 88.58%
+AUC for environment 4 and device valve after training: 0.7529
+Accuracy for environment 4 and device slider after training: 73.6%
+AUC for environment 4 and device slider after training: 0.5267
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.1975
+Accuracy for environment 6 and device pump before training: 88.9%
+AUC for environment 6 and device pump before training: 0.7066
+Accuracy for environment 6 and device valve before training: 87.86%
+AUC for environment 6 and device valve before training: 0.4667
+Accuracy for environment 6 and device slider before training: 83.17%
+AUC for environment 6 and device slider before training: 0.5891
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.68%
+AUC for environment 6 and device fan after training: 0.5965
+Accuracy for environment 6 and device pump after training: 90.47%
+AUC for environment 6 and device pump after training: 0.723
+Accuracy for environment 6 and device valve after training: 89.67%
+AUC for environment 6 and device valve after training: 0.7279
+Accuracy for environment 6 and device slider after training: 84.62%
+AUC for environment 6 and device slider after training: 0.7313
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 93.89%
+AUC for server and device fan after training: 0.9882
+Accuracy for server and device pump after training: 92.74%
+AUC for server and device pump after training: 0.978
+Accuracy for server and device valve after training: 89.13%
+AUC for server and device valve after training: 0.6347
+Accuracy for server and device slider after training: 81.22%
+AUC for server and device slider after training: 0.8896
+=========================================================
+Epoch 2/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 72.73%
+AUC for environment 2 and device fan before training: 0.2753
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.4796
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.5715
+Accuracy for environment 2 and device slider before training: 81.1%
+AUC for environment 2 and device slider before training: 0.6481
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.54%
+AUC for environment 2 and device fan after training: 0.4638
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.5629
+Accuracy for environment 2 and device valve after training: 85.19%
+AUC for environment 2 and device valve after training: 0.7844
+Accuracy for environment 2 and device slider after training: 82.14%
+AUC for environment 2 and device slider after training: 0.7617
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.14%
+AUC for environment 4 and device fan before training: 0.4466
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.5675
+Accuracy for environment 4 and device valve before training: 88.22%
+AUC for environment 4 and device valve before training: 0.6403
+Accuracy for environment 4 and device slider before training: 73.31%
+AUC for environment 4 and device slider before training: 0.4322
+=========================================================
+Accuracy for environment 4 and device fan after training: 75.14%
+AUC for environment 4 and device fan after training: 0.5076
+Accuracy for environment 4 and device pump after training: 86.0%
+AUC for environment 4 and device pump after training: 0.6199
+Accuracy for environment 4 and device valve after training: 89.48%
+AUC for environment 4 and device valve after training: 0.8205
+Accuracy for environment 4 and device slider after training: 74.16%
+AUC for environment 4 and device slider after training: 0.6501
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.374
+Accuracy for environment 6 and device pump before training: 90.3%
+AUC for environment 6 and device pump before training: 0.712
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.5928
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5938
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.68%
+AUC for environment 6 and device fan after training: 0.7321
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7088
+Accuracy for environment 6 and device valve after training: 89.13%
+AUC for environment 6 and device valve after training: 0.7778
+Accuracy for environment 6 and device slider after training: 85.1%
+AUC for environment 6 and device slider after training: 0.7282
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 81.82%
+AUC for server and device fan after training: 0.9836
+Accuracy for server and device pump after training: 90.56%
+AUC for server and device pump after training: 0.9308
+Accuracy for server and device valve after training: 89.13%
+AUC for server and device valve after training: 0.5953
+Accuracy for server and device slider after training: 79.26%
+AUC for server and device slider after training: 0.7788
+=========================================================
+Epoch 3/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.68%
+AUC for environment 2 and device fan before training: 0.427
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.503
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.5876
+Accuracy for environment 2 and device slider before training: 80.06%
+AUC for environment 2 and device slider before training: 0.5803
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.68%
+AUC for environment 2 and device fan after training: 0.602
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.5805
+Accuracy for environment 2 and device valve after training: 85.56%
+AUC for environment 2 and device valve after training: 0.7821
+Accuracy for environment 2 and device slider after training: 81.62%
+AUC for environment 2 and device slider after training: 0.7504
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 75.14%
+AUC for environment 4 and device fan before training: 0.4814
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.5722
+Accuracy for environment 4 and device valve before training: 88.49%
+AUC for environment 4 and device valve before training: 0.6533
+Accuracy for environment 4 and device slider before training: 73.88%
+AUC for environment 4 and device slider before training: 0.5112
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.93%
+AUC for environment 4 and device fan after training: 0.5364
+Accuracy for environment 4 and device pump after training: 86.0%
+AUC for environment 4 and device pump after training: 0.636
+Accuracy for environment 4 and device valve after training: 89.75%
+AUC for environment 4 and device valve after training: 0.8262
+Accuracy for environment 4 and device slider after training: 74.3%
+AUC for environment 4 and device slider after training: 0.7235
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.5468
+Accuracy for environment 6 and device pump before training: 90.82%
+AUC for environment 6 and device pump before training: 0.6747
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.6598
+Accuracy for environment 6 and device slider before training: 84.78%
+AUC for environment 6 and device slider before training: 0.5855
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.68%
+AUC for environment 6 and device fan after training: 0.7865
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7035
+Accuracy for environment 6 and device valve after training: 89.13%
+AUC for environment 6 and device valve after training: 0.7985
+Accuracy for environment 6 and device slider after training: 84.78%
+AUC for environment 6 and device slider after training: 0.7182
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 73.3%
+AUC for server and device fan after training: 0.9717
+Accuracy for server and device pump after training: 89.95%
+AUC for server and device pump after training: 0.8533
+Accuracy for server and device valve after training: 88.95%
+AUC for server and device valve after training: 0.5523
+Accuracy for server and device slider after training: 77.51%
+AUC for server and device slider after training: 0.6692
+=========================================================
+Epoch 4/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.54%
+AUC for environment 2 and device fan before training: 0.583
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.5191
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.604
+Accuracy for environment 2 and device slider before training: 79.84%
+AUC for environment 2 and device slider before training: 0.5434
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.39%
+AUC for environment 2 and device fan after training: 0.6748
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.5916
+Accuracy for environment 2 and device valve after training: 85.68%
+AUC for environment 2 and device valve after training: 0.7764
+Accuracy for environment 2 and device slider after training: 81.32%
+AUC for environment 2 and device slider after training: 0.7457
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.93%
+AUC for environment 4 and device fan before training: 0.503
+Accuracy for environment 4 and device pump before training: 86.0%
+AUC for environment 4 and device pump before training: 0.5649
+Accuracy for environment 4 and device valve before training: 89.03%
+AUC for environment 4 and device valve before training: 0.6589
+Accuracy for environment 4 and device slider before training: 74.16%
+AUC for environment 4 and device slider before training: 0.5644
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5533
+Accuracy for environment 4 and device pump after training: 86.25%
+AUC for environment 4 and device pump after training: 0.6382
+Accuracy for environment 4 and device valve after training: 89.75%
+AUC for environment 4 and device valve after training: 0.8216
+Accuracy for environment 4 and device slider after training: 74.58%
+AUC for environment 4 and device slider after training: 0.7608
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.6381
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.6424
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.6946
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.58
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.68%
+AUC for environment 6 and device fan after training: 0.8132
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7034
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8079
+Accuracy for environment 6 and device slider after training: 84.78%
+AUC for environment 6 and device slider after training: 0.7097
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.02%
+AUC for server and device fan after training: 0.9432
+Accuracy for server and device pump after training: 89.6%
+AUC for server and device pump after training: 0.7741
+Accuracy for server and device valve after training: 88.86%
+AUC for server and device valve after training: 0.5296
+Accuracy for server and device slider after training: 76.82%
+AUC for server and device slider after training: 0.6005
+=========================================================
+Epoch 5/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.61%
+AUC for environment 2 and device fan before training: 0.6731
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.5283
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.6186
+Accuracy for environment 2 and device slider before training: 79.84%
+AUC for environment 2 and device slider before training: 0.5329
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.61%
+AUC for environment 2 and device fan after training: 0.71
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.5997
+Accuracy for environment 2 and device valve after training: 85.68%
+AUC for environment 2 and device valve after training: 0.7717
+Accuracy for environment 2 and device slider after training: 81.32%
+AUC for environment 2 and device slider after training: 0.7486
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5148
+Accuracy for environment 4 and device pump before training: 86.25%
+AUC for environment 4 and device pump before training: 0.5615
+Accuracy for environment 4 and device valve before training: 89.12%
+AUC for environment 4 and device valve before training: 0.6626
+Accuracy for environment 4 and device slider before training: 74.44%
+AUC for environment 4 and device slider before training: 0.5984
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5635
+Accuracy for environment 4 and device pump after training: 86.88%
+AUC for environment 4 and device pump after training: 0.6365
+Accuracy for environment 4 and device valve after training: 89.66%
+AUC for environment 4 and device valve after training: 0.8184
+Accuracy for environment 4 and device slider after training: 74.58%
+AUC for environment 4 and device slider after training: 0.7775
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.682
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.6255
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.7092
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5772
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.68%
+AUC for environment 6 and device fan after training: 0.8282
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7026
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8135
+Accuracy for environment 6 and device slider after training: 84.62%
+AUC for environment 6 and device slider after training: 0.6996
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.81%
+AUC for server and device fan after training: 0.8873
+Accuracy for server and device pump after training: 89.16%
+AUC for server and device pump after training: 0.7114
+Accuracy for server and device valve after training: 88.86%
+AUC for server and device valve after training: 0.514
+Accuracy for server and device slider after training: 76.26%
+AUC for server and device slider after training: 0.5571
+=========================================================
+Epoch 6/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.68%
+AUC for environment 2 and device fan before training: 0.716
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.5357
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.6315
+Accuracy for environment 2 and device slider before training: 79.84%
+AUC for environment 2 and device slider before training: 0.5361
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.68%
+AUC for environment 2 and device fan after training: 0.728
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.6069
+Accuracy for environment 2 and device valve after training: 85.92%
+AUC for environment 2 and device valve after training: 0.7684
+Accuracy for environment 2 and device slider after training: 81.47%
+AUC for environment 2 and device slider after training: 0.7551
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5224
+Accuracy for environment 4 and device pump before training: 86.75%
+AUC for environment 4 and device pump before training: 0.562
+Accuracy for environment 4 and device valve before training: 89.12%
+AUC for environment 4 and device valve before training: 0.6651
+Accuracy for environment 4 and device slider before training: 74.3%
+AUC for environment 4 and device slider before training: 0.6227
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5697
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6361
+Accuracy for environment 4 and device valve after training: 89.48%
+AUC for environment 4 and device valve after training: 0.8156
+Accuracy for environment 4 and device slider after training: 74.86%
+AUC for environment 4 and device slider after training: 0.7883
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.7054
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.6189
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.7162
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5729
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.68%
+AUC for environment 6 and device fan after training: 0.8378
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.7015
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8162
+Accuracy for environment 6 and device slider after training: 84.62%
+AUC for environment 6 and device slider after training: 0.6923
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.88%
+AUC for server and device fan after training: 0.8053
+Accuracy for server and device pump after training: 89.07%
+AUC for server and device pump after training: 0.6643
+Accuracy for server and device valve after training: 88.77%
+AUC for server and device valve after training: 0.5014
+Accuracy for server and device slider after training: 75.98%
+AUC for server and device slider after training: 0.5284
+=========================================================
+Epoch 7/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.68%
+AUC for environment 2 and device fan before training: 0.7356
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.5417
+Accuracy for environment 2 and device valve before training: 85.44%
+AUC for environment 2 and device valve before training: 0.6424
+Accuracy for environment 2 and device slider before training: 79.99%
+AUC for environment 2 and device slider before training: 0.5444
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.68%
+AUC for environment 2 and device fan after training: 0.7367
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.6122
+Accuracy for environment 2 and device valve after training: 86.17%
+AUC for environment 2 and device valve after training: 0.7664
+Accuracy for environment 2 and device slider after training: 81.47%
+AUC for environment 2 and device slider after training: 0.7633
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5271
+Accuracy for environment 4 and device pump before training: 86.88%
+AUC for environment 4 and device pump before training: 0.5648
+Accuracy for environment 4 and device valve before training: 89.12%
+AUC for environment 4 and device valve before training: 0.6678
+Accuracy for environment 4 and device slider before training: 74.58%
+AUC for environment 4 and device slider before training: 0.6395
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.573
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6373
+Accuracy for environment 4 and device valve after training: 89.3%
+AUC for environment 4 and device valve after training: 0.8142
+Accuracy for environment 4 and device slider after training: 75.0%
+AUC for environment 4 and device slider after training: 0.796
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.7181
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.617
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.7199
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5703
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.76%
+AUC for environment 6 and device fan after training: 0.8442
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.6994
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8183
+Accuracy for environment 6 and device slider after training: 84.62%
+AUC for environment 6 and device slider after training: 0.6849
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 70.95%
+AUC for server and device fan after training: 0.7096
+Accuracy for server and device pump after training: 88.81%
+AUC for server and device pump after training: 0.6294
+Accuracy for server and device valve after training: 88.77%
+AUC for server and device valve after training: 0.4919
+Accuracy for server and device slider after training: 75.49%
+AUC for server and device slider after training: 0.5089
+=========================================================
+Epoch 8/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.68%
+AUC for environment 2 and device fan before training: 0.7443
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.5467
+Accuracy for environment 2 and device valve before training: 85.32%
+AUC for environment 2 and device valve before training: 0.6496
+Accuracy for environment 2 and device slider before training: 80.06%
+AUC for environment 2 and device slider before training: 0.5546
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.68%
+AUC for environment 2 and device fan after training: 0.7395
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.617
+Accuracy for environment 2 and device valve after training: 86.41%
+AUC for environment 2 and device valve after training: 0.7649
+Accuracy for environment 2 and device slider after training: 81.4%
+AUC for environment 2 and device slider after training: 0.7716
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5308
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.5667
+Accuracy for environment 4 and device valve before training: 89.12%
+AUC for environment 4 and device valve before training: 0.6705
+Accuracy for environment 4 and device slider before training: 74.58%
+AUC for environment 4 and device slider before training: 0.6529
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5745
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6398
+Accuracy for environment 4 and device valve after training: 89.21%
+AUC for environment 4 and device valve after training: 0.813
+Accuracy for environment 4 and device slider after training: 75.14%
+AUC for environment 4 and device slider after training: 0.801
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.7257
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.617
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.7212
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5687
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.76%
+AUC for environment 6 and device fan after training: 0.8488
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.6972
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8193
+Accuracy for environment 6 and device slider after training: 84.46%
+AUC for environment 6 and device slider after training: 0.6781
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.02%
+AUC for server and device fan after training: 0.6126
+Accuracy for server and device pump after training: 88.72%
+AUC for server and device pump after training: 0.6035
+Accuracy for server and device valve after training: 88.86%
+AUC for server and device valve after training: 0.4845
+Accuracy for server and device slider after training: 75.21%
+AUC for server and device slider after training: 0.4944
+=========================================================
+Epoch 9/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.68%
+AUC for environment 2 and device fan before training: 0.7466
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.5512
+Accuracy for environment 2 and device valve before training: 85.32%
+AUC for environment 2 and device valve before training: 0.6554
+Accuracy for environment 2 and device slider before training: 80.06%
+AUC for environment 2 and device slider before training: 0.5648
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.68%
+AUC for environment 2 and device fan after training: 0.7401
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.6214
+Accuracy for environment 2 and device valve after training: 86.53%
+AUC for environment 2 and device valve after training: 0.7635
+Accuracy for environment 2 and device slider after training: 81.4%
+AUC for environment 2 and device slider after training: 0.7789
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5327
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.568
+Accuracy for environment 4 and device valve before training: 89.12%
+AUC for environment 4 and device valve before training: 0.6731
+Accuracy for environment 4 and device slider before training: 74.72%
+AUC for environment 4 and device slider before training: 0.6635
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5749
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6416
+Accuracy for environment 4 and device valve after training: 89.21%
+AUC for environment 4 and device valve after training: 0.8115
+Accuracy for environment 4 and device slider after training: 75.14%
+AUC for environment 4 and device slider after training: 0.8051
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.7312
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.6178
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.722
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5661
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.76%
+AUC for environment 6 and device fan after training: 0.8521
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.6954
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8201
+Accuracy for environment 6 and device slider after training: 84.46%
+AUC for environment 6 and device slider after training: 0.6726
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.02%
+AUC for server and device fan after training: 0.5232
+Accuracy for server and device pump after training: 88.46%
+AUC for server and device pump after training: 0.5847
+Accuracy for server and device valve after training: 88.77%
+AUC for server and device valve after training: 0.4789
+Accuracy for server and device slider after training: 75.21%
+AUC for server and device slider after training: 0.4841
+=========================================================
+Epoch 10/10:
+=========================================================
+ID 2
+=========================================================
+Accuracy for environment 2 and device fan before training: 73.68%
+AUC for environment 2 and device fan before training: 0.745
+Accuracy for environment 2 and device pump before training: 89.93%
+AUC for environment 2 and device pump before training: 0.555
+Accuracy for environment 2 and device valve before training: 85.32%
+AUC for environment 2 and device valve before training: 0.6602
+Accuracy for environment 2 and device slider before training: 80.06%
+AUC for environment 2 and device slider before training: 0.5746
+=========================================================
+Accuracy for environment 2 and device fan after training: 73.68%
+AUC for environment 2 and device fan after training: 0.7391
+Accuracy for environment 2 and device pump after training: 89.93%
+AUC for environment 2 and device pump after training: 0.6252
+Accuracy for environment 2 and device valve after training: 86.53%
+AUC for environment 2 and device valve after training: 0.7626
+Accuracy for environment 2 and device slider after training: 81.47%
+AUC for environment 2 and device slider after training: 0.7849
+ID 4
+=========================================================
+Accuracy for environment 4 and device fan before training: 74.57%
+AUC for environment 4 and device fan before training: 0.5333
+Accuracy for environment 4 and device pump before training: 87.0%
+AUC for environment 4 and device pump before training: 0.5692
+Accuracy for environment 4 and device valve before training: 89.03%
+AUC for environment 4 and device valve before training: 0.6753
+Accuracy for environment 4 and device slider before training: 74.86%
+AUC for environment 4 and device slider before training: 0.672
+=========================================================
+Accuracy for environment 4 and device fan after training: 74.57%
+AUC for environment 4 and device fan after training: 0.5748
+Accuracy for environment 4 and device pump after training: 87.0%
+AUC for environment 4 and device pump after training: 0.6442
+Accuracy for environment 4 and device valve after training: 89.3%
+AUC for environment 4 and device valve after training: 0.8103
+Accuracy for environment 4 and device slider after training: 75.28%
+AUC for environment 4 and device slider after training: 0.8079
+ID 6
+=========================================================
+Accuracy for environment 6 and device fan before training: 73.68%
+AUC for environment 6 and device fan before training: 0.735
+Accuracy for environment 6 and device pump before training: 90.91%
+AUC for environment 6 and device pump before training: 0.6192
+Accuracy for environment 6 and device valve before training: 89.13%
+AUC for environment 6 and device valve before training: 0.7224
+Accuracy for environment 6 and device slider before training: 84.62%
+AUC for environment 6 and device slider before training: 0.5642
+=========================================================
+Accuracy for environment 6 and device fan after training: 73.76%
+AUC for environment 6 and device fan after training: 0.855
+Accuracy for environment 6 and device pump after training: 90.91%
+AUC for environment 6 and device pump after training: 0.694
+Accuracy for environment 6 and device valve after training: 89.22%
+AUC for environment 6 and device valve after training: 0.8206
+Accuracy for environment 6 and device slider after training: 84.46%
+AUC for environment 6 and device slider after training: 0.6679
+========================================================
+Metrics after sending the parameters to the environments
+========================================================
+Accuracy for server and device fan after training: 71.02%
+AUC for server and device fan after training: 0.4466
+Accuracy for server and device pump after training: 88.46%
+AUC for server and device pump after training: 0.5701
+Accuracy for server and device valve after training: 88.77%
+AUC for server and device valve after training: 0.4749
+Accuracy for server and device slider after training: 75.07%
+AUC for server and device slider after training: 0.4759
+========================================================
+Written results for each device to results.json
